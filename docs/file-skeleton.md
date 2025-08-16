@@ -1,0 +1,17 @@
+app/
+layout.tsx
+page.tsx
+globals.css
+api/health/route.ts
+actions/subscribe.ts
+components/
+Button.tsx
+Input.tsx
+Notice.tsx
+Section.tsx
+lib/
+disposableDomains.ts
+public/
+favicon.ico
+og-image.png
+README.md
