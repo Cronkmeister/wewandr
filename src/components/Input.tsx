@@ -34,7 +34,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500
             focus:ring-offset-2
             placeholder:text-gray-500
-            transition-all duration-200
+            input-animate gpu-accelerated
             ${
               error
                 ? "border-red-300 focus:ring-red-500 focus:border-red-500"

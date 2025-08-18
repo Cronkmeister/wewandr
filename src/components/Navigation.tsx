@@ -24,7 +24,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 h-16 md:h-20 left-0 right-0 z-50 transition-all duration-700 ease-out ${
+      className={`fixed top-0 h-16 md:h-20 left-0 right-0 z-50 transition-all duration-700 ease-out gpu-accelerated ${
         isScrolled ? "nav-glass" : "bg-transparent"
       }`}
     >
@@ -32,7 +32,7 @@ export default function Navigation() {
         <div className="flex items-center justify-center justify-between h-full">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-orange-500 knewave-regular">
+            <h1 className="text-2xl font-bold text-orange-500 knewave-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer">
               WeWandr
             </h1>
           </div>
@@ -41,7 +41,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#features"
-              className={`transition-all duration-300 font-medium ${
+              className={`transition-all duration-300 font-medium link-hover ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
@@ -51,7 +51,7 @@ export default function Navigation() {
             </a>
             <a
               href="#how-it-works"
-              className={`transition-all duration-300 font-medium ${
+              className={`transition-all duration-300 font-medium link-hover ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
@@ -61,7 +61,7 @@ export default function Navigation() {
             </a>
             <a
               href="#become-creator"
-              className={`transition-all duration-300 font-medium ${
+              className={`transition-all duration-300 font-medium link-hover ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
@@ -71,7 +71,7 @@ export default function Navigation() {
             </a>
             <a
               href="#beta"
-              className={`transition-all duration-300 font-medium ${
+              className={`transition-all duration-300 font-medium link-hover ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
@@ -97,7 +97,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              className={`transition-all duration-300 ${
+              className={`transition-all duration-300 hover:scale-110 ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
