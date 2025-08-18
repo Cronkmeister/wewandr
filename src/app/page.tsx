@@ -5,10 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
-  FaFacebookF,
-  FaTwitter,
   FaInstagram,
-  FaYoutube,
   FaEnvelope,
   FaUsers,
   FaMapMarkedAlt,
