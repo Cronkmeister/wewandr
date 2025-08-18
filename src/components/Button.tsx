@@ -29,7 +29,7 @@ export default function Button({
         hover:bg-orange-600 focus:bg-orange-600
         focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2
         disabled:opacity-50 disabled:cursor-not-allowed
-        transition-all duration-300 ease-out
+        btn-animate gpu-accelerated
         ${className}
       `}
       aria-live="polite"
