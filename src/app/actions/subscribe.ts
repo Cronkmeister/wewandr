@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { createClient } from "@supabase/supabase-js";
+import { supabaseAdmin } from "@/lib/supabase";
 import { isDisposableEmail } from "@/lib/disposableDomains";
 
 const schema = z.object({ 
@@ -36,18 +36,7 @@ export async function subscribe(formData: FormData) {
     return { status: "invalid" as const };
   }
 
-  // Initialize Supabase client
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) {
-    console.error("Missing Supabase environment variables");
-    return { status: "error" as const };
-  }
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey, {
-    auth: { persistSession: false }
-  });
+  // Supabase client is already initialized in lib/supabase.ts
 
   try {
     // Get request headers for IP and user agent
@@ -57,7 +46,7 @@ export async function subscribe(formData: FormData) {
     const userAgent = headerList.get("user-agent") ?? null;
 
     // Insert into waitlist_signups table
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from("waitlist_signups")
       .insert({
         email: email.toLowerCase(),
