@@ -4,9 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Image from "next/image";
 import {
-  FaInstagram,
-  FaEnvelope,
   FaUsers,
   FaMapMarkedAlt,
   FaBed,
@@ -19,8 +18,7 @@ import Input from "@/components/Input";
 import Notice from "@/components/Notice";
 import Navigation from "@/components/Navigation";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
-import CursorTrail from "@/components/CursorTrail";
-import ScrollProgress from "@/components/ScrollProgress";
+import Footer from "@/components/Footer";
 import { subscribe } from "@/app/actions/subscribe";
 import { useIntersectionObserver } from "@/lib/useIntersectionObserver";
 
@@ -41,7 +39,18 @@ export default function Home() {
     type: "success" | "duplicate" | "error";
     text: string;
   } | null>(null);
+  const [scrollY, setScrollY] = useState(0);
   const mountTime = useRef(Date.now());
+
+  // Scroll event listener for parallax effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Intersection observers for animations
   const heroRef = useIntersectionObserver<HTMLDivElement>({ threshold: 0.3 });
@@ -51,11 +60,13 @@ export default function Home() {
   const howItWorksRef = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.2,
   });
+  const betaRef = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2 });
+  const weWandrWayRef = useIntersectionObserver<HTMLDivElement>({
+    threshold: 0.2,
+  });
   const becomeCreatorRef = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.2,
   });
-  const betaRef = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2 });
-  const footerRef = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1 });
 
   // Individual feature card observers for staggered animations
   const featureCard1Ref = useIntersectionObserver<HTMLDivElement>({
@@ -268,7 +279,7 @@ export default function Home() {
                 type="submit"
                 loading={heroSubmitting}
                 disabled={heroSubmitting}
-                className="bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 focus:ring-orange-500 px-8 py-3 whitespace-nowrap shadow-lg animate-pulse-glow"
+                className="bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 focus:ring-orange-500 px-8 py-3 whitespace-nowrap shadow-lg"
               >
                 {heroSubmitting ? "Joining..." : "Join Waitlist"}
               </Button>
@@ -306,13 +317,13 @@ export default function Home() {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto my-8 animate-fade-up animate-stagger-1">
               We get it, travelling with kids is hard, and the information
-              available doesn't help. Think of WeWandr as your travel planning
-              shortcut.
+              available doesn&apos;t help. Think of WeWandr as your travel
+              planning shortcut.
             </p>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up animate-stagger-2">
-              Discover detailed travel guides by real parents, who've done the
-              trip — strollers, snack breaks, naps and all. What's more, every
-              guide downloaded supports the parent behind it.
+              Discover detailed travel guides by real parents, who&apos;ve done
+              the trip — strollers, snack breaks, naps and all. What&apos;s
+              more, every guide downloaded supports the parent behind it.
             </p>
           </div>
 
@@ -373,8 +384,8 @@ export default function Home() {
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                 Learn about hotels, resorts, and rentals that truly cater to
-                families—from cribs and high chairs to kid-friendly amenities
-                and services.
+                families&mdash;from cribs and high chairs to kid-friendly
+                amenities and services.
               </p>
             </div>
 
@@ -471,12 +482,12 @@ export default function Home() {
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
-                Explore & Discover
+                Plan & Learn
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Browse detailed family travel guides created by parents for
-                parents. Filter by destination, kids&apos; ages, and travel
-                style.
+                Browse and download parent travel guides from an active and
+                growing database. Filter by destination, kids&apos; ages, and
+                travel style.
               </p>
             </div>
 
@@ -488,11 +499,11 @@ export default function Home() {
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
-                Download & Plan
+                Share & Earn
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Purchase and download comprehensive guides with insider tips,
-                practical details, and family-specific recommendations.
+                Create and share your Travel Guide, using our built-in
+                framework, and earn income when downloaded.
               </p>
             </div>
 
@@ -504,11 +515,82 @@ export default function Home() {
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
-                Create & Earn
+                Connect with Community
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Share your own family travel experiences by creating detailed
-                guides and earn money from downloads by other families.
+                You&apos;re joining a community of parents who get it. Because
+                family travel is easier when you don&apos;t have to figure it
+                out alone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* The WeWandr Way Section */}
+      <div
+        ref={weWandrWayRef.ref}
+        id="wewandr-way"
+        className={`py-20 relative section-animate overflow-hidden ${
+          weWandrWayRef.isIntersecting ? "animate-in" : ""
+        }`}
+      >
+        {/* Background Image with Parallax */}
+        <div
+          className="fixed top-[-550px] md:top-[-350px] left-0 w-full h-[80vh]"
+          style={{
+            backgroundImage: "url('/assets/imgs/sand-dune-crop.jpg')",
+            backgroundPosition: "center 90%",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            transform: `translateY(${scrollY * 0.1}px)`,
+            zIndex: -1,
+          }}
+        />
+
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
+          <div className="text-center">
+            <div className="max-w-4xl mx-auto space-y-8">
+              <p className="text-base md:text-lg tracking-wider text-white leading-relaxed animate-fade-up animate-stagger-1 font-medium">
+                We&apos;re building a movement, disrupting the travel industry,
+                and transforming how families discover, plan, and share travel.
+              </p>
+
+              {/* Decorative Elements */}
+              <div className="mt-16 flex justify-center space-x-12 animate-fade-up animate-stagger-3">
+                <div className="text-center flex flex-col items-center">
+                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#FEFFD4] mb-3">
+                    Personal
+                  </p>
+                  <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-center flex flex-col items-center">
+                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#F2D4FF] mb-3">
+                    Parent-powered
+                  </p>
+                  <div
+                    className="w-3 h-3 bg-white rounded-full animate-pulse"
+                    style={{ animationDelay: "0.2s" }}
+                  ></div>
+                </div>
+                <div className="text-center flex flex-col items-center">
+                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#FFEBD4] mb-3">
+                    Profitable
+                  </p>
+                  <div
+                    className="w-3 h-3 bg-white rounded-full animate-pulse"
+                    style={{ animationDelay: "0.4s" }}
+                  ></div>
+                </div>
+              </div>
+
+              <p className="text-base md:text-lg tracking-wider  text-white leading-relaxed animate-fade-up animate-stagger-2 font-medium">
+                We are building the go-to hub for families who travel, unlocking
+                the new way to plan trips - and we&apos;re just getting started.
               </p>
             </div>
           </div>
@@ -545,10 +627,13 @@ export default function Home() {
             {/* Right Column - Digital Earning Illustration */}
             <div className="relative animate-fade-right">
               {/* Large Mobile Phone (Left) */}
-              <img
+              <Image
                 className="w-full max-w-md mx-auto animate-float"
                 src="/assets/icons/make-money-from-your-phone.webp"
                 alt="Digital earning illustration"
+                width={400}
+                height={400}
+                priority
               />
             </div>
           </div>
@@ -571,7 +656,7 @@ export default function Home() {
               community
             </h2>
             <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-up animate-stagger-1">
-              Find your next family adventure and the parent who's done it
+              Find your next family adventure and the parent who&apos;s done it
             </p>
           </div>
 
@@ -617,133 +702,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer
-        ref={footerRef.ref}
-        className={`relative py-16 overflow-hidden ${
-          footerRef.isIntersecting ? "animate-in" : ""
-        }`}
-      >
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-parallax"
-          style={{
-            backgroundImage: "url('/assets/imgs/fam-holi-pic-1.jpg')",
-          }}
-        />
-
-        {/* Purple Filter Overlay */}
-        <div className="absolute inset-0 bg-[#9942f0] opacity-90" />
-
-        {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4">
-          {/* Top Section - Content Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            {/* Left Column - Logo and Tagline */}
-            <div className="md:col-span-1 animate-fade-left">
-              <h3 className="text-3xl font-bold text-orange-500 mb-4 knewave-regular">
-                WeWandr
-              </h3>
-              <div className="space-y-1 text-[#ffe44b]">
-                <p className="text-sm font-medium">
-                  Travel Smart, Travel Together
-                </p>
-              </div>
-            </div>
-
-            {/* Follow Us Section */}
-            <div className="animate-fade-up animate-stagger-1">
-              <h4 className="text-[#ffe44b] font-bold mb-4">Follow Us</h4>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="w-8 h-8 border border-[#ffe44b] rounded-full flex items-center justify-center text-[#ffe44b] hover:text-orange-500 hover:border-orange-500 transition-all duration-300 hover:scale-110 icon-animate"
-                  aria-label="Follow us on Instagram"
-                >
-                  <FaInstagram className="w-4 h-4" />
-                </a>
-                <a
-                  href="#"
-                  className="w-8 h-8 border border-[#ffe44b] rounded-full flex items-center justify-center text-[#ffe44b] hover:text-orange-500 hover:border-orange-500 transition-all duration-300 hover:scale-110 icon-animate"
-                  aria-label="Contact us via email"
-                >
-                  <FaEnvelope className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Legal Section */}
-            <div className="animate-fade-up animate-stagger-2">
-              <h4 className="text-[#ffe44b] font-bold mb-4">Legal</h4>
-              <div className="space-y-2">
-                <a
-                  href="#"
-                  className="block text-[#ffe44b] hover:text-white transition-colors link-hover"
-                >
-                  Terms & Conditions
-                </a>
-                <a
-                  href="#"
-                  className="block text-[#ffe44b] hover:text-white transition-colors link-hover"
-                >
-                  Privacy Policy
-                </a>
-              </div>
-            </div>
-
-            {/* Support Section */}
-            <div className="animate-fade-up animate-stagger-3">
-              <h4 className="text-[#ffe44b] font-bold mb-4">Support</h4>
-              <div className="space-y-2">
-                <a
-                  href="#"
-                  className="block text-[#ffe44b] hover:text-white transition-colors link-hover"
-                >
-                  Contact
-                </a>
-                <a
-                  href="#"
-                  className="block text-[#ffe44b] hover:text-white transition-colors link-hover"
-                >
-                  Investor Relations
-                </a>
-                <a
-                  href="#"
-                  className="block text-[#ffe44b] hover:text-white transition-colors link-hover"
-                >
-                  Join Our Team
-                </a>
-                <a
-                  href="#"
-                  className="block text-[#ffe44b] hover:text-white transition-colors link-hover"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Divider Line */}
-          <div className="border-t border-white/20 mb-8"></div>
-
-          {/* Bottom Section - Copyright */}
-          <div className="text-center animate-fade-up">
-            <p className="text-white mt-2">
-              &copy; 2025 WeWandr. All rights reserved.
-            </p>
-            <p className="text-white/80 text-xs mt-2 ">
-              web design by{" "}
-              <a
-                className="hover:text-yellow-300 transition-colors link-hover"
-                href="https://www.jonnycronk.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Jonny Cronk
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
