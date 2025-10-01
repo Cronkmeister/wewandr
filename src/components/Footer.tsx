@@ -66,13 +66,13 @@ export default function Footer() {
             <h4 className="text-[#ffe44b] font-bold mb-4">Legal</h4>
             <div className="space-y-2">
               <a
-                href="#"
+                href="/terms"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Terms & Conditions
               </a>
               <a
-                href="#"
+                href="/privacy"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Privacy Policy

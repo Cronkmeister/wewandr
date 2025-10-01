@@ -478,7 +478,7 @@ export default function Home() {
       >
         {/* Background Image with Parallax */}
         <div
-          className="fixed top-[-650px] md:top-[-450px] w-full h-[60vh]"
+          className="fixed top-[-650px] md:top-[-450px] w-full h-[70vh]"
           style={{
             backgroundImage: "url('/assets/imgs/sand-dune-crop.jpg')",
             backgroundPosition: "center 90%",
