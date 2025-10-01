@@ -29,7 +29,7 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-full">
-        <div className="flex items-center justify-center justify-between h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-orange-500 knewave-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer">
@@ -47,7 +47,7 @@ export default function Navigation() {
                   : "text-white hover:text-orange-300"
               }`}
             >
-              Features
+              About
             </a>
             <a
               href="#how-it-works"
@@ -59,16 +59,7 @@ export default function Navigation() {
             >
               How It Works
             </a>
-            <a
-              href="#become-creator"
-              className={`transition-all duration-300 font-medium link-hover ${
-                isPastHero
-                  ? "text-orange-500 hover:text-orange-600"
-                  : "text-white hover:text-orange-300"
-              }`}
-            >
-              Become a Creator
-            </a>
+
             <a
               href="#beta"
               className={`transition-all duration-300 font-medium link-hover ${
@@ -77,7 +68,7 @@ export default function Navigation() {
                   : "text-white hover:text-orange-300"
               }`}
             >
-              Join Beta
+              Join Waitlist
             </a>
           </div>
 
