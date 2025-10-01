@@ -46,8 +46,8 @@ export default function ConnectCommunityModal({
           </div>
           <p className="text-lg text-gray-600 mt-4 max-w-3xl">
             Repeat after us: you are not alone! Travelling with young kids is
-            seriously challenging, but it doesn't mean you have to wait until
-            they are grown to see the world.
+            seriously challenging, but it doesn&apos;t mean you have to wait
+            until they are grown to see the world.
           </p>
         </div>
 
@@ -79,10 +79,10 @@ export default function ConnectCommunityModal({
                 Our Vision
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                It's time we come together and learn from each other, in a safe,
-                encouraging and empowering space. The WeWandr community is built
-                on solidarity, parents helping parents make family travel feel
-                possible, together.
+                It&apos;s time we come together and learn from each other, in a
+                safe, encouraging and empowering space. The WeWandr community is
+                built on solidarity, parents helping parents make family travel
+                feel possible, together.
               </p>
             </div>
           </div>

@@ -22,7 +22,7 @@ export default function ThoughtBubble({
     >
       <div className="bg-white rounded-3xl px-4 py-3 shadow-lg border border-orange-500 w-[240px]">
         <p className="text-xs md:text-sm font-medium text-orange-500 italic text-center">
-          "{text}"
+          &ldquo;{text}&rdquo;
         </p>
       </div>
     </div>

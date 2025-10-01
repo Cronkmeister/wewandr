@@ -46,8 +46,8 @@ export default function ShareEarnModal({
           </div>
           <p className="text-lg text-gray-600 mt-4 max-w-3xl">
             You did the planning, you took the trip, you have the insight, and
-            now it's time to earn real income when you help another family learn
-            from your experience.
+            now it&apos;s time to earn real income when you help another family
+            learn from your experience.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function ShareEarnModal({
               </h3>
               <p className="text-gray-700 leading-relaxed">
                 To get started, simply add your deposit details into your
-                profile, and click 'Create WandrGuide' on our site.
+                profile, and click &apos;Create WandrGuide&apos; on our site.
               </p>
             </div>
 
@@ -125,8 +125,8 @@ export default function ShareEarnModal({
                   Build Your Reputation
                 </h4>
                 <p className="text-gray-600 leading-relaxed">
-                  As your guides get downloaded and reviewed, you'll build a
-                  reputation as a trusted family travel expert.
+                  As your guides get downloaded and reviewed, you&apos;ll build
+                  a reputation as a trusted family travel expert.
                 </p>
               </div>
             </div>

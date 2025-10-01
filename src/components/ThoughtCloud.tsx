@@ -30,7 +30,7 @@ export default function ThoughtCloud() {
       { text: "How are we getting to the airport?", delay: 200 },
       { text: "Can I bring my stroller to the gate?", delay: 400 },
       { text: "Should I bring our carseat or rent one?", delay: 600 },
-      { text: "Why can't I get any info from the airline?", delay: 800 },
+      { text: "Why can&apos;t I get any info from the airline?", delay: 800 },
       { text: "How many items can I check on the flight?", delay: 1000 },
       {
         text: "How are we going to get through customs with all our stuff?",
@@ -42,7 +42,7 @@ export default function ThoughtCloud() {
       { text: "Is our destination safe for kids?", delay: 2000 },
       { text: "Do we need any immunizations?", delay: 2200 },
       {
-        text: "What's the cultural view on breastfeeding in public?",
+        text: "What&apos;s the cultural view on breastfeeding in public?",
         delay: 2400,
       },
       { text: "Are there any laundromats near by?", delay: 2600 },
@@ -112,7 +112,7 @@ export default function ThoughtCloud() {
       return { x, y };
     });
 
-    // quick repulsion to reduce overlaps (doesn't need to be perfect)
+    // quick repulsion to reduce overlaps (doesn&apos;t need to be perfect)
     const pts = base.map((p) => ({ ...p }));
     const R = 120; // desired min distance between centers (tweak)
     const ITER = 24; // small number keeps it snappy
