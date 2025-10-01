@@ -45,12 +45,12 @@ export default function PlanLearnModal({
             </button>
           </div>
           <p className="text-lg text-gray-600 mt-4 max-w-4xl">
-            WandrGuides are answers to trip questions you didn't even know you
-            had. This is the inside scoop within the family trip, highlights,
-            lowlights and everything in between. With all the moving variables
-            that come when travelling with young children, think of WandrGuides
-            as real, tried- and- tested roadmaps for you to learn from when
-            planning your next trip.
+            WandrGuides are answers to trip questions you didn&apos;t even know
+            you had. This is the inside scoop within the family trip,
+            highlights, lowlights and everything in between. With all the moving
+            variables that come when travelling with young children, think of
+            WandrGuides as real, tried- and- tested roadmaps for you to learn
+            from when planning your next trip.
           </p>
         </div>
 
@@ -107,14 +107,14 @@ export default function PlanLearnModal({
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 How it felt walking around with kids, how stroller-friendly it
-                was, ease of taking public transport, and using taxi's.
+                was, ease of taking public transport, and using taxi&apos;s.
               </p>
             </div>
 
-            {/* 'Yes' Activities */}
+            {/* &apos;Yes&apos; Activities */}
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-md transition-shadow duration-300">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
-                'Yes' Activities
+                &apos;Yes&apos; Activities
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 What family-centric activities were fun for the whole family.

@@ -4,22 +4,14 @@ import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import Image from "next/image";
-import {
-  FaUsers,
-  FaMapMarkedAlt,
-  FaBed,
-  FaDollarSign,
-  FaStar,
-  FaSearch,
-} from "react-icons/fa";
+import { FaUsers, FaMapMarkedAlt, FaDollarSign, FaStar } from "react-icons/fa";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Notice from "@/components/Notice";
 import Navigation from "@/components/Navigation";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import Footer from "@/components/Footer";
-import ThoughtCloud from "@/components/ThoughtCloud";
+// import ThoughtCloud from "@/components/ThoughtCloud";
 import PlanLearnModal from "@/components/modals/PlanLearnModal";
 import ShareEarnModal from "@/components/modals/ShareEarnModal";
 import ConnectCommunityModal from "@/components/modals/ConnectCommunityModal";
@@ -71,29 +63,6 @@ export default function Home() {
   const betaRef = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2 });
   const weWandrWayRef = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.2,
-  });
-  const becomeCreatorRef = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.2,
-  });
-
-  // Individual feature card observers for staggered animations
-  const featureCard1Ref = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.3,
-  });
-  const featureCard2Ref = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.4,
-  });
-  const featureCard3Ref = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.5,
-  });
-  const featureCard4Ref = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.8,
-  });
-  const featureCard5Ref = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.9,
-  });
-  const featureCard6Ref = useIntersectionObserver<HTMLDivElement>({
-    threshold: 1.0,
   });
 
   // Auto-dismiss messages after 5 seconds
@@ -148,13 +117,13 @@ export default function Home() {
       if (result.status === "ok") {
         setHeroMessage({
           type: "success",
-          text: "Thanks! You've been added to the waitlist.",
+          text: "Thanks! You&apos;ve been added to the waitlist.",
         });
         resetHero();
       } else if (result.status === "duplicate") {
         setHeroMessage({
           type: "duplicate",
-          text: "You're already on the list!",
+          text: "You&apos;re already on the list!",
         });
       } else {
         setHeroMessage({
@@ -187,13 +156,13 @@ export default function Home() {
       if (result.status === "ok") {
         setBetaMessage({
           type: "success",
-          text: "Thanks! You've been added to the waitlist.",
+          text: "Thanks! You&apos;ve been added to the waitlist.",
         });
         resetBeta();
       } else if (result.status === "duplicate") {
         setBetaMessage({
           type: "duplicate",
-          text: "You're already on the list!",
+          text: "You&apos;re already on the list!",
         });
       } else {
         setBetaMessage({
@@ -375,9 +344,9 @@ export default function Home() {
                 Parent-Tested Guides
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Think of WandrGuides as 'How-To' guides with information truly
-                needed when travelling with young children. Skip the guesswork
-                with parent-tested and kid-approved insights.
+                Think of WandrGuides as &apos;How-To&apos; guides with
+                information truly needed when travelling with young children.
+                Skip the guesswork with parent-tested and kid-approved insights.
               </p>
             </div>
 
@@ -390,9 +359,9 @@ export default function Home() {
                 Earn from Your Knowledge
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                What's more, when you download a parent's WandrGuide, we pay
-                them for their insights. When your WandrGuide is downloaded, we
-                pay you.
+                What&apos;s more, when you download a parent&apos;s WandrGuide,
+                we pay them for their insights. When your WandrGuide is
+                downloaded, we pay you.
               </p>
             </div>
           </div>
@@ -528,7 +497,7 @@ export default function Home() {
           <div className="text-center">
             <div className="max-w-4xl mx-auto space-y-8">
               <p className="text-base md:text-lg tracking-wider text-white leading-relaxed animate-fade-up animate-stagger-1 font-medium">
-                We&apos;re building go-to hub for travel planning, disrupting
+                We&apos;re building a go-to hub for travel planning, disrupting
                 the travel industry, and transforming how families discover,
                 plan, and share travel knowledge
               </p>
