@@ -19,6 +19,10 @@ import Notice from "@/components/Notice";
 import Navigation from "@/components/Navigation";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import Footer from "@/components/Footer";
+import ThoughtCloud from "@/components/ThoughtCloud";
+import PlanLearnModal from "@/components/modals/PlanLearnModal";
+import ShareEarnModal from "@/components/modals/ShareEarnModal";
+import ConnectCommunityModal from "@/components/modals/ConnectCommunityModal";
 import { subscribe } from "@/app/actions/subscribe";
 import { useIntersectionObserver } from "@/lib/useIntersectionObserver";
 
@@ -40,6 +44,10 @@ export default function Home() {
     text: string;
   } | null>(null);
   const [scrollY, setScrollY] = useState(0);
+  const [isPlanLearnModalOpen, setIsPlanLearnModalOpen] = useState(false);
+  const [isShareEarnModalOpen, setIsShareEarnModalOpen] = useState(false);
+  const [isConnectCommunityModalOpen, setIsConnectCommunityModalOpen] =
+    useState(false);
   const mountTime = useRef(Date.now());
 
   // Scroll event listener for parallax effect
@@ -212,13 +220,13 @@ export default function Home() {
       {/* Hero Section with Beach Background */}
       <div
         ref={heroRef.ref}
-        className={`relative min-h-screen flex items-center justify-center ${
+        className={`relative min-h-screen flex items-center justify-center overflow-hidden ${
           heroRef.isIntersecting ? "animate-in" : ""
         }`}
       >
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-parallax"
+          className="absolute inset-0 bg-cover bg-center scale-125 bg-no-repeat bg-parallax"
           style={{
             backgroundImage: "url('/assets/imgs/fam-holi-pic-3.jpg')",
           }}
@@ -236,13 +244,21 @@ export default function Home() {
 
           {/* Tagline */}
           <div className="mb-8 animate-fade-up animate-stagger-1">
-            <p className="text-1xl md:text-2xl font-semibold text-orange-400 mb-2 drop-shadow-lg tracking-wide">
-              Travel Smarter. Earn Together
+            <p className="text-1xl md:text-2xl font-semibold text-orange-300 mb-2 drop-shadow-lg tracking-wide">
+              Real Trips. Real Tips. Parent-Powered.
+            </p>
+            <p className="text-sm md:text-base italic font-semibold text-orange-300  tracking-wide">
+              Where families help each other travel better, and earn together.
             </p>
           </div>
 
+          <p className="text-xl md:text-xl text-white mb-2 drop-shadow-lg tracking-wide animate-fade-up animate-stagger-2">
+            Planning a family trip shouldn’t feel like a full-time job.<br></br>
+            Parents deserve more than scattered advice, endless research, and
+            guesswork.
+          </p>
           {/* Call to Action */}
-          <p className="text-xl md:text-2xl text-white mb-12 drop-shadow-lg tracking-wide animate-fade-up animate-stagger-2">
+          <p className="text-xl md:text-xl text-white mb-12 drop-shadow-lg tracking-wide animate-fade-up animate-stagger-2">
             Join our growing waitlist for early access
           </p>
 
@@ -301,6 +317,9 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Booking Section */}
+      {/* <ThoughtCloud /> */}
+
       {/* What Makes WeWandr Special Section */}
       <div
         ref={featuresRef.ref}
@@ -313,141 +332,76 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-up">
-              Family Travel, By Parents
+              Welcome to WeWandr
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto my-8 animate-fade-up animate-stagger-1">
-              We get it, travelling with kids is hard, and the information
-              available doesn&apos;t help. Think of WeWandr as your travel
-              planning shortcut.
-            </p>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up animate-stagger-2">
-              Discover detailed travel guides by real parents, who&apos;ve done
-              the trip — strollers, snack breaks, naps and all. What&apos;s
-              more, every guide downloaded supports the parent behind it.
-            </p>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Parent-to-Parent Recommendations */}
-            <div
-              ref={featureCard1Ref.ref}
-              className={`bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover section-animate group feature-delay-1 ${
-                featureCard1Ref.isIntersecting ? "animate-in" : ""
-              }`}
-            >
+          {/* Welcome Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+            {/* Card 1: Parent-Powered Platform */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group animate-fade-up animate-stagger-1">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaUsers className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
-                Parent-to-Parent Recommendations
+                Parent-Powered Platform
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Get real, honest reviews from families who&apos;ve been there.
-                Learn about kid-friendly attractions, accommodations, and what
-                to expect.
+                A travel platform flipping the script on how parents both plan
+                trips and earn income from their hard-earned travel knowledge.
               </p>
             </div>
 
-            {/* Detailed Travel Guides */}
-            <div
-              ref={featureCard2Ref.ref}
-              className={`bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover section-animate group feature-delay-2 ${
-                featureCard2Ref.isIntersecting ? "animate-in" : ""
-              }`}
-            >
+            {/* Card 2: Real Family Experiences */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group animate-fade-up animate-stagger-2">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaMapMarkedAlt className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
-                Detailed Travel Guides
+                Real Family Experiences
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Comprehensive guides with technical details like transportation
-                options, accessibility info, age-appropriate activities, and
-                family-specific logistics.
+                Discover real trips, door-to-door by real families who have
+                already done it - typed out in a downloadable WandrGuide.
               </p>
             </div>
 
-            {/* Family Accommodation Insights */}
-            <div
-              ref={featureCard3Ref.ref}
-              className={`bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover section-animate group feature-delay-3 ${
-                featureCard3Ref.isIntersecting ? "animate-in" : ""
-              }`}
-            >
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
-                <FaBed className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
-                Family Accommodation Insights
-              </h3>
-              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Learn about hotels, resorts, and rentals that truly cater to
-                families&mdash;from cribs and high chairs to kid-friendly
-                amenities and services.
-              </p>
-            </div>
-
-            {/* Monetize Your Travel Wisdom */}
-            <div
-              ref={featureCard4Ref.ref}
-              className={`bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover section-animate group feature-delay-4 ${
-                featureCard4Ref.isIntersecting ? "animate-in" : ""
-              }`}
-            >
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
-                <FaDollarSign className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
-                Monetize Your Travel Wisdom
-              </h3>
-              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Become a creator and earn money by sharing your family travel
-                experiences. Turn your hard-learned lessons into valuable guides
-                for other parents.
-              </p>
-            </div>
-
-            {/* Quality-Verified Content */}
-            <div
-              ref={featureCard5Ref.ref}
-              className={`bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover section-animate group feature-delay-5 ${
-                featureCard5Ref.isIntersecting ? "animate-in" : ""
-              }`}
-            >
+            {/* Card 3: How-To Guides */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group animate-fade-up animate-stagger-3">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaStar className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
-                Quality-Verified Content
+                Parent-Tested Guides
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                All guides are created by real parents who&apos;ve traveled with
-                their families, ensuring authentic and trustworthy
-                recommendations.
+                Think of WandrGuides as 'How-To' guides with information truly
+                needed when travelling with young children. Skip the guesswork
+                with parent-tested and kid-approved insights.
               </p>
             </div>
 
-            {/* Personalized Discovery */}
-            <div
-              ref={featureCard6Ref.ref}
-              className={`bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover section-animate group feature-delay-6 ${
-                featureCard6Ref.isIntersecting ? "animate-in" : ""
-              }`}
-            >
+            {/* Card 4: Earn from Your Knowledge */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group animate-fade-up animate-stagger-4">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
-                <FaSearch className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
+                <FaDollarSign className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
-                Personalized Discovery
+                Earn from Your Knowledge
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Find destinations and experiences tailored to your family&apos;s
-                specific needs, ages, and interests through our smart matching
-                system.
+                What's more, when you download a parent's WandrGuide, we pay
+                them for their insights. When your WandrGuide is downloaded, we
+                pay you.
               </p>
             </div>
+          </div>
+
+          {/* Bottom Heading */}
+          <div className="text-center mt-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 animate-fade-up animate-stagger-6">
+              Because travel is better, when planned together.
+            </h3>
           </div>
         </div>
       </div>
@@ -464,11 +418,11 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-up">
-              How WeWandr Works
+              How It Works
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up animate-stagger-1">
-              Whether you&apos;re seeking travel inspiration or ready to share
-              your expertise, WeWandr makes it simple.
+              Whether you&apos;re planning your next trip or looking to share
+              your experience, WeWandr makes it simple.
             </p>
           </div>
 
@@ -489,6 +443,12 @@ export default function Home() {
                 growing database. Filter by destination, kids&apos; ages, and
                 travel style.
               </p>
+              <button
+                onClick={() => setIsPlanLearnModalOpen(true)}
+                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300"
+              >
+                Learn more →
+              </button>
             </div>
 
             {/* Step 2: Download & Plan */}
@@ -505,6 +465,12 @@ export default function Home() {
                 Create and share your Travel Guide, using our built-in
                 framework, and earn income when downloaded.
               </p>
+              <button
+                onClick={() => setIsShareEarnModalOpen(true)}
+                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300"
+              >
+                Learn more →
+              </button>
             </div>
 
             {/* Step 3: Create & Earn */}
@@ -522,6 +488,12 @@ export default function Home() {
                 family travel is easier when you don&apos;t have to figure it
                 out alone.
               </p>
+              <button
+                onClick={() => setIsConnectCommunityModalOpen(true)}
+                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300"
+              >
+                Learn more →
+              </button>
             </div>
           </div>
         </div>
@@ -537,7 +509,7 @@ export default function Home() {
       >
         {/* Background Image with Parallax */}
         <div
-          className="fixed top-[-550px] md:top-[-350px] left-0 w-full h-[80vh]"
+          className="fixed top-[-650px] md:top-[-450px] w-full h-[60vh]"
           style={{
             backgroundImage: "url('/assets/imgs/sand-dune-crop.jpg')",
             backgroundPosition: "center 90%",
@@ -556,8 +528,9 @@ export default function Home() {
           <div className="text-center">
             <div className="max-w-4xl mx-auto space-y-8">
               <p className="text-base md:text-lg tracking-wider text-white leading-relaxed animate-fade-up animate-stagger-1 font-medium">
-                We&apos;re building a movement, disrupting the travel industry,
-                and transforming how families discover, plan, and share travel.
+                We&apos;re building go-to hub for travel planning, disrupting
+                the travel industry, and transforming how families discover,
+                plan, and share travel knowledge
               </p>
 
               {/* Decorative Elements */}
@@ -589,52 +562,8 @@ export default function Home() {
               </div>
 
               <p className="text-base md:text-lg tracking-wider  text-white leading-relaxed animate-fade-up animate-stagger-2 font-medium">
-                We are building the go-to hub for families who travel, unlocking
-                the new way to plan trips - and we&apos;re just getting started.
+                We are building a movement, and we&apos;re just getting started.
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Ready to Become a Creator Section */}
-      <div
-        ref={becomeCreatorRef.ref}
-        id="become-creator"
-        className={`py-20 bg-gray-50 section-animate ${
-          becomeCreatorRef.isIntersecting ? "animate-in" : ""
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Column - Text Content */}
-            <div className="animate-fade-left">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Ready to Become a Creator?
-              </h2>
-              <div className="space-y-4 text-lg text-gray-700">
-                <p>
-                  Turn your family travel experiences into valuable resources
-                  for other parents.
-                </p>
-                <p>
-                  Share detailed guides about destinations you know well and
-                  earn money from each download.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column - Digital Earning Illustration */}
-            <div className="relative animate-fade-right">
-              {/* Large Mobile Phone (Left) */}
-              <Image
-                className="w-full max-w-md mx-auto animate-float"
-                src="/assets/icons/make-money-from-your-phone.webp"
-                alt="Digital earning illustration"
-                width={400}
-                height={400}
-                priority
-              />
             </div>
           </div>
         </div>
@@ -703,6 +632,24 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Plan & Learn Modal */}
+      <PlanLearnModal
+        isOpen={isPlanLearnModalOpen}
+        onClose={() => setIsPlanLearnModalOpen(false)}
+      />
+
+      {/* Share & Earn Modal */}
+      <ShareEarnModal
+        isOpen={isShareEarnModalOpen}
+        onClose={() => setIsShareEarnModalOpen(false)}
+      />
+
+      {/* Connect with Community Modal */}
+      <ConnectCommunityModal
+        isOpen={isConnectCommunityModalOpen}
+        onClose={() => setIsConnectCommunityModalOpen(false)}
+      />
     </main>
   );
 }

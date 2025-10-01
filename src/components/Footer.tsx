@@ -33,9 +33,9 @@ export default function Footer() {
             <h3 className="text-3xl font-bold text-orange-500 mb-4 knewave-regular">
               WeWandr
             </h3>
-            <div className="space-y-1 text-orange-500">
+            <div className="space-y-1 text-orange-200">
               <p className="text-sm font-medium">
-                Travel Smart, Travel Together
+                Real Trips. Real Tips. Parent-Powered.
               </p>
             </div>
           </div>

@@ -120,6 +120,24 @@
     }
   }
   
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-20px);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05) translateY(0);
+    }
+    70% {
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
   /* Animation classes */
   .animate-fade-up {
     animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -149,6 +167,11 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    opacity: 0;
   }
   
   /* Staggered animations for grid items */
