@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default function TermsPage() {
             <section className="mb-12">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 At WeWandr, we believe in being clear and transparent. Below
-                you'll find:
+                you&apos;ll find:
               </p>
               <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-8">
                 <li>
@@ -65,7 +66,7 @@ export default function TermsPage() {
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         Adults 18+ can create and share guides. Kids can use
-                        WeWandr, but only with a parent's guidance.
+                        WeWandr, but only with a parent&apos;s guidance.
                       </p>
                     </div>
                   </div>
@@ -81,8 +82,8 @@ export default function TermsPage() {
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         Your guides are yours! By posting, you let us share them
-                        so other parents can benefit. Please don't post unsafe,
-                        hateful, or copied content.
+                        so other parents can benefit. Please don&apos;t post
+                        unsafe, hateful, or copied content.
                       </p>
                     </div>
                   </div>
@@ -98,7 +99,7 @@ export default function TermsPage() {
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         Creators get paid when others download their guides.
-                        Payments are handled through Stripe/PayPal. You're
+                        Payments are handled through Stripe/PayPal. You&apos;re
                         responsible for your own taxes.
                       </p>
                     </div>
@@ -129,7 +130,8 @@ export default function TermsPage() {
                       <h3 className="font-bold text-gray-900 mb-2">About AI</h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         We use AI to help with trip suggestions and content
-                        checks, but you're always in charge of your choices.
+                        checks, but you&apos;re always in charge of your
+                        choices.
                       </p>
                     </div>
                   </div>
@@ -145,7 +147,7 @@ export default function TermsPage() {
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         If you break the rules, we may suspend your account.
-                        Travel always involves risks, and WeWandr can't
+                        Travel always involves risks, and WeWandr can&apos;t
                         guarantee outcomes.
                       </p>
                     </div>
@@ -203,11 +205,12 @@ export default function TermsPage() {
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   Welcome to WeWandr, a community-powered travel platform
-                  ("WeWandr," "we," "us," or "our"). By accessing or using our
-                  website, mobile application, or services (collectively, the
-                  "Platform"), you agree to be bound by these Terms and
-                  Conditions ("Terms"). If you do not agree, you may not use the
-                  Platform.
+                  (&quot;WeWandr,&quot; &quot;we,&quot; &quot;us,&quot; or
+                  &quot;our&quot;). By accessing or using our website, mobile
+                  application, or services (collectively, the
+                  &quot;Platform&quot;), you agree to be bound by these Terms
+                  and Conditions (&quot;Terms&quot;). If you do not agree, you
+                  may not use the Platform.
                 </p>
               </div>
 
@@ -250,7 +253,7 @@ export default function TermsPage() {
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
                       You retain ownership of the travel guides, reviews, and
-                      other content you create ("User Content").
+                      other content you create (&quot;User Content&quot;).
                     </p>
                   </div>
                   <div>
@@ -364,11 +367,11 @@ export default function TermsPage() {
                   8. Disclaimers
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  WeWandr provides the Platform on an "as is" and "as available"
-                  basis. We make no warranties regarding the accuracy,
-                  reliability, or availability of content. Travel involves
-                  inherent risks, and WeWandr is not liable for any outcomes
-                  resulting from use of the Platform.
+                  WeWandr provides the Platform on an &quot;as is&quot; and
+                  &quot;as available&quot; basis. We make no warranties
+                  regarding the accuracy, reliability, or availability of
+                  content. Travel involves inherent risks, and WeWandr is not
+                  liable for any outcomes resulting from use of the Platform.
                 </p>
               </section>
 
@@ -452,9 +455,10 @@ export default function TermsPage() {
                   })}
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Hi parents 👋 Welcome to WeWandr! We're so glad you're here.
-                  To keep this space safe, supportive, and fair, here's what you
-                  agree to when using our website or app:
+                  Hi parents 👋 Welcome to WeWandr! We&apos;re so glad
+                  you&apos;re here. To keep this space safe, supportive, and
+                  fair, here&apos;s what you agree to when using our website or
+                  app:
                 </p>
               </div>
 
@@ -466,7 +470,7 @@ export default function TermsPage() {
                 <p className="text-gray-700 leading-relaxed">
                   WeWandr is for adults (18+) who want to share or discover
                   family travel tips. Kids can use it too, but only under their
-                  parent's guidance.
+                  parent&apos;s guidance.
                 </p>
               </section>
 
@@ -477,7 +481,7 @@ export default function TermsPage() {
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
                   Keep your login details safe. If someone else uses your
-                  account, you're responsible for what happens. Let us know
+                  account, you&apos;re responsible for what happens. Let us know
                   right away if something looks off.
                 </p>
               </section>
@@ -492,12 +496,13 @@ export default function TermsPage() {
                     What you create (guides, tips, posts) is yours.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    By posting it, you're letting WeWandr share it on our app,
-                    website, or social media to help other parents discover it.
+                    By posting it, you&apos;re letting WeWandr share it on our
+                    app, website, or social media to help other parents discover
+                    it.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    Please don't post anything unsafe, hateful, misleading, or
-                    copied from someone else.
+                    Please don&apos;t post anything unsafe, hateful, misleading,
+                    or copied from someone else.
                   </p>
                 </div>
               </section>
@@ -516,7 +521,7 @@ export default function TermsPage() {
                     Payments go through trusted providers like Stripe or PayPal.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    You're responsible for any taxes on your earnings.
+                    You&apos;re responsible for any taxes on your earnings.
                   </p>
                 </div>
               </section>
@@ -543,8 +548,8 @@ export default function TermsPage() {
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
                   We sometimes use AI to suggest trips or check guides for
-                  quality. It's here to help, but always use your own judgment
-                  when planning.
+                  quality. It&apos;s here to help, but always use your own
+                  judgment when planning.
                 </p>
               </section>
 
@@ -558,8 +563,8 @@ export default function TermsPage() {
                     If you break the rules, we may pause or close your account.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    We can't guarantee every guide is perfect or every trip will
-                    go smoothly—travel always has risks.
+                    We can&apos;t guarantee every guide is perfect or every trip
+                    will go smoothly—travel always has risks.
                   </p>
                 </div>
               </section>
@@ -581,9 +586,9 @@ export default function TermsPage() {
                   9. Updates
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  We may update these rules as WeWandr grows. We'll let you know
-                  when we do, and by continuing to use WeWandr, you're agreeing
-                  to the new version.
+                  We may update these rules as WeWandr grows. We&apos;ll let you
+                  know when we do, and by continuing to use WeWandr, you&apos;re
+                  agreeing to the new version.
                 </p>
               </section>
 
@@ -600,7 +605,7 @@ export default function TermsPage() {
                   >
                     support@wewandr.co
                   </a>
-                  . We're here to help.
+                  . We&apos;re here to help.
                 </p>
               </section>
             </section>
@@ -609,12 +614,12 @@ export default function TermsPage() {
 
         {/* Back to Home Link */}
         <div className="text-center mt-8">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold transition-colors"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
 

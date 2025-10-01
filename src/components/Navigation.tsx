@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Button from "./Button";
 
 export default function Navigation() {
@@ -32,9 +33,12 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-orange-500 knewave-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer">
+            <Link
+              className="text-2xl font-bold text-orange-500 knewave-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer"
+              href="/"
+            >
               WeWandr
-            </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}

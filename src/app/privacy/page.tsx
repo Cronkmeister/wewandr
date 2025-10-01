@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default function PrivacyPage() {
             <section className="mb-12">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 At WeWandr, we believe in being clear and transparent about how
-                we handle your information. Below you'll find:
+                we handle your information. Below you&apos;ll find:
               </p>
               <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-8">
                 <li>
@@ -83,7 +84,7 @@ export default function PrivacyPage() {
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         Guides you share are visible to other parents — but your
-                        personal details (like email) aren't public.
+                        personal details (like email) aren&apos;t public.
                       </p>
                     </div>
                   </div>
@@ -95,12 +96,12 @@ export default function PrivacyPage() {
                     <div className="text-2xl">🧒</div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-2">
-                        Kids' Privacy
+                        Kids&apos; Privacy
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         WeWandr is built for parents. Children can only use it
-                        under your guidance. We don't knowingly collect data
-                        directly from kids.
+                        under your guidance. We don&apos;t knowingly collect
+                        data directly from kids.
                       </p>
                     </div>
                   </div>
@@ -152,7 +153,7 @@ export default function PrivacyPage() {
                         Where Data Lives
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
-                        We're based in Canada, but your data may be stored
+                        We&apos;re based in Canada, but your data may be stored
                         securely in other countries.
                       </p>
                     </div>
@@ -209,10 +210,11 @@ export default function PrivacyPage() {
                   })}
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  This Privacy Policy describes how WeWandr ("we," "us," or
-                  "our") collects, uses, and shares your personal information
-                  when you use our website, mobile application, or services
-                  (collectively, the "Platform").
+                  This Privacy Policy describes how WeWandr (&quot;we,&quot;
+                  &quot;us,&quot; or &quot;our&quot;) collects, uses, and shares
+                  your personal information when you use our website, mobile
+                  application, or services (collectively, the
+                  &quot;Platform&quot;).
                 </p>
               </div>
 
@@ -337,7 +339,7 @@ export default function PrivacyPage() {
               {/* Section 4: Children's Privacy */}
               <section className="mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  4. Children's Privacy
+                  4. Children&apos;s Privacy
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
                   WeWandr is designed for parents. Accounts may only be created
@@ -414,12 +416,12 @@ export default function PrivacyPage() {
 
         {/* Back to Home Link */}
         <div className="text-center mt-8">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold transition-colors"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
 
