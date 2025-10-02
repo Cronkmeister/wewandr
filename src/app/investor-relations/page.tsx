@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function InvestorRelationsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-cream">
       <Navigation />
 
       {/* 1. Hero Section */}
@@ -56,9 +56,9 @@ export default function InvestorRelationsPage() {
       </div>
 
       {/* 2. Vision Section */}
-      <div className="py-20 bg-gray-50">
+      <div className="py-20 bg-cream">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-gray-900 mb-12 text-center heading-primary">
             Our Vision
           </h2>
 
@@ -93,7 +93,9 @@ export default function InvestorRelationsPage() {
                     <span className="text-2xl">👨‍👩‍👧‍👦</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 mb-1">Parents</h3>
+                    <h3 className="text-gray-900 mb-1 heading-small">
+                      Parents
+                    </h3>
                     <p className="text-sm text-gray-600">
                       Create & share guides
                     </p>
@@ -109,7 +111,7 @@ export default function InvestorRelationsPage() {
                     <span className="text-2xl">📚</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 mb-1">
+                    <h3 className="text-gray-900 mb-1 heading-small">
                       WandrGuides
                     </h3>
                     <p className="text-sm text-gray-600">
@@ -127,7 +129,9 @@ export default function InvestorRelationsPage() {
                     <span className="text-2xl">🌍</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 mb-1">Community</h3>
+                    <h3 className="text-gray-900 mb-1 heading-small">
+                      Community
+                    </h3>
                     <p className="text-sm text-gray-600">
                       Growing network of families
                     </p>
@@ -142,7 +146,7 @@ export default function InvestorRelationsPage() {
       {/* 3. Market Intersection Section */}
       <div className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-gray-900 mb-12 text-center heading-primary">
             At the Intersection of Three Growing Markets
           </h2>
 
@@ -154,7 +158,7 @@ export default function InvestorRelationsPage() {
                   <span className="text-3xl">✈️</span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-gray-900 mb-3 heading-quaternary">
                     Family Travel
                   </h3>
                   <p className="text-lg text-gray-700">
@@ -173,7 +177,7 @@ export default function InvestorRelationsPage() {
                   <span className="text-3xl">💡</span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-gray-900 mb-3 heading-quaternary">
                     Creator Economy
                   </h3>
                   <p className="text-lg text-gray-700">
@@ -192,7 +196,7 @@ export default function InvestorRelationsPage() {
                   <span className="text-3xl">🔄</span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-gray-900 mb-3 heading-quaternary">
                     Digital Marketplaces
                   </h3>
                   <p className="text-lg text-gray-700">
@@ -208,9 +212,9 @@ export default function InvestorRelationsPage() {
       </div>
 
       {/* 4. Why Now Section */}
-      <div className="py-20 bg-gray-50">
+      <div className="py-20 bg-cream">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-gray-900 mb-12 text-center heading-primary">
             Why Now?
           </h2>
 
@@ -234,7 +238,7 @@ export default function InvestorRelationsPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-gray-900 mb-2 heading-tertiary">
                     Untapped Market
                   </h3>
                   <p className="text-gray-700">
@@ -265,7 +269,7 @@ export default function InvestorRelationsPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-gray-900 mb-2 heading-tertiary">
                     Parent-Creator Flywheel
                   </h3>
                   <p className="text-gray-700">
@@ -296,7 +300,7 @@ export default function InvestorRelationsPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-gray-900 mb-2 heading-tertiary">
                     Multiple Revenue Streams
                   </h3>
                   <p className="text-gray-700">
@@ -326,7 +330,7 @@ export default function InvestorRelationsPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-gray-900 mb-2 heading-tertiary">
                     Early Interest
                   </h3>
                   <p className="text-gray-700">
@@ -343,7 +347,7 @@ export default function InvestorRelationsPage() {
       {/* 5. Milestones Section */}
       <div className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-gray-900 mb-12 text-center heading-primary">
             Milestones So Far
           </h2>
 
@@ -353,7 +357,7 @@ export default function InvestorRelationsPage() {
               <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
                 <span className="text-4xl">🚀</span>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className="text-gray-900 mb-2 heading-small">
                 Alpha Platform
               </h3>
               <p className="text-gray-600">In progress, launching Fall 2025</p>
@@ -364,7 +368,7 @@ export default function InvestorRelationsPage() {
               <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
                 <span className="text-4xl">👥</span>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className="text-gray-900 mb-2 heading-small">
                 Community Waitlist
               </h3>
               <p className="text-gray-600">Early parent community engaged</p>
@@ -375,7 +379,7 @@ export default function InvestorRelationsPage() {
               <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
                 <span className="text-4xl">🎯</span>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className="text-gray-900 mb-2 heading-small">
                 Strategic Advisors
               </h3>
               <p className="text-gray-600">Industry experts engaged</p>
@@ -386,7 +390,7 @@ export default function InvestorRelationsPage() {
               <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
                 <span className="text-4xl">💰</span>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className="text-gray-900 mb-2 heading-small">
                 Pre-Seed Prep
               </h3>
               <p className="text-gray-600">Preparing for fundraising</p>
@@ -396,9 +400,9 @@ export default function InvestorRelationsPage() {
       </div>
 
       {/* 6. What's Next Section */}
-      <div className="py-20 bg-gray-50">
+      <div className="py-20 bg-cream">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
+          <h2 className="text-gray-900 mb-8 text-center heading-primary">
             What&apos;s Next
           </h2>
 
@@ -425,7 +429,7 @@ export default function InvestorRelationsPage() {
               <div className="absolute -top-4 left-6 bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">
                 Phase 1
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mt-4 mb-3">
+              <h3 className="text-gray-900 mt-4 mb-3 heading-tertiary">
                 Alpha
               </h3>
               <ul className="space-y-2 text-gray-700">
@@ -440,7 +444,7 @@ export default function InvestorRelationsPage() {
               <div className="absolute -top-4 left-6 bg-orange-400 text-white px-4 py-1 rounded-full text-sm font-bold">
                 Phase 2
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mt-4 mb-3">
+              <h3 className="text-gray-900 mt-4 mb-3 heading-tertiary">
                 Proof
               </h3>
               <ul className="space-y-2 text-gray-700">
@@ -455,7 +459,7 @@ export default function InvestorRelationsPage() {
               <div className="absolute -top-4 left-6 bg-orange-300 text-white px-4 py-1 rounded-full text-sm font-bold">
                 Phase 3
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mt-4 mb-3">
+              <h3 className="text-gray-900 mt-4 mb-3 heading-tertiary">
                 Scale
               </h3>
               <ul className="space-y-2 text-gray-700">
@@ -471,9 +475,7 @@ export default function InvestorRelationsPage() {
       {/* 7. Investor Call-to-Action Section */}
       <div className="py-20 bg-gradient-to-br from-orange-500 to-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Connect With Us
-          </h2>
+          <h2 className="text-white mb-6 heading-primary">Connect With Us</h2>
           <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
             Interested in learning more about WeWandr&apos;s investment
             opportunity? We&apos;d love to hear from you.
@@ -486,7 +488,7 @@ export default function InvestorRelationsPage() {
               className="block bg-white text-orange-600 hover:bg-gray-100 transition-all px-8 py-6 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               <FaEnvelope className="w-8 h-8 mx-auto mb-3" />
-              <h3 className="font-bold text-lg mb-2">Email Our Founder</h3>
+              <h3 className="text-lg mb-2 heading-small">Email Our Founder</h3>
               <p className="text-sm text-gray-600">Get in touch directly</p>
             </a>
 
@@ -496,7 +498,7 @@ export default function InvestorRelationsPage() {
               className="block bg-white text-orange-600 hover:bg-gray-100 transition-all px-8 py-6 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               <FaDownload className="w-8 h-8 mx-auto mb-3" />
-              <h3 className="font-bold text-lg mb-2">Request Pitch Deck</h3>
+              <h3 className="text-lg mb-2 heading-small">Request Pitch Deck</h3>
               <p className="text-sm text-gray-600">View detailed opportunity</p>
             </a>
 
@@ -506,7 +508,7 @@ export default function InvestorRelationsPage() {
               className="block bg-white text-orange-600 hover:bg-gray-100 transition-all px-8 py-6 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               <FaBell className="w-8 h-8 mx-auto mb-3" />
-              <h3 className="font-bold text-lg mb-2">Stay Updated</h3>
+              <h3 className="text-lg mb-2 heading-small">Stay Updated</h3>
               <p className="text-sm text-gray-600">Receive investor updates</p>
             </a>
           </div>

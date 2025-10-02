@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-cream">
       <Navigation />
 
       {/* Hero Section */}
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
 
             {/* Quick & Friendly Summary */}
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h2 className="text-gray-900 mb-8 text-center heading-secondary">
                 Quick & Friendly Summary
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
                   <div className="flex items-start space-x-4">
                     <div className="text-2xl">🔐</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">
+                      <h3 className="text-gray-900 mb-2 heading-small">
                         Your Info, Your Choice
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
                   <div className="flex items-start space-x-4">
                     <div className="text-2xl">👀</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">
+                      <h3 className="text-gray-900 mb-2 heading-small">
                         What Others See
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
@@ -95,7 +95,7 @@ export default function PrivacyPage() {
                   <div className="flex items-start space-x-4">
                     <div className="text-2xl">🧒</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">
+                      <h3 className="text-gray-900 mb-2 heading-small">
                         Kids&apos; Privacy
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
@@ -112,7 +112,7 @@ export default function PrivacyPage() {
                   <div className="flex items-start space-x-4">
                     <div className="text-2xl">💌</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">
+                      <h3 className="text-gray-900 mb-2 heading-small">
                         How We Use Data
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed mb-2">
@@ -135,7 +135,9 @@ export default function PrivacyPage() {
                   <div className="flex items-start space-x-4">
                     <div className="text-2xl">🛡️</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">Security</h3>
+                      <h3 className="text-gray-900 mb-2 heading-small">
+                        Security
+                      </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         We do our best to keep your data safe with modern
                         protections.
@@ -149,7 +151,7 @@ export default function PrivacyPage() {
                   <div className="flex items-start space-x-4">
                     <div className="text-2xl">🌍</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">
+                      <h3 className="text-gray-900 mb-2 heading-small">
                         Where Data Lives
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
@@ -166,7 +168,7 @@ export default function PrivacyPage() {
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                   <div className="flex items-center justify-center space-x-3 mb-3">
                     <div className="text-2xl">📧</div>
-                    <h3 className="font-bold text-gray-900">Questions?</h3>
+                    <h3 className="text-gray-900 heading-small">Questions?</h3>
                   </div>
                   <p className="text-gray-700 text-sm">
                     Email us at{" "}
@@ -192,13 +194,13 @@ export default function PrivacyPage() {
 
             {/* Full Privacy Policy Section */}
             <section id="full-privacy-policy" className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h2 className="text-gray-900 mb-8 text-center heading-secondary">
                 Full Privacy Policy
               </h2>
 
               {/* Privacy Policy Header */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-gray-900 mb-2 heading-quaternary">
                   WeWandr Privacy Policy
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -220,7 +222,7 @@ export default function PrivacyPage() {
 
               {/* Section 1: Information We Collect */}
               <section className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-gray-900 mb-4 heading-tertiary">
                   1. Information We Collect
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
@@ -277,7 +279,7 @@ export default function PrivacyPage() {
 
               {/* Section 2: How We Use Your Information */}
               <section className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-gray-900 mb-4 heading-tertiary">
                   2. How We Use Your Information
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
@@ -299,7 +301,7 @@ export default function PrivacyPage() {
 
               {/* Section 3: Sharing of Information */}
               <section className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-gray-900 mb-4 heading-tertiary">
                   3. Sharing of Information
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
@@ -338,7 +340,7 @@ export default function PrivacyPage() {
 
               {/* Section 4: Children's Privacy */}
               <section className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-gray-900 mb-4 heading-tertiary">
                   4. Children&apos;s Privacy
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -352,7 +354,7 @@ export default function PrivacyPage() {
 
               {/* Section 5: Data Security */}
               <section className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-gray-900 mb-4 heading-tertiary">
                   5. Data Security
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -364,7 +366,7 @@ export default function PrivacyPage() {
 
               {/* Section 6: Your Rights */}
               <section className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-gray-900 mb-4 heading-tertiary">
                   6. Your Rights
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
@@ -390,7 +392,7 @@ export default function PrivacyPage() {
 
               {/* Section 7: International Transfers */}
               <section className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-gray-900 mb-4 heading-tertiary">
                   7. International Transfers
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -402,7 +404,7 @@ export default function PrivacyPage() {
 
               {/* Section 8: Changes to this Policy */}
               <section className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-gray-900 mb-4 heading-tertiary">
                   8. Changes to this Policy
                 </h3>
                 <p className="text-gray-700 leading-relaxed">

@@ -27,7 +27,7 @@ export default function ConnectCommunityModal({
             </h2>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 transition-colors duration-200 p-2"
+              className="text-gray-400 hover:text-gray-600 transition-colors duration-200 p-2 roboto-medium"
             >
               <svg
                 className="w-6 h-6"

@@ -30,11 +30,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Left Column - Logo and Tagline */}
           <div className="md:col-span-1 animate-fade-left">
-            <h3 className="text-3xl font-bold text-orange-500 mb-4 knewave-regular">
+            <h3 className="text-3xl font-bold text-orange-500 mb-4 dm-serif-display-regular">
               WeWandr
             </h3>
             <div className="space-y-1 text-orange-200">
-              <p className="text-sm font-medium">
+              <p className="text-sm font-medium tagline-primary">
                 Real Trips. Real Tips. Parent-Powered.
               </p>
             </div>
@@ -42,7 +42,9 @@ export default function Footer() {
 
           {/* Follow Us Section */}
           <div className="animate-fade-up animate-stagger-1">
-            <h4 className="text-[#ffe44b] font-bold mb-4">Follow Us</h4>
+            <h4 className="text-[#ffe44b] font-bold mb-4 heading-small">
+              Follow Us
+            </h4>
             <div className="flex space-x-4">
               <a
                 href="#"
@@ -63,7 +65,9 @@ export default function Footer() {
 
           {/* Legal Section */}
           <div className="animate-fade-up animate-stagger-2">
-            <h4 className="text-[#ffe44b] font-bold mb-4">Legal</h4>
+            <h4 className="text-[#ffe44b] font-bold mb-4 heading-small">
+              Legal
+            </h4>
             <div className="space-y-2">
               <a
                 href="/terms"
@@ -82,7 +86,9 @@ export default function Footer() {
 
           {/* Support Section */}
           <div className="animate-fade-up animate-stagger-3">
-            <h4 className="text-[#ffe44b] font-bold mb-4">Support</h4>
+            <h4 className="text-[#ffe44b] font-bold mb-4 heading-small">
+              Support
+            </h4>
             <div className="space-y-2">
               <a
                 href="#"
@@ -91,7 +97,7 @@ export default function Footer() {
                 Contact
               </a>
               <a
-                href="#"
+                href="/investor-relations"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Investor Relations

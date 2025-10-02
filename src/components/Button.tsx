@@ -30,7 +30,7 @@ export default function Button({
         hover:bg-orange-600 focus:bg-orange-600
         focus:outline-none 
         disabled:opacity-50 disabled:cursor-not-allowed
-        gpu-accelerated
+        gpu-accelerated roboto-medium
       `}
       aria-live="polite"
     >
