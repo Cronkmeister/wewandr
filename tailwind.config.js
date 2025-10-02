@@ -20,15 +20,22 @@ module.exports = {
           800: "#943610",
           900: "#782e11",
         },
+        cream: "#fbf9ef",
+        periwinkle: "#CEDAFA",
+        blue: "#5E85EE",
+        darkblue: "#0604453",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-pt-serif)", "system-ui", "serif"],
         "instrument-sans": [
           "var(--font-instrument-sans)",
           "system-ui",
           "sans-serif",
         ],
         knewave: ["var(--font-knewave)", "system-ui"],
+        "dm-serif-display": ["var(--font-dm-serif-display)", "serif"],
+        "pt-serif": ["var(--font-pt-serif)", "serif"],
+        roboto: ["var(--font-roboto)", "sans-serif"],
       },
       animation: {
         "fade-up": "fadeUp 0.6s ease-out forwards",

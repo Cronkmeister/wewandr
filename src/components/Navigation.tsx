@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Button from "./Button";
 
 export default function Navigation() {
@@ -32,16 +33,19 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-orange-500 knewave-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer">
+            <Link
+              className="text-2xl font-bold text-orange-500 dm-serif-display-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer"
+              href="/"
+            >
               WeWandr
-            </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#features"
-              className={`transition-all duration-300 font-medium link-hover ${
+              className={`transition-all duration-300 font-medium link-hover roboto-medium ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
@@ -51,7 +55,7 @@ export default function Navigation() {
             </a>
             <a
               href="#how-it-works"
-              className={`transition-all duration-300 font-medium link-hover ${
+              className={`transition-all duration-300 font-medium link-hover roboto-medium ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
@@ -62,7 +66,7 @@ export default function Navigation() {
 
             <a
               href="#beta"
-              className={`transition-all duration-300 font-medium link-hover ${
+              className={`transition-all duration-300 font-medium link-hover roboto-medium ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
@@ -88,7 +92,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              className={`transition-all duration-300 hover:scale-110 ${
+              className={`transition-all duration-300 hover:scale-110 roboto-medium ${
                 isPastHero
                   ? "text-orange-500 hover:text-orange-600"
                   : "text-white hover:text-orange-300"

@@ -207,16 +207,16 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           {/* Logo */}
-          <h1 className="knewave-regular text-6xl md:text-8xl text-orange-500 mb-6 drop-shadow-lg animate-fade-scale">
+          <h1 className="dm-serif-display-regular text-6xl md:text-8xl text-orange-500 mb-6 drop-shadow-lg animate-fade-scale">
             WeWandr
           </h1>
 
           {/* Tagline */}
           <div className="mb-8 animate-fade-up animate-stagger-1">
-            <p className="text-1xl md:text-2xl font-semibold text-orange-300 mb-2 drop-shadow-lg tracking-wide">
+            <p className="text-periwinkle mb-2 drop-shadow-lg tagline-primary">
               Real Trips. Real Tips. Parent-Powered.
             </p>
-            <p className="text-sm md:text-base italic font-semibold text-orange-300  tracking-wide">
+            <p className="text-periwinkle tagline-secondary">
               Where families help each other travel better, and earn together.
             </p>
           </div>
@@ -242,7 +242,7 @@ export default function Home() {
                   {...registerHero("email")}
                   placeholder="Enter your email"
                   error={heroErrors.email?.message}
-                  className="w-full bg-white/90 backdrop-blur-sm border-0 shadow-lg"
+                  className="w-full bg-white/90 backdrop-blur-sm border-0 shadow-lg roboto-medium"
                 />
               </div>
 
@@ -264,7 +264,7 @@ export default function Home() {
                 type="submit"
                 loading={heroSubmitting}
                 disabled={heroSubmitting}
-                className="bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 focus:ring-orange-500 px-8 py-3 whitespace-nowrap shadow-lg"
+                className="text-white bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 focus:ring-orange-500 px-8 py-3 whitespace-nowrap shadow-lg"
               >
                 {heroSubmitting ? "Joining..." : "Join Waitlist"}
               </Button>
@@ -293,14 +293,14 @@ export default function Home() {
       <div
         ref={featuresRef.ref}
         id="features"
-        className={`py-20 bg-gray-50 section-animate ${
+        className={`py-20 bg-cream section-animate ${
           featuresRef.isIntersecting ? "animate-in" : ""
         }`}
       >
         <div className="max-w-6xl mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-up">
+            <h2 className="text-gray-900 mb-4 animate-fade-up heading-primary">
               Welcome to WeWandr
             </h2>
           </div>
@@ -312,7 +312,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaUsers className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
+              <h3 className="text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300 heading-tertiary">
                 Parent-Powered Platform
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -326,7 +326,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaMapMarkedAlt className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
+              <h3 className="text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300 heading-tertiary">
                 Real Family Experiences
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -340,7 +340,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaStar className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
+              <h3 className="text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300 heading-tertiary">
                 Parent-Tested Guides
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -355,7 +355,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaDollarSign className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
+              <h3 className="text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300 heading-tertiary">
                 Earn from Your Knowledge
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -368,7 +368,7 @@ export default function Home() {
 
           {/* Bottom Heading */}
           <div className="text-center mt-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 animate-fade-up animate-stagger-6">
+            <h3 className="text-blue  animate-fade-up animate-stagger-6 heading-secondary">
               Because travel is better, when planned together.
             </h3>
           </div>
@@ -386,7 +386,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-up">
+            <h2 className="text-gray-900 mb-4 animate-fade-up heading-primary">
               How It Works
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up animate-stagger-1">
@@ -404,7 +404,7 @@ export default function Home() {
                   1
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+              <h3 className="text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300 heading-quaternary">
                 Plan & Learn
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -414,7 +414,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsPlanLearnModalOpen(true)}
-                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300"
+                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300 roboto-medium"
               >
                 Learn more →
               </button>
@@ -427,7 +427,7 @@ export default function Home() {
                   2
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+              <h3 className="text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300 heading-quaternary">
                 Share & Earn
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -436,7 +436,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsShareEarnModalOpen(true)}
-                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300"
+                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300 roboto-medium"
               >
                 Learn more →
               </button>
@@ -449,7 +449,7 @@ export default function Home() {
                   3
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+              <h3 className="text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300 heading-quaternary">
                 Connect with Community
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -459,7 +459,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsConnectCommunityModalOpen(true)}
-                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300"
+                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300 roboto-medium"
               >
                 Learn more →
               </button>
@@ -478,7 +478,7 @@ export default function Home() {
       >
         {/* Background Image with Parallax */}
         <div
-          className="fixed top-[-650px] md:top-[-450px] w-full h-[60vh]"
+          className="fixed top-[-650px] md:top-[-450px] w-full h-[70vh]"
           style={{
             backgroundImage: "url('/assets/imgs/sand-dune-crop.jpg')",
             backgroundPosition: "center 90%",
@@ -505,26 +505,26 @@ export default function Home() {
               {/* Decorative Elements */}
               <div className="mt-16 flex justify-center space-x-12 animate-fade-up animate-stagger-3">
                 <div className="text-center flex flex-col items-center">
-                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#FEFFD4] mb-3">
+                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#FEFFD4] mb-3 tagline-primary">
                     Personal
                   </p>
-                  <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                  <div className="w-3 h-3 bg-white rounded-full "></div>
                 </div>
                 <div className="text-center flex flex-col items-center">
-                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#F2D4FF] mb-3">
+                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#F2D4FF] mb-3 tagline-primary">
                     Parent-powered
                   </p>
                   <div
-                    className="w-3 h-3 bg-white rounded-full animate-pulse"
+                    className="w-3 h-3 bg-white rounded-full "
                     style={{ animationDelay: "0.2s" }}
                   ></div>
                 </div>
                 <div className="text-center flex flex-col items-center">
-                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#FFEBD4] mb-3">
+                  <p className="text-sm md:text-lg uppercase font-extrabold tracking-widest text-[#FFEBD4] mb-3 tagline-primary">
                     Profitable
                   </p>
                   <div
-                    className="w-3 h-3 bg-white rounded-full animate-pulse"
+                    className="w-3 h-3 bg-white rounded-full "
                     style={{ animationDelay: "0.4s" }}
                   ></div>
                 </div>
@@ -549,8 +549,11 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           {/* Section Header */}
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-up">
-              Join the growing <span className="knewave-regular">WeWandr</span>{" "}
+            <h2 className="text-white mb-6 animate-fade-up heading-primary">
+              Join the growing{" "}
+              <span className="dm-serif-display-regular text-periwinkle">
+                WeWandr
+              </span>{" "}
               community
             </h2>
             <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-up animate-stagger-1">
@@ -569,7 +572,7 @@ export default function Home() {
                   {...registerBeta("email")}
                   placeholder="Enter your email"
                   error={betaErrors.email?.message}
-                  className="w-full bg-orange-300/30 backdrop-blur-sm border-0 shadow-lg text-white placeholder:text-white/70"
+                  className="w-full bg-orange-300/30 backdrop-blur-sm border-0 shadow-lg  text-white placeholder:text-white/70 roboto-medium"
                 />
               </div>
 
@@ -577,7 +580,7 @@ export default function Home() {
                 type="submit"
                 loading={betaSubmitting}
                 disabled={betaSubmitting}
-                className="bg-orange-600 hover:bg-orange-700 focus:bg-orange-700 focus:ring-orange-600 px-8 py-3 whitespace-nowrap shadow-lg animate-pulse-glow"
+                className="text-white bg-orange-600 hover:bg-orange-700 focus:bg-orange-700 focus:ring-orange-600 px-8 py-3 whitespace-nowrap shadow-lg "
               >
                 {betaSubmitting ? "Joining..." : "Join Waitlist"}
               </Button>

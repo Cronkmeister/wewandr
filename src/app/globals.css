@@ -6,6 +6,9 @@
   --font-inter: 'Inter', sans-serif;
   --font-instrument-sans: 'Instrument Sans', sans-serif;
   --font-knewave: 'Knewave', system-ui;
+  --font-dm-serif-display: 'DM Serif Display', serif;
+  --font-pt-serif: 'PT Serif', serif;
+  --font-roboto: 'Roboto', sans-serif;
   
   /* Color palette */
   --color-primary: #2563eb;
@@ -13,6 +16,12 @@
   --color-success: #059669;
   --color-error: #dc2626;
   --color-warning: #d97706;
+  --color-cream: #fbf9ef;
+
+  --color-periwinkle: #CEDAFA;
+  --color-blue: #5E85EE;
+  --color-darkblue: #0604453;
+
   
   /* Spacing */
   --section-padding: 4rem;
@@ -338,11 +347,178 @@
     animation: shimmer 1.5s infinite;
   }
   
-  /* Knewave font for logo */
-  .knewave-regular {
-    font-family: "Knewave", system-ui;
+  /* DM Serif Display font for logo */
+  .dm-serif-display-regular {
+    font-family: "DM Serif Display", serif;
     font-weight: 400;
     font-style: normal;
+  }
+
+  .dm-serif-display-regular-italic {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* PT Serif font classes */
+  .pt-serif-regular {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .pt-serif-bold {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .pt-serif-regular-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .pt-serif-bold-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  /* Roboto font classes for taglines and subheadings */
+  .roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  /* Global typography classes for consistent styling */
+  .tagline-primary {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    letter-spacing: 0.025em;
+  }
+
+  .tagline-secondary {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    letter-spacing: 0.025em;
+  }
+
+  .heading-primary {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .heading-secondary {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .heading-tertiary {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .heading-quaternary {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .heading-small {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  /* Responsive typography adjustments */
+  @media (min-width: 768px) {
+    .tagline-primary {
+      font-size: 1.5rem;
+    }
+    
+    .tagline-secondary {
+      font-size: 1rem;
+    }
+    
+    .heading-primary {
+      font-size: 3.75rem;
+    }
+    
+    .heading-secondary {
+      font-size: 3rem;
+    }
+    
+    .heading-tertiary {
+      font-size: 1.875rem;
+    }
   }
 }
 
