@@ -193,13 +193,22 @@ export default function Home() {
           heroRef.isIntersecting ? "animate-in" : ""
         }`}
       >
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center scale-125 bg-no-repeat bg-parallax"
+        {/* Background Video with Image Fallback */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/assets/imgs/fam-holi-pic-3.jpg"
+          className="absolute inset-0 w-full h-full object-cover scale-125"
           style={{
             backgroundImage: "url('/assets/imgs/fam-holi-pic-3.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
-        />
+        >
+          <source src="/assets/video/1024(comp2).mp4" type="video/mp4" />
+        </video>
 
         {/* Dark Overlay for Text Readability */}
         <div className="absolute inset-0 bg-black/20" />
