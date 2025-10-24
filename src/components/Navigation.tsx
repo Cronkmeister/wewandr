@@ -47,7 +47,7 @@ export default function Navigation() {
               href="#features"
               className={`transition-all duration-300 font-medium link-hover roboto-medium ${
                 isPastHero
-                  ? "text-orange-500 hover:text-orange-600"
+                  ? "text-orange-300 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
               }`}
             >
@@ -57,7 +57,7 @@ export default function Navigation() {
               href="#how-it-works"
               className={`transition-all duration-300 font-medium link-hover roboto-medium ${
                 isPastHero
-                  ? "text-orange-500 hover:text-orange-600"
+                  ? "text-orange-300 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
               }`}
             >
@@ -68,7 +68,7 @@ export default function Navigation() {
               href="#beta"
               className={`transition-all duration-300 font-medium link-hover roboto-medium ${
                 isPastHero
-                  ? "text-orange-500 hover:text-orange-600"
+                  ? "text-orange-300 hover:text-orange-600"
                   : "text-white hover:text-orange-300"
               }`}
             >
@@ -81,7 +81,7 @@ export default function Navigation() {
             <Button
               className={`px-6 py-2 transition-all duration-300 ${
                 isPastHero
-                  ? "bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/25"
+                  ? "bg-orange-300 hover:bg-orange-500 text-white shadow-lg shadow-orange-300/25"
                   : "bg-white/20 hover:bg-white/30 text-white  backdrop-blur-sm"
               }`}
             >

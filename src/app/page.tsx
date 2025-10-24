@@ -273,7 +273,7 @@ export default function Home() {
                 type="submit"
                 loading={heroSubmitting}
                 disabled={heroSubmitting}
-                className="text-white bg-orange-500 hover:bg-orange-600 focus:bg-orange-600 focus:ring-orange-500 px-8 py-3 whitespace-nowrap shadow-lg"
+                className="text-white bg-blue hover:bg-[#8fa7eb] px-8 py-3 whitespace-nowrap shadow-lg"
               >
                 {heroSubmitting ? "Joining..." : "Join Waitlist"}
               </Button>
@@ -321,7 +321,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaUsers className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300 heading-tertiary">
+              <h3 className="text-gray-900 mb-3 group-hover:text-[#8fa7eb] transition-colors duration-300 heading-tertiary">
                 Parent-Powered Platform
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -335,7 +335,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaMapMarkedAlt className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300 heading-tertiary">
+              <h3 className="text-gray-900 mb-3 group-hover:text-[#8fa7eb] transition-colors duration-300 heading-tertiary">
                 Real Family Experiences
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -349,7 +349,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaStar className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300 heading-tertiary">
+              <h3 className="text-gray-900 mb-3 group-hover:text-[#8fa7eb] transition-colors duration-300 heading-tertiary">
                 Parent-Tested Guides
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -364,7 +364,7 @@ export default function Home() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-200 transition-colors duration-300">
                 <FaDollarSign className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300 heading-tertiary">
+              <h3 className="text-gray-900 mb-3 group-hover:text-[#8fa7eb] transition-colors duration-300 heading-tertiary">
                 Earn from Your Knowledge
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -374,13 +374,27 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Bottom Heading */}
-          <div className="text-center mt-16">
-            <h3 className="text-blue  animate-fade-up animate-stagger-6 heading-secondary">
-              Because travel is better, when planned together.
-            </h3>
-          </div>
+      {/* Strip Section with Background */}
+      <div className="relative py-28 overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/assets/imgs/kids-on-beach.jpg')",
+          }}
+        />
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Content */}
+        <div className="relative z-10 text-center px-4">
+          <h3 className="text-white animate-fade-up animate-stagger-6 heading-secondary drop-shadow-lg">
+            Because travel is better, when planned together.
+          </h3>
         </div>
       </div>
 
@@ -388,14 +402,14 @@ export default function Home() {
       <div
         ref={howItWorksRef.ref}
         id="how-it-works"
-        className={`py-20 bg-white section-animate ${
+        className={`py-28 bg-white section-animate ${
           howItWorksRef.isIntersecting ? "animate-in" : ""
         }`}
       >
         <div className="max-w-6xl mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-gray-900 mb-4 animate-fade-up heading-primary">
+            <h2 className="text-blue mb-4 animate-fade-up heading-primary">
               How It Works
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up animate-stagger-1">
@@ -408,12 +422,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Step 1: Explore & Discover */}
             <div className="text-center animate-fade-up animate-stagger-1 group">
-              <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:bg-orange-600 transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-blue rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
                 <span className="text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
                   1
                 </span>
               </div>
-              <h3 className="text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300 heading-quaternary">
+              <h3 className="text-blue mb-4 group-hover:text-[#8fa7eb] transition-colors duration-300 heading-quaternary">
                 Plan & Learn
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -423,7 +437,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsPlanLearnModalOpen(true)}
-                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300 roboto-medium"
+                className="mt-4 text-blue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 roboto-medium"
               >
                 Learn more →
               </button>
@@ -431,12 +445,12 @@ export default function Home() {
 
             {/* Step 2: Download & Plan */}
             <div className="text-center animate-fade-up animate-stagger-2 group">
-              <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:bg-orange-600 transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-blue rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
                 <span className="text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
                   2
                 </span>
               </div>
-              <h3 className="text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300 heading-quaternary">
+              <h3 className="text-blue mb-4 group-hover:text-[#8fa7eb] transition-colors duration-300 heading-quaternary">
                 Share & Earn
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -445,7 +459,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsShareEarnModalOpen(true)}
-                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300 roboto-medium"
+                className="mt-4 text-blue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 roboto-medium"
               >
                 Learn more →
               </button>
@@ -453,12 +467,12 @@ export default function Home() {
 
             {/* Step 3: Create & Earn */}
             <div className="text-center animate-fade-up animate-stagger-3 group">
-              <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow group-hover:bg-orange-600 transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-blue rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
                 <span className="text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
                   3
                 </span>
               </div>
-              <h3 className="text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300 heading-quaternary">
+              <h3 className="text-blue mb-4 group-hover:text-[#8fa7eb] transition-colors duration-300 heading-quaternary">
                 Connect with Community
               </h3>
               <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -468,7 +482,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsConnectCommunityModalOpen(true)}
-                className="mt-4 text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-300 roboto-medium"
+                className="mt-4 text-blue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 roboto-medium"
               >
                 Learn more →
               </button>
@@ -487,7 +501,7 @@ export default function Home() {
       >
         {/* Background Image with Parallax */}
         <div
-          className="fixed top-[-650px] md:top-[-450px] w-full h-[70vh]"
+          className="fixed top-[-550px] md:top-[-350px] w-full h-[100vh]"
           style={{
             backgroundImage: "url('/assets/imgs/sand-dune-crop.jpg')",
             backgroundPosition: "center 90%",
@@ -506,9 +520,9 @@ export default function Home() {
           <div className="text-center">
             <div className="max-w-4xl mx-auto space-y-8">
               <p className="text-base md:text-lg tracking-wider text-white leading-relaxed animate-fade-up animate-stagger-1 font-medium">
-                We&apos;re building a go-to hub for travel planning, disrupting
-                the travel industry, and transforming how families discover,
-                plan, and share travel knowledge
+                The go-to hub for travel planning, disrupting the travel
+                industry, and transforming how families discover, plan, and
+                share travel knowledge
               </p>
 
               {/* Decorative Elements */}
