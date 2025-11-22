@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Image from "next/image";
 import { FaUsers, FaMapMarkedAlt, FaDollarSign, FaStar } from "react-icons/fa";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
@@ -237,7 +238,8 @@ export default function Home() {
           </div>
 
           <p className="text-xl md:text-xl text-white mb-2 drop-shadow-lg tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
-            Planning a family trip shouldn't feel like a full-time job.<br></br>
+            Planning a family trip shouldn&apos;t feel like a full-time job.
+            <br></br>
             Parents deserve more than scattered advice, endless research, and
             guesswork.
           </p>
@@ -325,9 +327,11 @@ export default function Home() {
               </div>
               {/* Right - Family Image */}
               <div className="flex justify-center order-2 animate-fade-up animate-stagger-2">
-                <img
+                <Image
                   src="/assets/imgs/family.png"
                   alt="Family traveling together"
+                  width={400}
+                  height={400}
                   className="w-full max-w-md object-contain h-[400px]"
                 />
               </div>
@@ -337,9 +341,11 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left - App Doodle Image */}
               <div className="flex justify-center order-4 md:order-1 animate-fade-up animate-stagger-3">
-                <img
+                <Image
                   src="/assets/imgs/app-doodle.png"
                   alt="WeWandr app interface"
+                  width={400}
+                  height={400}
                   className="w-full max-w-xs object-contain h-[400px]"
                 />
               </div>
@@ -612,9 +618,11 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-start">
               {/* Left - Founder Image */}
               <div className="flex justify-center md:justify-start order-2 md:order-1 animate-fade-up animate-stagger-2">
-                <img
+                <Image
                   src="/assets/imgs/founder-min.jpeg"
                   alt="WeWandr founder"
+                  width={500}
+                  height={600}
                   className="w-full max-w-md object-contain rounded-lg"
                 />
               </div>
