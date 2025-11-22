@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Button from "./Button";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,19 +73,6 @@ export default function Navigation() {
             >
               Join Waitlist
             </a>
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button
-              className={`px-6 py-2 transition-all duration-300 ${
-                isPastHero
-                  ? "bg-orange-300 hover:bg-orange-500 text-white shadow-lg shadow-orange-300/25"
-                  : "bg-white/20 hover:bg-white/30 text-white  backdrop-blur-sm"
-              }`}
-            >
-              Get Started
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}

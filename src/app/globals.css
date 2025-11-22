@@ -21,7 +21,7 @@
   --color-periwinkle: #CEDAFA;
   --color-blue: #5E85EE;
   --color-vivid-blue: #5E85EE
-  --color-darkblue: #0604453;
+  --color-darkblue: #060453;
 
   
   /* Spacing */
@@ -437,7 +437,7 @@
 
   /* Global typography classes for consistent styling */
   .tagline-primary {
-    font-family: "Roboto", sans-serif;
+    font-family: "PT Serif", serif;
     font-weight: 500;
     font-style: normal;
     font-size: 1.25rem;
@@ -446,7 +446,7 @@
   }
 
   .tagline-secondary {
-    font-family: "Roboto", sans-serif;
+    font-family: "PT Serif", serif;
     font-weight: 400;
     font-style: italic;
     font-size: 0.875rem;
@@ -455,7 +455,7 @@
   }
 
   .heading-primary {
-    font-family: "Roboto", sans-serif;
+    font-family: "PT Serif", serif;
     font-weight: 700;
     font-style: normal;
     font-size: 3rem;
@@ -464,7 +464,7 @@
   }
 
   .heading-secondary {
-    font-family: "Roboto", sans-serif;
+    font-family: "PT Serif", serif;
     font-weight: 700;
     font-style: normal;
     font-size: 2.25rem;
@@ -473,7 +473,7 @@
   }
 
   .heading-tertiary {
-    font-family: "Roboto", sans-serif;
+    font-family: "PT Serif", serif;
     font-weight: 700;
     font-style: normal;
     font-size: 1.5rem;
@@ -482,7 +482,7 @@
   }
 
   .heading-quaternary {
-    font-family: "Roboto", sans-serif;
+    font-family: "PT Serif", serif;
     font-weight: 700;
     font-style: normal;
     font-size: 1.25rem;
@@ -491,12 +491,22 @@
   }
 
   .heading-small {
-    font-family: "Roboto", sans-serif;
+    font-family: "PT Serif", serif;
     font-weight: 700;
     font-style: normal;
     font-size: 1rem;
     line-height: 1.3;
     letter-spacing: -0.01em;
+  }
+
+  /* Dark blue text color for Welcome section */
+  .text-darkblue {
+    color: #060453 !important;
+  }
+
+  /* Allow periwinkle hover to override darkblue for headings only */
+  .group:hover .heading-tertiary.text-darkblue {
+    color: #8fa7eb !important;
   }
 
   /* Responsive typography adjustments */
