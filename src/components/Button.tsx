@@ -30,7 +30,7 @@ export default function Button({
         
         focus:outline-none 
         disabled:opacity-50 disabled:cursor-not-allowed
-        gpu-accelerated roboto-medium
+        gpu-accelerated pt-serif-regular
       `}
       aria-live="polite"
     >
