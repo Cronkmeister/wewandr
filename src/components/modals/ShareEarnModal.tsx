@@ -54,19 +54,19 @@ export default function ShareEarnModal({
       icon: FaCreditCard,
       title: "Flexible Payments",
       description:
-        "Whether you prefer scheduled payouts or on-demand deposits, you&apos;re in control.",
+        "Whether you prefer scheduled payouts or on-demand deposits, you're in control.",
     },
     {
       icon: FaHandsHelping,
       title: "Help Other Families",
       description:
-        "Share what you&apos;ve learned so other parents can plan with clarity, confidence, and enjoy smoother, more stress-free trips.",
+        "Share what you've learned so other parents can plan with clarity, confidence, and enjoy smoother, more stress-free trips.",
     },
     {
       icon: FaStar,
       title: "Become a Trusted Source",
       description:
-        "As parents download and review your guides, you&apos;ll become a go-to resource for family travel insights.",
+        "As parents download and review your guides, you'll become a go-to resource for family travel insights.",
     },
   ];
 

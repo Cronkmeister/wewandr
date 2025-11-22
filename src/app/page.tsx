@@ -304,13 +304,12 @@ export default function Home() {
       </div>
 
       {/* New Section - Community Message */}
-      <div
-        ref={communityMessageRef.ref}
-        className={`py-20 bg-cream section-animate ${
-          communityMessageRef.isIntersecting ? "animate-in" : ""
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4">
+      <div ref={communityMessageRef.ref} className="py-20 bg-cream">
+        <div
+          className={`max-w-6xl mx-auto px-4 section-animate ${
+            communityMessageRef.isIntersecting ? "animate-in" : ""
+          }`}
+        >
           <div className="space-y-12">
             {/* Row 1: Text | Image */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -369,14 +368,12 @@ export default function Home() {
       {/* <ThoughtCloud /> */}
 
       {/* What Makes WeWandr Special Section */}
-      <div
-        ref={featuresRef.ref}
-        id="features"
-        className={`py-20 bg-cream section-animate ${
-          featuresRef.isIntersecting ? "animate-in" : ""
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4">
+      <div ref={featuresRef.ref} id="features" className="py-20 bg-cream">
+        <div
+          className={`max-w-6xl mx-auto px-4 section-animate ${
+            featuresRef.isIntersecting ? "animate-in" : ""
+          }`}
+        >
           {/* Section Header */}
           {/* <div className="text-center mb-16">
             <h2 className="mb-4 animate-fade-up heading-primary text-darkblue">
@@ -468,14 +465,12 @@ export default function Home() {
       </div>
 
       {/* How WeWandr Works Section */}
-      <div
-        ref={howItWorksRef.ref}
-        id="how-it-works"
-        className={`py-28 bg-cream section-animate ${
-          howItWorksRef.isIntersecting ? "animate-in" : ""
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4">
+      <div ref={howItWorksRef.ref} id="how-it-works" className="py-28 bg-cream">
+        <div
+          className={`max-w-6xl mx-auto px-4 section-animate ${
+            howItWorksRef.isIntersecting ? "animate-in" : ""
+          }`}
+        >
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-orange-500 mb-4 animate-fade-up heading-primary">
@@ -565,13 +560,11 @@ export default function Home() {
       <div
         ref={weWandrWayRef.ref}
         id="wewandr-way"
-        className={`py-24 md:py-32 relative section-animate overflow-hidden ${
-          weWandrWayRef.isIntersecting ? "animate-in" : ""
-        }`}
+        className="py-24 md:py-32 relative overflow-hidden"
       >
         {/* Background Image with Parallax */}
         <div
-          className="fixed top-[-700px] md:top-[-650px] w-full h-[100vh]"
+          className="fixed top-[-700px] md:top-[-400px] w-full h-[100vh]"
           style={{
             backgroundImage: "url('/assets/imgs/fam-holi-pic-3.jpg')",
             backgroundPosition: "center",
@@ -587,7 +580,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
 
         {/* Content */}
-        <div className="relative z-10 max-w-8xl mx-auto px-4">
+        <div
+          className={`relative z-10 max-w-8xl mx-auto px-4 section-animate ${
+            weWandrWayRef.isIntersecting ? "animate-in" : ""
+          }`}
+        >
           <div className="text-center">
             <div className="max-w-6xl mx-auto">
               <p className="text-2xl md:text-3xl tracking-wider text-white leading-relaxed animate-fade-up animate-stagger-1 font-medium pt-serif-regular">
@@ -602,14 +599,12 @@ export default function Home() {
       </div>
 
       {/* Our Story Section */}
-      <div
-        ref={ourStoryRef.ref}
-        id="our-story"
-        className={`py-20 bg-cream section-animate ${
-          ourStoryRef.isIntersecting ? "animate-in" : ""
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4">
+      <div ref={ourStoryRef.ref} id="our-story" className="py-20 bg-cream">
+        <div
+          className={`max-w-6xl mx-auto px-4 section-animate ${
+            ourStoryRef.isIntersecting ? "animate-in" : ""
+          }`}
+        >
           <div className="space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold text-[#060453] mb-12 text-center pt-serif-bold animate-fade-up animate-stagger-1">
               Our Story
@@ -684,11 +679,13 @@ export default function Home() {
       <div
         ref={betaRef.ref}
         id="beta"
-        className={`py-20 bg-gradient-to-br from-orange-300 to-orange-500 section-animate ${
-          betaRef.isIntersecting ? "animate-in" : ""
-        }`}
+        className="py-20 bg-gradient-to-br from-orange-300 to-orange-500"
       >
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div
+          className={`max-w-4xl mx-auto px-4 text-center section-animate ${
+            betaRef.isIntersecting ? "animate-in" : ""
+          }`}
+        >
           {/* Section Header */}
           <div className="mb-12">
             <h2 className="text-white mb-6 animate-fade-up heading-primary">
