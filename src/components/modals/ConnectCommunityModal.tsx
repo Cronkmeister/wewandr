@@ -43,7 +43,7 @@ export default function ConnectCommunityModal({
       icon: FaHeart,
       title: "Our Vision",
       description:
-        "We believe in the power of parents learning from one another — in a space that's safe, supportive, and empowering. The WeWandr community is built on solidarity: parents helping parents make family travel feel possible, together.",
+        "We believe in the power of parents learning from one another in a space that's safe, supportive, and empowering. The WeWandr community is built on solidarity: parents helping parents make family travel feel possible, together.",
     },
   ];
 

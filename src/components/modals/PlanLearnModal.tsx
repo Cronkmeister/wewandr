@@ -71,7 +71,7 @@ export default function PlanLearnModal({
       icon: FaShoppingCart,
       title: "Purchasing the Essentials",
       description:
-        "Where to buy diapers, formula, snacks, and everything else you&apos;ll need day-to-day.",
+        "Where to buy diapers, formula, snacks, and everything else you'll need day-to-day.",
     },
     {
       icon: FaShieldAlt,
@@ -101,7 +101,7 @@ export default function PlanLearnModal({
       icon: FaThumbsUp,
       title: "Highlights & Lowlights",
       description:
-        "Real parent perspectives — what families loved and what they&apos;d skip next time.",
+        "Real parent perspectives, what families loved and what they'd skip next time.",
     },
   ];
 
