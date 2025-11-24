@@ -230,7 +230,7 @@ export default function Home() {
           {/* Tagline */}
           <div className="mb-8 animate-fade-up animate-stagger-1">
             <p className="text-periwinkle mb-2 drop-shadow-lg tagline-primary">
-              Where parents travel better - and earn together.
+              Where parents travel better and earn together.
             </p>
             <p className="text-periwinkle tagline-secondary">
               A parent-powered platform redefining family travel.
@@ -321,7 +321,7 @@ export default function Home() {
                 </p>
                 <p className="text-orange-500 text-xl md:text-2xl pt-serif-regular leading-relaxed">
                   Your next family trip starts with someone who&apos;s already
-                  done it — and wrote it down for you.
+                  done it and wrote it down for you.
                 </p>
               </div>
               {/* Right - Family Image */}
@@ -351,7 +351,7 @@ export default function Home() {
               {/* Right - Text */}
               <div className="space-y-6 text-center md:text-left order-3 md:order-2 animate-fade-up animate-stagger-4">
                 <p className="text-orange-500 text-xl md:text-2xl pt-serif-regular leading-relaxed">
-                  When your trip helps another family, we help pay it forward —
+                  When your trip helps another family we help pay it forward,
                   literally.
                 </p>
                 <p className="text-orange-500 text-2xl md:text-3xl font-bold pt-serif-bold leading-relaxed">
