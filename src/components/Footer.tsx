@@ -1,6 +1,6 @@
 "use client";
 
-import { FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { useIntersectionObserver } from "@/lib/useIntersectionObserver";
 
 export default function Footer() {
@@ -22,8 +22,8 @@ export default function Footer() {
       />
 
       {/* Purple Filter Overlay */}
-      {/* <div className="absolute inset-0 bg-[#9942f0] opacity-90" /> */}
-      <div className="absolute inset-0 bg-[#060453] opacity-90" />
+      {/* opacity-90 --> removed for now */}
+      <div className="absolute inset-0 bg-[#060453] " />
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -36,7 +36,7 @@ export default function Footer() {
             </h3>
             <div className="space-y-1 text-orange-200">
               <p className="text-sm font-medium tagline-primary">
-                Real Trips. Real Tips. Parent-Powered.
+                Where parents travel better, and earn together
               </p>
             </div>
           </div>
@@ -48,14 +48,25 @@ export default function Footer() {
             </h4>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.instagram.com/wewandr__"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 border border-[#ffe44b] rounded-full flex items-center justify-center text-[#ffe44b] hover:text-orange-500 hover:border-orange-500 transition-all duration-300 hover:scale-110 icon-animate"
                 aria-label="Follow us on Instagram"
               >
                 <FaInstagram className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/wewandr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 border border-[#ffe44b] rounded-full flex items-center justify-center text-[#ffe44b] hover:text-orange-500 hover:border-orange-500 transition-all duration-300 hover:scale-110 icon-animate"
+                aria-label="Follow us on LinkedIn"
+              >
+                <FaLinkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:hello@wewandr.co"
                 className="w-8 h-8 border border-[#ffe44b] rounded-full flex items-center justify-center text-[#ffe44b] hover:text-orange-500 hover:border-orange-500 transition-all duration-300 hover:scale-110 icon-animate"
                 aria-label="Contact us via email"
               >
@@ -92,7 +103,7 @@ export default function Footer() {
             </h4>
             <div className="space-y-2">
               <a
-                href="#"
+                href="/contact"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Contact
@@ -104,16 +115,16 @@ export default function Footer() {
                 Investor Relations
               </a>
               <a
-                href="#"
+                href="mailto:team@wewandr.co"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Join Our Team
               </a>
               <a
-                href="#"
+                href="/faq"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
-                Contact
+                FAQ
               </a>
             </div>
           </div>
