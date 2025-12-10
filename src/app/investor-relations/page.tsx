@@ -47,10 +47,13 @@ export default function InvestorRelationsPage() {
               <FaDownload className="w-5 h-5" />
               Download Pitch Deck
             </Button>
-            <Button className="bg-white/20 hover:bg-white/30 text-white  backdrop-blur-sm px-6 py-2 shadow-lg ">
+            <a
+              href="mailto:investors@wewandr.co"
+              className="inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm px-6 py-2 shadow-lg rounded-full transition-all"
+            >
               <FaEnvelope className="w-5 h-5" />
               Connect with Founder
-            </Button>
+            </a>
           </div>
         </div>
       </div>
@@ -484,7 +487,7 @@ export default function InvestorRelationsPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {/* Email Button */}
             <a
-              href="mailto:investors@wewandr.com"
+              href="mailto:investors@wewandr.co"
               className="block bg-white text-orange-600 hover:bg-gray-100 transition-all px-8 py-6 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               <FaEnvelope className="w-8 h-8 mx-auto mb-3" />

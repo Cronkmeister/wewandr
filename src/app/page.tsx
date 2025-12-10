@@ -12,6 +12,7 @@ import Notice from "@/components/Notice";
 import Navigation from "@/components/Navigation";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
 // import ThoughtCloud from "@/components/ThoughtCloud";
 import PlanLearnModal from "@/components/modals/PlanLearnModal";
 import ShareEarnModal from "@/components/modals/ShareEarnModal";
@@ -740,6 +741,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* Footer */}
       <Footer />
