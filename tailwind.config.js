@@ -23,7 +23,8 @@ module.exports = {
         cream: "#fbf9ef",
         periwinkle: "#CEDAFA",
         blue: "#5E85EE",
-        darkblue: "#0604453",
+        darkblue: "#0b078d",
+        // darkblue: "#0604453",
       },
       fontFamily: {
         sans: ["var(--font-pt-serif)", "system-ui", "serif"],

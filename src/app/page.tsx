@@ -37,22 +37,11 @@ export default function Home() {
     type: "success" | "duplicate" | "error";
     text: string;
   } | null>(null);
-  const [scrollY, setScrollY] = useState(0);
   const [isPlanLearnModalOpen, setIsPlanLearnModalOpen] = useState(false);
   const [isShareEarnModalOpen, setIsShareEarnModalOpen] = useState(false);
   const [isConnectCommunityModalOpen, setIsConnectCommunityModalOpen] =
     useState(false);
   const mountTime = useRef(Date.now());
-
-  // Scroll event listener for parallax effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Intersection observers for animations
   const heroRef = useIntersectionObserver<HTMLDivElement>({ threshold: 0.3 });
@@ -194,58 +183,59 @@ export default function Home() {
       <Navigation />
       {/* <ScrollProgress /> */}
 
-      {/* Hero Section with Beach Background */}
+      {/* Hero Section */}
       <div
         ref={heroRef.ref}
-        className={`relative min-h-screen flex items-center justify-center overflow-hidden ${
+        className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-cream ${
           heroRef.isIntersecting ? "animate-in" : ""
         }`}
       >
-        {/* Background Video with Image Fallback */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/assets/imgs/fam-holi-pic-3.jpg"
-          className="absolute inset-0 w-full h-full object-cover scale-125"
-          style={{
-            backgroundImage: "url('/assets/imgs/fam-holi-pic-3.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <source src="/assets/video/1024(comp2).mp4" type="video/mp4" />
-        </video>
-
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-black/50" />
-
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           {/* Logo */}
-          <h1 className="dm-serif-display-regular text-6xl md:text-8xl text-orange-500 mb-6 drop-shadow-lg animate-fade-scale">
-            WeWandr
+          <h1 className="dm-serif-display-regular text-4xl md:text-6xl text-orange-500 mb-6 animate-fade-scale">
+            Home for family travel
           </h1>
 
-          {/* Tagline */}
-          <div className="mb-8 animate-fade-up animate-stagger-1">
-            <p className="text-periwinkle mb-2 drop-shadow-lg tagline-primary">
-              Where parents travel better and earn together.
-            </p>
-            <p className="text-periwinkle tagline-secondary">
-              A parent-powered platform redefining family travel.
-            </p>
+          <p className="text-xl md:text-xl text-darkblue mb-2 tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
+            Real family trips. Trusted travel guides. Income for parents.
+          </p>
+
+          {/* Icons with arrows */}
+          <div className="flex items-center justify-center gap-4 md:gap-6 my-6 animate-fade-up animate-stagger-2">
+            <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20">
+              <Image
+                src="/assets/icons/travel.png"
+                alt="Travel"
+                width={80}
+                height={80}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <span className="text-2xl md:text-3xl text-orange-500">→</span>
+            <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20">
+              <Image
+                src="/assets/icons/travel-guide.png"
+                alt="Travel Guide"
+                width={80}
+                height={80}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <span className="text-2xl md:text-3xl text-orange-500">→</span>
+            <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20">
+              <Image
+                src="/assets/icons/profit.png"
+                alt="Profit"
+                width={80}
+                height={80}
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
 
-          <p className="text-xl md:text-xl text-white mb-2 drop-shadow-lg tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
-            Planning a family trip shouldn&apos;t feel like a full-time job.
-            <br></br>
-            Parents deserve more than scattered advice, endless research, and
-            guesswork.
-          </p>
           {/* Call to Action */}
-          <p className="text-xl md:text-xl text-white mb-12 drop-shadow-lg tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
+          <p className="text-md md:text-base text-darkblue mt-8 mb-6 tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
             Join our growing waitlist for early access
           </p>
 
@@ -260,7 +250,7 @@ export default function Home() {
                   {...registerHero("email")}
                   placeholder="Enter your email"
                   error={heroErrors.email?.message}
-                  className="w-full bg-white/90 backdrop-blur-sm border-0 shadow-lg pt-serif-regular"
+                  className="w-full bg-cream border-2 border-orange-500 shadow-md pt-serif-regular"
                 />
               </div>
 
@@ -282,7 +272,7 @@ export default function Home() {
                 type="submit"
                 loading={heroSubmitting}
                 disabled={heroSubmitting}
-                className="text-white bg-blue hover:bg-[#8fa7eb] px-8 py-3 whitespace-nowrap shadow-lg"
+                className="bg-cream border-2 border-darkblue text-darkblue hover:bg-darkblue hover:text-white px-8 py-3 whitespace-nowrap shadow-md transition-colors"
               >
                 {heroSubmitting ? "Joining..." : "Join Waitlist"}
               </Button>
@@ -487,7 +477,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Step 1: Explore & Discover */}
             <div className="text-center animate-fade-up animate-stagger-1 group">
-              <div className="w-20 h-20 bg-[#060453] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-darkblue rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
                 <span className="text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
                   1
                 </span>
@@ -503,7 +493,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsPlanLearnModalOpen(true)}
-                className="mt-4 text-[#060453] hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
+                className="mt-4 text-darkblue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
               >
                 Learn more →
               </button>
@@ -511,7 +501,7 @@ export default function Home() {
 
             {/* Step 2: Download & Plan */}
             <div className="text-center animate-fade-up animate-stagger-2 group">
-              <div className="w-20 h-20 bg-[#060453] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-darkblue rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
                 <span className="text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
                   2
                 </span>
@@ -525,7 +515,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsShareEarnModalOpen(true)}
-                className="mt-4 text-[#060453] hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
+                className="mt-4 text-darkblue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
               >
                 Learn more →
               </button>
@@ -533,7 +523,7 @@ export default function Home() {
 
             {/* Step 3: Create & Earn */}
             <div className="text-center animate-fade-up animate-stagger-3 group">
-              <div className="w-20 h-20 bg-[#060453] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
+              <div className="w-20 h-20 bg-darkblue rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
                 <span className="text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
                   3
                 </span>
@@ -548,7 +538,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => setIsConnectCommunityModalOpen(true)}
-                className="mt-4 text-[#060453] hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
+                className="mt-4 text-darkblue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
               >
                 Learn more →
               </button>
@@ -561,25 +551,8 @@ export default function Home() {
       <div
         ref={weWandrWayRef.ref}
         id="wewandr-way"
-        className="py-24 md:py-32 relative overflow-hidden"
+        className="py-24 md:py-32 relative overflow-hidden bg-cream"
       >
-        {/* Background Image with Parallax */}
-        <div
-          className="fixed top-[-700px] md:top-[-400px] w-full h-[100vh]"
-          style={{
-            backgroundImage: "url('/assets/imgs/fam-holi-pic-3.jpg')",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            transform: `translateY(${scrollY * 0.1}px)`,
-            zIndex: -1,
-            scale: 1.3,
-          }}
-        />
-
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-black/40" />
-
         {/* Content */}
         <div
           className={`relative z-10 max-w-8xl mx-auto px-4 section-animate ${
@@ -588,7 +561,7 @@ export default function Home() {
         >
           <div className="text-center">
             <div className="max-w-6xl mx-auto">
-              <p className="text-2xl md:text-3xl tracking-wider text-white leading-relaxed animate-fade-up animate-stagger-1 font-medium pt-serif-regular">
+              <p className="text-2xl md:text-3xl tracking-wider text-darkblue leading-relaxed animate-fade-up animate-stagger-1 font-medium pt-serif-regular">
                 Making travel more{" "}
                 <em className="text-3xl md:text-4xl">authentic</em>,{" "}
                 <em className="text-3xl  md:text-4xl">community-driven</em> and{" "}
@@ -607,7 +580,7 @@ export default function Home() {
           }`}
         >
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#060453] mb-12 text-center pt-serif-bold animate-fade-up animate-stagger-1">
+            <h2 className="text-4xl md:text-5xl font-bold text-darkblue mb-12 text-center pt-serif-bold animate-fade-up animate-stagger-1">
               Our Story
             </h2>
 
@@ -625,17 +598,17 @@ export default function Home() {
 
               {/* Right - Text Content */}
               <div className="space-y-8 text-center md:text-left order-1 md:order-2">
-                <p className="text-lg md:text-xl text-[#060453] italic leading-relaxed pt-serif-regular animate-fade-up animate-stagger-3">
+                <p className="text-lg md:text-xl text-darkblue italic leading-relaxed pt-serif-regular animate-fade-up animate-stagger-3">
                   It started with one parent searching for a better way to
                   travel with kids and turned into a platform empowering
                   families everywhere to share what they know.
                 </p>
 
-                <h3 className="text-2xl md:text-3xl font-bold text-[#060453] mt-12 mb-6 pt-serif-bold animate-fade-up animate-stagger-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-darkblue mt-12 mb-6 pt-serif-bold animate-fade-up animate-stagger-4">
                   Founder&apos;s Story
                 </h3>
 
-                <div className="space-y-6 text-[#060453] leading-relaxed animate-fade-up animate-stagger-5">
+                <div className="space-y-6 text-darkblue leading-relaxed animate-fade-up animate-stagger-5">
                   <p className="text-base md:text-lg pt-serif-regular">
                     After the birth of her third son, WeWandr&apos;s founder
                     realized that while travel with kids can feel out of reach,
@@ -666,7 +639,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <p className="text-xl md:text-2xl font-semibold text-[#060453] mt-12 italic leading-relaxed pt-serif-regular animate-fade-up animate-stagger-6 text-center md:text-left">
+                <p className="text-xl md:text-2xl font-semibold text-darkblue mt-12 italic leading-relaxed pt-serif-regular animate-fade-up animate-stagger-6 text-center md:text-left">
                   One small act of trust between parents inspired WeWandr, a
                   community proving we&apos;re never meant to do this alone.
                 </p>

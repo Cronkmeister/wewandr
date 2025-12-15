@@ -90,7 +90,7 @@ export default function ContactForm() {
 
   return !isSubmitted ? (
     <div className="bg-white rounded-2xl border border-orange-100 p-6 md:p-10">
-      <h2 className="text-2xl md:text-3xl font-semibold text-[#060453] mb-6 heading-secondary">
+      <h2 className="text-2xl md:text-3xl font-semibold text-darkblue mb-6 heading-secondary">
         Contact Form
       </h2>
 
@@ -263,7 +263,7 @@ export default function ContactForm() {
     </div>
   ) : (
     <div className="bg-white rounded-2xl border border-orange-100 p-6 md:p-10 text-center">
-      <h2 className="text-2xl md:text-3xl font-semibold text-[#060453] mb-4 heading-secondary">
+      <h2 className="text-2xl md:text-3xl font-semibold text-darkblue mb-4 heading-secondary">
         Thank you for reaching out!
       </h2>
       <p className="text-lg text-gray-800 pt-serif-regular max-w-2xl mx-auto mb-6">

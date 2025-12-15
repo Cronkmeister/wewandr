@@ -118,7 +118,7 @@ export default function PlanLearnModal({
         {/* Header */}
         <div className="sticky top-0 bg-cream border-b border-orange-200 px-8 py-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#060453] pt-serif-bold">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkblue pt-serif-bold">
               Plan & Learn
             </h2>
             <button
@@ -140,7 +140,7 @@ export default function PlanLearnModal({
               </svg>
             </button>
           </div>
-          <p className="text-lg text-[#060453] mt-4 max-w-4xl pt-serif-regular">
+          <p className="text-lg text-darkblue mt-4 max-w-4xl pt-serif-regular">
             WandrGuides are the inside scoop on real family trips — what worked,
             what didn&apos;t, and what to know before you go. Each one is a
             tried-and-tested roadmap to help parents plan their next adventure.
@@ -149,7 +149,7 @@ export default function PlanLearnModal({
 
         {/* Content */}
         <div className="p-8">
-          <h3 className="text-2xl font-bold text-[#060453] mb-6 pt-serif-bold">
+          <h3 className="text-2xl font-bold text-darkblue mb-6 pt-serif-bold">
             In each WandrGuide you&apos;ll find insight into:
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -165,7 +165,7 @@ export default function PlanLearnModal({
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <Icon className="text-orange-500 text-2xl flex-shrink-0 group-hover:text-orange-600 transition-colors duration-[800ms]" />
-                    <h3 className="text-lg font-bold text-[#060453] pt-serif-bold group-hover:text-[#8fa7eb] transition-colors duration-[800ms]">
+                    <h3 className="text-lg font-bold text-darkblue pt-serif-bold group-hover:text-[#8fa7eb] transition-colors duration-[800ms]">
                       {category.title}
                     </h3>
                   </div>
@@ -178,13 +178,13 @@ export default function PlanLearnModal({
                           : "max-h-0 opacity-0"
                       }`}
                     >
-                      <p className="text-[#060453] leading-relaxed pt-serif-regular">
+                      <p className="text-darkblue leading-relaxed pt-serif-regular">
                         {category.description}
                       </p>
                     </div>
                   ) : (
                     <div className="max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100 overflow-hidden transition-all duration-[800ms] ease-in-out mt-0 group-hover:mt-3">
-                      <p className="text-[#060453] leading-relaxed pt-serif-regular">
+                      <p className="text-darkblue leading-relaxed pt-serif-regular">
                         {category.description}
                       </p>
                     </div>

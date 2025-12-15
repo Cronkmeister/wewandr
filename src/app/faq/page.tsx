@@ -228,7 +228,7 @@ export default function FAQPage() {
           <div className="prose prose-lg max-w-none">
             {faqData.map((section, sectionIndex) => (
               <section key={sectionIndex} className="mb-12">
-                <h2 className="text-[#060453] mb-6 heading-secondary">
+                <h2 className="text-darkblue mb-6 heading-secondary">
                   {section.title}
                 </h2>
 

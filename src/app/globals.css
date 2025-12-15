@@ -20,8 +20,8 @@
 
   --color-periwinkle: #CEDAFA;
   --color-blue: #5E85EE;
-  --color-vivid-blue: #5E85EE
-  --color-darkblue: #060453;
+  --color-vivid-blue: #5E85EE;
+  --color-darkblue: #0b078d;
 
   
   /* Spacing */
@@ -269,10 +269,6 @@
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  .input-animate:focus {
-    transform: scale(1.02);
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
-  }
   
   /* Card hover effects */
   .card-hover {
@@ -501,7 +497,7 @@
 
   /* Dark blue text color for Welcome section */
   .text-darkblue {
-    color: #060453 !important;
+    color: var(--color-darkblue) !important;
   }
 
   /* Allow periwinkle hover to override darkblue for headings only */
