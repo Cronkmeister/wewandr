@@ -60,7 +60,7 @@ export default function ConnectCommunityModal({
         {/* Header */}
         <div className="sticky top-0 bg-cream border-b border-orange-200 px-8 py-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#060453] pt-serif-bold">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkblue pt-serif-bold">
               Connect with Community
             </h2>
             <button
@@ -82,7 +82,7 @@ export default function ConnectCommunityModal({
               </svg>
             </button>
           </div>
-          <p className="text-lg text-[#060453] mt-4 max-w-3xl pt-serif-regular">
+          <p className="text-lg text-darkblue mt-4 max-w-3xl pt-serif-regular">
             Every parent who&apos;s traveled with young kids knows it&apos;s not
             easy, you are not alone. Together, we&apos;re proving that family
             travel is possible (and pretty incredible).
@@ -104,7 +104,7 @@ export default function ConnectCommunityModal({
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <Icon className="text-orange-500 text-2xl flex-shrink-0 group-hover:text-orange-600 transition-colors duration-[800ms]" />
-                    <h3 className="text-xl font-bold text-[#060453] pt-serif-bold group-hover:text-[#8fa7eb] transition-colors duration-[800ms]">
+                    <h3 className="text-xl font-bold text-darkblue pt-serif-bold group-hover:text-[#8fa7eb] transition-colors duration-[800ms]">
                       {section.title}
                     </h3>
                   </div>
@@ -117,13 +117,13 @@ export default function ConnectCommunityModal({
                           : "max-h-0 opacity-0"
                       }`}
                     >
-                      <p className="text-[#060453] leading-relaxed pt-serif-regular">
+                      <p className="text-darkblue leading-relaxed pt-serif-regular">
                         {section.description}
                       </p>
                     </div>
                   ) : (
                     <div className="max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100 overflow-hidden transition-all duration-[800ms] ease-in-out mt-0 group-hover:mt-3">
-                      <p className="text-[#060453] leading-relaxed pt-serif-regular">
+                      <p className="text-darkblue leading-relaxed pt-serif-regular">
                         {section.description}
                       </p>
                     </div>

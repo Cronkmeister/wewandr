@@ -84,7 +84,7 @@ export default function FAQ() {
                   aria-expanded={isExpanded}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <h3 className="text-lg md:text-xl font-bold text-[#060453] pr-4 group-hover:text-orange-500 transition-colors duration-300 pt-serif-bold">
+                  <h3 className="text-lg md:text-xl font-bold text-darkblue pr-4 group-hover:text-orange-500 transition-colors duration-300 pt-serif-bold">
                     {item.question}
                   </h3>
                   <div
@@ -114,7 +114,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className={`px-6 pb-6 ${isExpanded ? "pt-0" : ""}`}>
-                    <p className="text-[#060453] leading-relaxed pt-serif-regular">
+                    <p className="text-darkblue leading-relaxed pt-serif-regular">
                       {item.answer}
                     </p>
                   </div>

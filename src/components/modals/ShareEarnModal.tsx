@@ -83,7 +83,7 @@ export default function ShareEarnModal({
         {/* Header */}
         <div className="sticky top-0 bg-cream border-b border-orange-200 px-8 py-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#060453] pt-serif-bold">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkblue pt-serif-bold">
               Share & Earn
             </h2>
             <button
@@ -105,7 +105,7 @@ export default function ShareEarnModal({
               </svg>
             </button>
           </div>
-          <p className="text-lg text-[#060453] mt-4 max-w-3xl pt-serif-regular">
+          <p className="text-lg text-darkblue mt-4 max-w-3xl pt-serif-regular">
             You did the planning, you took the trip, you have the insight, and
             now it&apos;s time to earn real income when you help another family
             learn from your experience.
@@ -117,13 +117,13 @@ export default function ShareEarnModal({
           <div className="space-y-6">
             {/* Getting Started */}
             <div className="bg-cream p-6 rounded-xl border-2 border-orange-300 hover:border-orange-500 transition-all duration-[800ms]">
-              <h3 className="text-xl font-bold text-[#060453] mb-4 flex items-center pt-serif-bold">
-                <span className="w-8 h-8 bg-[#060453] rounded-full flex items-center justify-center text-white text-sm font-bold mr-3 group-hover:bg-[#8fa7eb] transition-colors duration-[800ms]">
+              <h3 className="text-xl font-bold text-darkblue mb-4 flex items-center pt-serif-bold">
+                <span className="w-8 h-8 bg-darkblue rounded-full flex items-center justify-center text-white text-sm font-bold mr-3 group-hover:bg-[#8fa7eb] transition-colors duration-[800ms]">
                   1
                 </span>
                 Getting Started
               </h3>
-              <p className="text-[#060453] leading-relaxed pt-serif-regular">
+              <p className="text-darkblue leading-relaxed pt-serif-regular">
                 To get started, simply add your deposit details into your
                 profile, and click &apos;Create WandrGuide&apos; on our site.
               </p>
@@ -131,13 +131,13 @@ export default function ShareEarnModal({
 
             {/* Publishing & Growth */}
             <div className="bg-cream p-6 rounded-xl border-2 border-orange-300 hover:border-orange-500 transition-all duration-[800ms]">
-              <h3 className="text-xl font-bold text-[#060453] mb-4 flex items-center pt-serif-bold">
-                <span className="w-8 h-8 bg-[#060453] rounded-full flex items-center justify-center text-white text-sm font-bold mr-3 group-hover:bg-[#8fa7eb] transition-colors duration-[800ms]">
+              <h3 className="text-xl font-bold text-darkblue mb-4 flex items-center pt-serif-bold">
+                <span className="w-8 h-8 bg-darkblue rounded-full flex items-center justify-center text-white text-sm font-bold mr-3 group-hover:bg-[#8fa7eb] transition-colors duration-[800ms]">
                   2
                 </span>
                 Publishing & Growth
               </h3>
-              <p className="text-[#060453] leading-relaxed pt-serif-regular">
+              <p className="text-darkblue leading-relaxed pt-serif-regular">
                 Once your guide is published, watch as your downloads and income
                 grow. We have set benchmarks for sending out funds
                 automatically, or you can manually request a deposit at any
@@ -159,7 +159,7 @@ export default function ShareEarnModal({
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <Icon className="text-orange-500 text-2xl flex-shrink-0 group-hover:text-orange-600 transition-colors duration-[800ms]" />
-                      <h4 className="text-lg font-bold text-[#060453] pt-serif-bold group-hover:text-[#8fa7eb] transition-colors duration-[800ms]">
+                      <h4 className="text-lg font-bold text-darkblue pt-serif-bold group-hover:text-[#8fa7eb] transition-colors duration-[800ms]">
                         {benefit.title}
                       </h4>
                     </div>
@@ -172,13 +172,13 @@ export default function ShareEarnModal({
                             : "max-h-0 opacity-0"
                         }`}
                       >
-                        <p className="text-[#060453] leading-relaxed pt-serif-regular">
+                        <p className="text-darkblue leading-relaxed pt-serif-regular">
                           {benefit.description}
                         </p>
                       </div>
                     ) : (
                       <div className="max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100 overflow-hidden transition-all duration-[800ms] ease-in-out mt-0 group-hover:mt-3">
-                        <p className="text-[#060453] leading-relaxed pt-serif-regular">
+                        <p className="text-darkblue leading-relaxed pt-serif-regular">
                           {benefit.description}
                         </p>
                       </div>

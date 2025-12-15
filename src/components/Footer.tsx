@@ -23,7 +23,7 @@ export default function Footer() {
 
       {/* Purple Filter Overlay */}
       {/* opacity-90 --> removed for now */}
-      <div className="absolute inset-0 bg-[#060453] " />
+      <div className="absolute inset-0 bg-darkblue " />
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4">

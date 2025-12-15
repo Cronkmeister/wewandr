@@ -1,32 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isPastHero, setIsPastHero] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-
-      // Blurry effect starts immediately on scroll
-      setIsScrolled(scrollTop > 10);
-
-      // Color changes only after hero section is completely passed (100vh)
-      setIsPastHero(scrollTop > window.innerHeight);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <nav
-      className={`fixed top-0 h-16 md:h-20 left-0 right-0 z-50 transition-all duration-700 ease-out gpu-accelerated ${
-        isScrolled ? "nav-glass" : "bg-transparent"
-      }`}
+      className={`fixed top-0 h-16 md:h-20 left-0 right-0 z-50 transition-all duration-700 ease-out gpu-accelerated bg-transparent`}
+      //    ${
+      //   isScrolled ? "nav-glass" :
+      // }
     >
       <div className="max-w-6xl mx-auto px-4 h-full">
         <div className="flex items-center justify-between h-full">
@@ -44,32 +26,20 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#features"
-              className={`transition-all duration-300 font-medium link-hover roboto-medium ${
-                isPastHero
-                  ? "text-orange-300 hover:text-orange-600"
-                  : "text-white hover:text-orange-300"
-              }`}
+              className="transition-all duration-300 font-medium link-hover roboto-medium text-orange-400 hover:text-orange-600"
             >
               About
             </a>
             <a
               href="#how-it-works"
-              className={`transition-all duration-300 font-medium link-hover roboto-medium ${
-                isPastHero
-                  ? "text-orange-300 hover:text-orange-600"
-                  : "text-white hover:text-orange-300"
-              }`}
+              className="transition-all duration-300 font-medium link-hover roboto-medium text-orange-400 hover:text-orange-600"
             >
               How It Works
             </a>
 
             <a
               href="#beta"
-              className={`transition-all duration-300 font-medium link-hover roboto-medium ${
-                isPastHero
-                  ? "text-orange-300 hover:text-orange-600"
-                  : "text-white hover:text-orange-300"
-              }`}
+              className="transition-all duration-300 font-medium link-hover roboto-medium text-orange-400 hover:text-orange-600"
             >
               Join Waitlist
             </a>
@@ -77,13 +47,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button
-              className={`transition-all duration-300 hover:scale-110 roboto-medium ${
-                isPastHero
-                  ? "text-orange-500 hover:text-orange-600"
-                  : "text-white hover:text-orange-300"
-              }`}
-            >
+            <button className="transition-all duration-300 hover:scale-110 roboto-medium text-orange-500 hover:text-orange-600">
               <svg
                 className="w-6 h-6"
                 fill="none"
