@@ -85,7 +85,7 @@ export default function InvestorRelationsPage() {
                   community-driven, creator-powered travel platform
                 </strong>{" "}
                 where families can access trusted, parent-written guides
-                ("WandrGuides") for free, and every download pays the parent
+                (&quot;WandrGuides&quot;) for free, and every download pays the parent
                 creator—creating a cycle of trust, authenticity, and community
                 growth.
               </p>

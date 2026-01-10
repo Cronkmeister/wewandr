@@ -794,7 +794,7 @@ export default function Home() {
                     href="/founders-letter"
                     className="text-darkblue hover:text-[#8fa7eb] font-semibold pt-serif-regular underline underline-offset-4"
                   >
-                    Read founder's letter →
+                    Read founder&apos;s letter →
                   </a>
                 </div>
               </div>
