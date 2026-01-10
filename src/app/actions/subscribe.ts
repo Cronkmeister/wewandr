@@ -1,7 +1,6 @@
 "use server";
 
 import { z } from "zod";
-import { supabaseAdmin } from "@/lib/supabase";
 import { isDisposableEmail } from "@/lib/disposableDomains";
 
 const schema = z.object({ 
@@ -36,36 +35,42 @@ export async function subscribe(formData: FormData) {
     return { status: "invalid" as const };
   }
 
-  // Supabase client is already initialized in lib/supabase.ts
+  const apiKey = process.env.MAILERLITE_API_KEY;
+  if (!apiKey) {
+    console.error("Missing MAILERLITE_API_KEY environment variable");
+    return { status: "error" as const };
+  }
 
   try {
-    // Get request headers for IP and user agent
-    const headers = await import("next/headers");
-    const headerList = await headers.headers();
-    const ip = headerList.get("x-forwarded-for")?.split(",")[0] ?? null;
-    const userAgent = headerList.get("user-agent") ?? null;
-
-    // Insert into waitlist_signups table
-    const { error } = await supabaseAdmin
-      .from("waitlist_signups")
-      .insert({
+    // Upsert subscriber via MailerLite API
+    const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         email: email.toLowerCase(),
-        ip,
-        user_agent: userAgent,
-        source: "wewandr-beta"
-      });
+        groups: ["173426300221916379"]
+      }),
+    });
 
-    if (error) {
-      // Check for duplicate email error (PostgreSQL unique constraint violation)
-      if (error.code === "23505") {
-        return { status: "duplicate" as const };
-      }
-      
-      console.error("Supabase insert error:", error);
+    // Handle response codes
+    if (response.status === 201) {
+      // New subscriber created
+      return { status: "ok" as const };
+    } else if (response.status === 200) {
+      // Existing subscriber updated (duplicate)
+      return { status: "duplicate" as const };
+    } else if (response.status === 422) {
+      // Validation error
+      return { status: "invalid" as const };
+    } else {
+      // Other errors
+      const errorData = await response.json().catch(() => ({}));
+      console.error("MailerLite API error:", response.status, errorData);
       return { status: "error" as const };
     }
-
-    return { status: "ok" as const };
   } catch (error) {
     console.error("Unexpected error during subscription:", error);
     return { status: "error" as const };

@@ -26,178 +26,112 @@ const faqData: FAQSection[] = [
       {
         question: "What is WeWandr?",
         answer:
-          "WeWandr is a parent-powered travel platform. It's where real families share their real trips — what worked, what didn't, and what to know before you go — in downloadable WandrGuides.",
-      },
-      {
-        question: "When will WeWandr officially launch?",
-        answer:
-          "We're preparing to launch WeWandr publicly in 2026-2027. Right now, we're building the platform, refining features with early parent testers, and growing our founding community. If you join the waitlist, you'll be among the first to explore the beta, publish your own WandrGuide, and help shape what WeWandr becomes.",
+          "WeWandr is a community-powered travel planning platform built on lived experience. We started with family travel, where context makes a real difference, and are growing into a place where people can learn from others who travel like they do.",
       },
       {
         question: "Why was WeWandr created?",
         answer:
-          "Because family travel is incredible… and complicated. After traveling solo with a baby, our founder realized there wasn't a centralized shared space for parents to exchange what they've learned — or be recognized for it. WeWandr was built to change that.",
+          "WeWandr was created to make family travel easier, more trusted, and less overwhelming. Too often, the most helpful details live in conversations between parents. WeWandr brings that lived experience together in one place.",
       },
       {
         question: "Who is WeWandr for?",
         answer:
-          "WeWandr is for parents, caregivers, and anyone planning a trip with kids. Whether you're a first-time traveler or a seasoned wanderer, you'll find practical insights from families who've already been there.",
+          "WeWandr is for anyone who values learning from real experience rather than one-size-fits-all advice. Today, our focus is families traveling with kids — but over time, WeWandr is growing into a broader trust layer for travel planning, where people can find guidance from others who travel in similar ways.",
       },
       {
-        question: "Can non-parents join WeWandr?",
+        question: "Do I need to be a parent to use WeWandr?",
         answer:
-          "Absolutely. WeWandr was inspired by parents helping parents, but it's rooted in something universal — people helping people travel better. Whether you're traveling solo, with friends, or with family, you're part of what makes this community stronger.",
+          "No. While WeWandr is built with families in mind, you don't need to be a parent to explore guides or participate. As the platform evolves, it will support all types of travelers — helping people find their own travel community.",
+      },
+      {
+        question: "What makes WeWandr different from blogs, forums, or social platforms?",
+        answer:
+          "WeWandr is built to organize real travel experience into something structured, practical, and trust-led. Instead of digging through posts or threads, trips are shaped into clear, reusable guides — making it easier to learn from people who travel in ways that feel familiar.",
       },
       {
         question: "Where is WeWandr based?",
         answer:
-          "WeWandr is proudly built in Canada and growing globally. Our community includes parents from around the world sharing trips across every kind of destination.",
+          "WeWandr is based in Canada and being built with families from around the world.",
+      },
+      {
+        question: "When will WeWandr officially launch?",
+        answer:
+          "WeWandr is rolling out gradually. Early access will open in stages as features are tested, refined, and expanded.",
       },
     ],
   },
   {
-    title: "Using WandrGuides",
+    title: "WandrGuides",
     items: [
       {
         question: "What is a WandrGuide?",
         answer:
-          "A WandrGuide is a concise, parent-written travel guide to a real trip. It covers where a family went, how they got there, where they stayed, what they did, and what they learned — the highlights, the lowlights, and everything in between.",
+          "A WandrGuide is a travel guide created from a real trip, written by someone who's already been there. Each guide captures the details people actually care about — from logistics and daily rhythms to lessons learned — and is designed to be easy to explore and apply.",
       },
       {
-        question: "Are WandrGuides free to download?",
+        question: "What kind of information is included in a WandrGuide?",
         answer:
-          "Yes. Every WandrGuide is free for parents to browse and download. When you download one, WeWandr — not you — pays the parent who wrote it.",
+          "WandrGuides typically include gear and logistics, kid-friendly places to stay, daily rhythms and essentials, transportation notes, and highlights and lessons learned from the trip.",
+      },
+      {
+        question: "Are WandrGuides free to access?",
+        answer:
+          "Yes. WandrGuides are free to explore and use. We believe access to helpful, experience-based guidance should be open and easy.",
       },
       {
         question: "How do I find the right WandrGuides for my family?",
         answer:
-          "You can search by destination, kids' ages, trip type, and travel style. The goal is to make it easy to find guides that match your kind of trip.",
+          "Guides can be discovered using filters like destination, children's ages, trip type, and travel style — making it easier to find trips that match your needs.",
       },
       {
         question: "Can I trust the information in WandrGuides?",
         answer:
-          "Yes — WeWandr is built on good-faith sharing and parent-to-parent honesty. Every guide is reviewed by our team to ensure it meets community standards before it's published. We also offer profile verification to keep our space authentic and secure.",
+          "WandrGuides are based on real trips taken by real families. Guides go through review layers before being shared publicly, helping surface useful insights while keeping lived experience at the core.",
       },
       {
-        question:
-          "English isn't my first language, can I still create a WandrGuide?",
+        question: "Can I save or revisit guides I like?",
         answer:
-          "Yes! For now, all WandrGuides are written and published in English so families around the world can browse and learn from one shared library. That said, we know travel stories transcend language — and we're already planning translation tools to help parents write, read, and share guides in multiple languages in the future.",
-      },
-      {
-        question: "Can I save or share my favorite guides?",
-        answer:
-          "Absolutely! You can save any guide to your personal library and share it directly with family or friends anytime.",
+          "Yes. As features roll out, you'll be able to save and return to guides that are most useful for you.",
       },
     ],
   },
   {
-    title: "Creating and Earning",
+    title: "Creating & Earning",
     items: [
       {
         question: "Who can create a WandrGuide?",
         answer:
-          "Anyone with travel insight to share. While many guides come from parents and caregivers, we welcome everyone to share what they know — and earn as they go. Our simple framework makes it easy to turn your experience into a guide that helps others travel better.",
+          "Anyone with relevant travel experience can create a WandrGuide. You don't need to be a professional writer or an expert — just someone willing to share what you learned so others can plan with more clarity and confidence.",
       },
       {
         question: "How do I create a WandrGuide?",
         answer:
-          "You'll fill out a simple step-by-step template covering your trip details, accommodations, activities, and advice. Once submitted, our team reviews it before publishing.",
+          "WandrGuides are created using a guided, step-by-step framework with helpful prompts. The process is designed to be simple, structured, and supportive.",
       },
       {
-        question: "What kinds of trips can I share?",
+        question: "Do creators get paid for their guides?",
         answer:
-          "Any! Whether it's a weekend getaway, an international adventure, a local staycation, or even a day trip — if it would have helped your family travel better, it's worth sharing. Every trip, big or small, helps another parent plan with confidence.",
+          "Yes. WeWandr pays creators for the guides they contribute, recognizing the value of lived experience and the time it takes to share it thoughtfully.",
       },
       {
-        question: "How recent does the trip have to be?",
+        question: "How does payment work?",
         answer:
-          "There's no strict cutoff — what matters most is that your details are accurate and helpful. Most WandrGuides are based on trips taken within the past few years, but if your experience is still relevant (for example, the destination, hotel, or attractions haven't changed much), we'd love to see it. Family travel wisdom doesn't expire overnight.",
-      },
-      {
-        question: "Do I get paid for my WandrGuide?",
-        answer:
-          "Yes. Every time another parent downloads your WandrGuide, WeWandr pays you. It's our way of recognizing that parents' real-world travel knowledge has real value.",
-      },
-      {
-        question: "How much can I earn?",
-        answer:
-          "You earn a payout each time your guide is downloaded. The more helpful your guide is — and the more it's downloaded — the more you earn. (Payout details will be shared as we open beta.)",
-      },
-      {
-        question: "Can I update or delete my guide?",
-        answer:
-          "Absolutely. You can edit, refresh, or remove your guide anytime from your creator dashboard.",
-      },
-      {
-        question: "Do I need professional photos or videos?",
-        answer:
-          "No. Clear, honest images are great, but your insights matter most. Parents care more about what really worked than a perfect photo.",
+          "Payment details will be shared clearly as features roll out. Our goal is to make payouts straightforward, transparent, and aligned with real use — without placing the cost on people accessing the guides.",
       },
     ],
   },
   {
-    title: "Community and Safety",
+    title: "Trust, Community & Access",
     items: [
       {
-        question: "Is WeWandr a social network?",
+        question: "How does WeWandr help ensure quality and trust?",
         answer:
-          "Not quite - it's a knowledge-sharing community. You can follow other parents, explore their guides, and connect through shared experiences, but the focus stays on trips, not profiles.",
+          "Guides go through review layers and are supported by thoughtful systems designed to surface the most helpful insights- while keeping guidance grounded in real experience.",
       },
       {
-        question: "How does WeWandr keep families safe?",
+        question: "What does early access mean?",
         answer:
-          "WeWandr never requires personal details about children and encourages all creators to protect privacy (i.e. no identifiable images of kids, no personal addresses). Every guide is reviewed before going live.",
-      },
-    ],
-  },
-  {
-    title: "Getting Involved",
-    items: [
-      {
-        question: "How can I join the beta or get involved early?",
-        answer:
-          "Sign up on our website to join the waitlist. You'll get early updates, invitations to test new features, and the chance to publish your first WandrGuide before launch.",
-      },
-      {
-        question: "Is there a cost to join?",
-        answer:
-          "No — joining and browsing WeWandr is free. Premium features and tools will be introduced later, but the heart of WeWandr will always stay open and accessible.",
-      },
-      {
-        question:
-          "I'm interested in partnering or collaborating. Who do I contact?",
-        answer: (
-          <>
-            We&apos;d love to hear from you. Please reach out via{" "}
-            <a
-              href="mailto:hello@wewandr.co"
-              className="text-orange-600 hover:text-orange-700 font-semibold transition-colors"
-            >
-              hello@wewandr.co
-            </a>
-          </>
-        ),
-      },
-    ],
-  },
-  {
-    title: "Behind the Scenes",
-    items: [
-      {
-        question: "Who's building WeWandr?",
-        answer:
-          "WeWandr was founded by Natasha Aylward, a mom of three based on Vancouver Island, inspired by the power of parents helping parents. She's now building the platform with a small, passionate team — and a growing community of travel-loving families.",
-      },
-      {
-        question: "How does WeWandr make money?",
-        answer:
-          "Our model is freemium: guides are always free for parents, and WeWandr earns through premium features, partnerships, and sponsorships- all designed to keep creator payouts sustainable while keeping access free for families.",
-      },
-      {
-        question: "What makes WeWandr different from other travel sites?",
-        answer:
-          "WeWandr flips the script — instead of expert-to-reader advice, it's parent-to-parent knowledge sharing. It's about real families, real trips, and real income for the people behind the insights.",
+          "Early access means you're joining WeWandr while it's still taking shape. You'll be among the first to explore guides, contribute your own, share feedback, and help shape what comes next.",
       },
     ],
   },

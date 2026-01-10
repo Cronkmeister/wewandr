@@ -115,10 +115,16 @@ export default function Footer() {
                 Investor Relations
               </a>
               <a
-                href="mailto:team@wewandr.co"
+                href="/join-our-team"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Join Our Team
+              </a>
+              <a
+                href="/founders-letter"
+                className="block text-[#ffe44b] hover:text-white transition-colors"
+              >
+                Founder&apos;s Letter
               </a>
               <a
                 href="/faq"

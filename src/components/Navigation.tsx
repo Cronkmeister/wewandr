@@ -15,8 +15,8 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <Link
-              className="text-2xl font-bold text-orange-500 dm-serif-display-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer"
               href="/"
+              className="text-2xl font-bold text-orange-500 dm-serif-display-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer"
             >
               WeWandr
             </Link>
@@ -26,20 +26,20 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#features"
-              className="transition-all duration-300 font-medium link-hover roboto-medium text-orange-400 hover:text-orange-600"
+              className="transition-all duration-300 font-medium link-hover pt-serif-regular text-orange-400 hover:text-orange-600"
             >
               About
             </a>
             <a
               href="#how-it-works"
-              className="transition-all duration-300 font-medium link-hover roboto-medium text-orange-400 hover:text-orange-600"
+              className="transition-all duration-300 font-medium link-hover pt-serif-regular text-orange-400 hover:text-orange-600"
             >
               How It Works
             </a>
 
             <a
               href="#beta"
-              className="transition-all duration-300 font-medium link-hover roboto-medium text-orange-400 hover:text-orange-600"
+              className="transition-all duration-300 font-medium link-hover pt-serif-regular text-orange-400 hover:text-orange-600"
             >
               Join Waitlist
             </a>
@@ -47,7 +47,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button className="transition-all duration-300 hover:scale-110 roboto-medium text-orange-500 hover:text-orange-600">
+            <button className="transition-all duration-300 hover:scale-110 pt-serif-regular text-orange-500 hover:text-orange-600">
               <svg
                 className="w-6 h-6"
                 fill="none"

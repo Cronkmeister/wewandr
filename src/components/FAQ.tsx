@@ -13,32 +13,27 @@ const faqData: FAQItem[] = [
   {
     question: "What is WeWandr?",
     answer:
-      "WeWandr is a parent-powered travel platform where families share real trips and get paid when their guides are downloaded. It's built on community insight — real parents helping other parents travel smarter, easier, and with more confidence.",
+      "WeWandr is a community-powered travel planning platform built on lived experience. We started with family travel, where context makes a real difference, and are growing into a place where people can learn from others who travel like they do.",
   },
   {
-    question: "Do you have to be a parent to join?",
+    question: "What is a WandrGuide?",
     answer:
-      "Not at all! WeWandr was inspired by parents helping parents, but it's rooted in something universal — people helping people travel better. Whether you're traveling solo, with friends, or with family, you're part of what makes this community stronger.",
+      "A WandrGuide is a travel guide created from a real trip, written by someone who's already been there. Each guide captures the details people actually care about - from logistics and daily rhythms to lessons learned - and is designed to be easy to explore and apply.",
   },
   {
-    question: "How do parents earn on WeWandr?",
+    question: "Is WeWandr free to join?",
     answer:
-      "When you create a WandrGuide (your family trip shared in our format), you earn income each time it's downloaded. Guides are free for families to access - WeWandr pays creators directly, our way of recognizing that parents' real-world travel knowledge has real value.",
+      "Yes. Joining WeWandr and signing up for early access is free. As the platform evolves, we expect to introduce additional features and value-added tools through a freemium model - while keeping core access open and community-driven.",
   },
   {
-    question: "When will WeWandr launch?",
+    question: "How do parents earn from their guides?",
     answer:
-      "WeWandr is in early development, with our first public launch planned for 2026-2027. Right now, we're building our founding community of parents and early contributors — you can join our waitlist to be among the first to explore, share, and earn.",
+      "When another family downloads a WandrGuide, WeWandr pays the parent who created it - recognizing the value of lived experience and the time it takes to share it thoughtfully.",
   },
   {
-    question: "What kinds of trips can I share?",
+    question: "What does early access mean?",
     answer:
-      "Any kind! From weekend getaways to long-haul adventures — if the insight learned would have helped your family before going, it can help someone else.",
-  },
-  {
-    question: "How do I get involved now?",
-    answer:
-      "Join our growing community! Sign up for early updates, contribute your first guide when the beta opens, or follow along as we build the world's first parent-powered travel platform together.",
+      "Early access means you're joining WeWandr while it's still taking shape. You'll be among the first to explore guides, contribute your own, share feedback, and help shape a platform designed around learning from people who feel familiar — people like you.",
   },
 ];
 
