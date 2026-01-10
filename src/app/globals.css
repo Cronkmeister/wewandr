@@ -495,9 +495,10 @@
     letter-spacing: -0.01em;
   }
 
-  /* Dark blue text color for Welcome section */
+  /* Dark blue text color for Welcome section
+     Note: no !important so hover/text utilities (e.g. hover:text-white) can override it */
   .text-darkblue {
-    color: var(--color-darkblue) !important;
+    color: var(--color-darkblue);
   }
 
   /* Allow periwinkle hover to override darkblue for headings only */
