@@ -41,10 +41,64 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Follow Us Section */}
+          {/* Explore Section */}
           <div className="animate-fade-up animate-stagger-1">
             <h4 className="text-[#ffe44b] font-bold mb-4 heading-small">
-              Follow Us
+              Explore
+            </h4>
+            <div className="space-y-2">
+              <a
+                href="/#how-it-works"
+                className="block text-[#ffe44b] hover:text-white transition-colors"
+              >
+                How It Works
+              </a>
+              <a
+                href="/faq"
+                className="block text-[#ffe44b] hover:text-white transition-colors"
+              >
+                FAQs
+              </a>
+              <a
+                href="/founders-letter"
+                className="block text-[#ffe44b] hover:text-white transition-colors"
+              >
+                Founder&apos;s Letter
+              </a>
+            </div>
+          </div>
+
+          {/* Company Section */}
+          <div className="animate-fade-up animate-stagger-2">
+            <h4 className="text-[#ffe44b] font-bold mb-4 heading-small">
+              Company
+            </h4>
+            <div className="space-y-2">
+              <a
+                href="/investor-relations"
+                className="block text-[#ffe44b] hover:text-white transition-colors"
+              >
+                Investor Relations
+              </a>
+              <a
+                href="/join-our-team"
+                className="block text-[#ffe44b] hover:text-white transition-colors"
+              >
+                Join Our Team
+              </a>
+              <a
+                href="/contact"
+                className="block text-[#ffe44b] hover:text-white transition-colors"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+
+          {/* Follow Us Section */}
+          <div className="animate-fade-up animate-stagger-3">
+            <h4 className="text-[#ffe44b] font-bold mb-4 heading-small">
+              Follow
             </h4>
             <div className="flex space-x-4">
               <a
@@ -74,66 +128,6 @@ export default function Footer() {
               </a>
             </div>
           </div>
-
-          {/* Legal Section */}
-          <div className="animate-fade-up animate-stagger-2">
-            <h4 className="text-[#ffe44b] font-bold mb-4 heading-small">
-              Legal
-            </h4>
-            <div className="space-y-2">
-              <a
-                href="/terms"
-                className="block text-[#ffe44b] hover:text-white transition-colors"
-              >
-                Terms & Conditions
-              </a>
-              <a
-                href="/privacy"
-                className="block text-[#ffe44b] hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </a>
-            </div>
-          </div>
-
-          {/* Support Section */}
-          <div className="animate-fade-up animate-stagger-3">
-            <h4 className="text-[#ffe44b] font-bold mb-4 heading-small">
-              Support
-            </h4>
-            <div className="space-y-2">
-              <a
-                href="/contact"
-                className="block text-[#ffe44b] hover:text-white transition-colors"
-              >
-                Contact
-              </a>
-              <a
-                href="/investor-relations"
-                className="block text-[#ffe44b] hover:text-white transition-colors"
-              >
-                Investor Relations
-              </a>
-              <a
-                href="/join-our-team"
-                className="block text-[#ffe44b] hover:text-white transition-colors"
-              >
-                Join Our Team
-              </a>
-              <a
-                href="/founders-letter"
-                className="block text-[#ffe44b] hover:text-white transition-colors"
-              >
-                Founder&apos;s Letter
-              </a>
-              <a
-                href="/faq"
-                className="block text-[#ffe44b] hover:text-white transition-colors"
-              >
-                FAQ
-              </a>
-            </div>
-          </div>
         </div>
 
         {/* Divider Line */}
@@ -143,6 +137,28 @@ export default function Footer() {
         <div className="text-center animate-fade-up">
           <p className="text-white mt-2">
             &copy; 2025 WeWandr. All rights reserved.
+          </p>
+          <p className="text-white/80 text-xs mt-2">
+            <a
+              href="/privacy"
+              className="hover:text-yellow-300 transition-colors"
+            >
+              Privacy Policy
+            </a>
+            {" | "}
+            <a
+              href="/terms"
+              className="hover:text-yellow-300 transition-colors"
+            >
+              Terms & Conditions
+            </a>
+            {" | "}
+            <a
+              href="/community-guidelines"
+              className="hover:text-yellow-300 transition-colors"
+            >
+              Community Guidelines
+            </a>
           </p>
           <p className="text-white/80 text-xs mt-2">
             web design by{" "}

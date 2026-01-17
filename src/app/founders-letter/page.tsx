@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useIntersectionObserver } from "@/lib/useIntersectionObserver";
@@ -24,20 +25,9 @@ export default function FoundersLetterPage() {
             A Letter from Our Founder
           </h1>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left - Founder Image */}
-            <div className="flex justify-center md:justify-start order-2 md:order-1 animate-fade-up animate-stagger-2">
-              <Image
-                src="/assets/imgs/founder-min.jpeg"
-                alt="WeWandr founder"
-                width={500}
-                height={600}
-                className="w-full max-w-md object-contain rounded-lg"
-              />
-            </div>
-
-            {/* Right - Text Content */}
-            <div className="space-y-8 text-left order-1 md:order-2 animate-fade-up animate-stagger-1">
+          <div className="max-w-3xl mx-auto">
+            {/* Text Content */}
+            <div className="space-y-8 text-left animate-fade-up animate-stagger-1">
             <p className="text-base md:text-lg text-darkblue leading-relaxed pt-serif-regular">
               I didn&apos;t start WeWandr because I love travel planning.
             </p>
@@ -143,6 +133,15 @@ export default function FoundersLetterPage() {
               <p className="text-base md:text-lg text-darkblue leading-relaxed pt-serif-regular">
                 Founder, WeWandr
               </p>
+            </div>
+
+            <div className="pt-12 text-center">
+              <Link
+                href="/"
+                className="text-orange-500 hover:text-orange-600 transition-colors underline"
+              >
+                ← Back to Home
+              </Link>
             </div>
           </div>
           </div>

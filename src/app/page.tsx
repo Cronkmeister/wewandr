@@ -11,8 +11,10 @@ import {
   FaDollarSign,
   FaStar,
   FaBook,
-  FaShareAlt,
+  FaPlus,
+  FaCheck,
 } from "react-icons/fa";
+import { FaHandshakeSimple } from "react-icons/fa6";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Notice from "@/components/Notice";
@@ -204,50 +206,12 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           {/* Logo */}
-          <h1 className="dm-serif-display-regular text-4xl md:text-6xl text-orange-500 mb-6 animate-fade-scale">
-            Home for family travel
+          <h1 className="dm-serif-display-regular text-4xl md:text-8xl text-orange-500 mb-6 animate-fade-scale">
+            WeWandr
           </h1>
 
-          <p className="text-xl md:text-xl text-darkblue mb-2 tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
+          <p className="text-xl md:text-xl text-darkblue mb-6 tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
             Real family trips. Trusted travel guides. Income for parents.
-          </p>
-
-          {/* Icons with arrows */}
-          {/* <div className="flex items-center justify-center gap-4 md:gap-6 my-6 animate-fade-up animate-stagger-2">
-            <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20">
-              <Image
-                src="/assets/icons/travel.png"
-                alt="Travel"
-                width={80}
-                height={80}
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <span className="text-2xl md:text-3xl text-orange-500">→</span>
-            <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20">
-              <Image
-                src="/assets/icons/travel-guide.png"
-                alt="Travel Guide"
-                width={80}
-                height={80}
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <span className="text-2xl md:text-3xl text-orange-500">→</span>
-            <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20">
-              <Image
-                src="/assets/icons/profit.png"
-                alt="Profit"
-                width={80}
-                height={80}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </div> */}
-
-          {/* Call to Action */}
-          <p className="text-md md:text-base text-darkblue mt-8 mb-6 tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
-            Become part of the community shaping family travel.
           </p>
 
           {/* Email Form */}
@@ -290,6 +254,11 @@ export default function Home() {
             </form>
           </div>
 
+          {/* Call to Action */}
+          <p className="text-md md:text-base text-darkblue mt-6 tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
+            Become part of the community shaping family travel.
+          </p>
+
           {/* Message Display - Fixed height to prevent layout shift */}
           <div className="mt-6 h-12 max-w-lg mx-auto">
             {heroSubmitting ? (
@@ -316,10 +285,50 @@ export default function Home() {
           }`}
         >
           <div className="space-y-10 md:space-y-14 text-center animate-fade-up animate-stagger-1">
-            <p className="text-orange-400 text-3xl md:text-5xl font-bold pt-serif-bold leading-tight">
+            <p className="text-orange-400 text-3xl pb-8 md:text-5xl font-bold pt-serif-bold leading-tight">
               Family travel shouldn&apos;t feel impossible, it just needs a
               community behind it
             </p>
+
+            {/* Video Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-12 ">
+              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-orange-400 flex items-stretch">
+                <video
+                  src="/assets/video/planning/young-mum-1.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover block"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-orange-400 flex items-stretch">
+                <video
+                  src="/assets/video/planning/young-mum-2.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover block"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-orange-400 flex items-stretch">
+                <video
+                  src="/assets/video/planning/young-mum-3.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover block"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -345,12 +354,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
             {/* Card 1: Parent-Powered Platform */}
             <div className="backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-orange-400 hover:bg-white/10 transition-all duration-300 card-hover group animate-fade-up animate-stagger-1">
-              <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-400/30 transition-colors duration-300">
-                <FaUsers className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center icon-animate group-hover:bg-orange-400/30 transition-colors duration-300 flex-shrink-0">
+                  <FaUsers className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
+                  Built on Family Experience
+                </h3>
               </div>
-              <h3 className="mb-3 group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
-                Built on Family Experience
-              </h3>
               <p className="leading-relaxed group-hover:opacity-90 transition-colors duration-300 pt-serif-regular text-cream">
                 Every guide on WeWandr is created by families who&apos;ve taken
                 the trip - sharing what actually mattered once they were there.
@@ -359,12 +370,14 @@ export default function Home() {
 
             {/* Card 2: Real Family Experiences */}
             <div className="backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-orange-400 hover:bg-white/10 transition-all duration-300 card-hover group animate-fade-up animate-stagger-2">
-              <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-400/30 transition-colors duration-300">
-                <FaMapMarkedAlt className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center icon-animate group-hover:bg-orange-400/30 transition-colors duration-300 flex-shrink-0">
+                  <FaMapMarkedAlt className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
+                  Organized for Real Life
+                </h3>
               </div>
-              <h3 className="mb-3 group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
-                Organized for Real Life
-              </h3>
               <p className="leading-relaxed group-hover:opacity-90 transition-colors duration-300 pt-serif-regular text-cream">
                 Real family trips are turned into clear, downloadable guides -
                 helping families plan with ease and confidence.
@@ -373,12 +386,14 @@ export default function Home() {
 
             {/* Card 3: How-To Guides */}
             <div className="backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-orange-400 hover:bg-white/10 transition-all duration-300 card-hover group animate-fade-up animate-stagger-3">
-              <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-400/30 transition-colors duration-300">
-                <FaStar className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center icon-animate group-hover:bg-orange-400/30 transition-colors duration-300 flex-shrink-0">
+                  <FaStar className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
+                  Supported by Thoughtful Systems
+                </h3>
               </div>
-              <h3 className="mb-3 group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
-                Supported by Thoughtful Systems
-              </h3>
               <p className="leading-relaxed group-hover:opacity-90 transition-colors duration-300 pt-serif-regular text-cream">
                 We use intelligent tools to help refine guides and surface the
                 most helpful insights, while keeping real family experience at
@@ -388,12 +403,14 @@ export default function Home() {
 
             {/* Card 4: Earn from Your Knowledge */}
             <div className="backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-orange-400 hover:bg-white/10 transition-all duration-300 card-hover group animate-fade-up animate-stagger-4">
-              <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center mb-6 icon-animate group-hover:bg-orange-400/30 transition-colors duration-300">
-                <FaDollarSign className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center icon-animate group-hover:bg-orange-400/30 transition-colors duration-300 flex-shrink-0">
+                  <FaDollarSign className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
+                  Designed for Mutual Benefit
+                </h3>
               </div>
-              <h3 className="mb-3 group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
-                Designed for Mutual Benefit
-              </h3>
               <p className="leading-relaxed group-hover:opacity-90 transition-colors duration-300 pt-serif-regular text-cream">
                 When a guide helps another family, the creator earns - aligning
                 usefulness, trust, and generosity from day one.
@@ -425,7 +442,7 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-20 text-center px-4">
-          <h3 className="text-white animate-fade-up animate-stagger-6 heading-secondary drop-shadow-lg">
+          <h3 className="text-white/0 animate-fade-up animate-stagger-6 heading-secondary drop-shadow-lg">
             Because travel is better, when planned together.
           </h3>
         </div>
@@ -444,8 +461,8 @@ export default function Home() {
               How It Works
             </h2>
             <p className="text-xl text-orange-700 max-w-3xl mx-auto animate-fade-up animate-stagger-1 pt-serif-regular">
-              Whether you&apos;re planning your next trip or looking to share
-              your experience, WeWandr makes it simple.
+              Whether you&apos;re planning your next trip or looking to sharing
+              what you&apos;ve learned, WeWandr makes it simple.
             </p>
           </div>
 
@@ -461,36 +478,36 @@ export default function Home() {
               </h3>
               <p className="text-orange-700 leading-relaxed group-hover:text-orange-800 transition-colors duration-300 pt-serif-regular">
                 <p className="text-orange-700 leading-relaxed group-hover:text-orange-800 transition-colors duration-300 pt-serif-regular"></p>
-                Explore parent-written WandrGuides. Filter by destination,
-                kids&apos; ages, trip type and travel style to discover trips
-                that match your family.
+                Explore parent-written guides. Filter by destination, kids&apos;
+                ages, trip type and travel style to discover trips that match
+                your family.
               </p>
-              <button
+              {/* <button
                 onClick={() => setIsPlanLearnModalOpen(true)}
                 className="mt-4 text-darkblue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
               >
                 Learn more →
-              </button>
+              </button> */}
             </div>
 
             {/* Step 2: Download & Plan */}
             <div className="text-center animate-fade-up animate-stagger-2 group">
               <div className="w-20 h-20 bg-darkblue rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-[#8fa7eb] transition-all duration-300 group-hover:scale-110">
-                <FaShareAlt className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                <FaHandshakeSimple className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
               </div>
               <h3 className="text-orange-500 mb-4 group-hover:text-orange-600 transition-colors duration-300 heading-quaternary">
                 Share & Earn
               </h3>
               <p className="text-orange-700 leading-relaxed group-hover:text-orange-800 transition-colors duration-300 pt-serif-regular">
-                Create and share your WandrGuide, using our built-in framework,
-                and earn income everytime it&apos;s downloaded.
+                Create and your own guide, using our built-in framework, paid by
+                WeWandr each time your guide is downloaded.
               </p>
-              <button
+              {/* <button
                 onClick={() => setIsShareEarnModalOpen(true)}
                 className="mt-4 text-darkblue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
               >
                 Learn more →
-              </button>
+              </button> */}
             </div>
 
             {/* Step 3: Create & Earn */}
@@ -506,12 +523,12 @@ export default function Home() {
                 family travel is easier when you don&apos;t have to figure it
                 out alone.
               </p>
-              <button
+              {/* <button
                 onClick={() => setIsConnectCommunityModalOpen(true)}
                 className="mt-4 text-darkblue hover:text-[#8fa7eb] font-semibold transition-colors duration-300 pt-serif-regular"
               >
                 Learn more →
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -531,7 +548,7 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-orange-500 mb-4 animate-fade-up heading-primary">
-              Benefits of WeWandr
+              For Planning and Sharing
             </h2>
             <p className="text-xl text-darkblue max-w-3xl mx-auto animate-fade-up animate-stagger-1 pt-serif-regular">
               Whether you&apos;re planning your next trip or sharing what
@@ -560,13 +577,70 @@ export default function Home() {
               </h4>
 
               <p className="text-darkblue leading-relaxed mb-4 font-semibold pt-serif-regular">
-                Each WandrGuide includes:
+                Each guide includes:
               </p>
-              <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular list-disc list-inside">
-                <li>Gear & Logistics</li>
-                <li>Kid-Friendly Places to Stay & Navigate</li>
-                <li>Daily Routines & Essentials</li>
-                <li>Highlights & Lessons Learned</li>
+              <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular">
+                <li className="group relative">
+                  <div className="flex items-start gap-3 cursor-pointer">
+                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <span className="font-medium">Gear & Logistics</span>
+                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                        How families traveled with strollers, car seats,
+                        carriers, pack-and-plays, potties, and everything in
+                        between - including what to bring, rent, or skip.
+                      </div>
+                    </div>
+                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                  </div>
+                </li>
+                <li className="group relative">
+                  <div className="flex items-start gap-3 cursor-pointer">
+                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <span className="font-medium">
+                        Kid-Friendly Places to Stay & Navigate
+                      </span>
+                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                        Honest accommodation reviews, safety notes, laundry
+                        access, stroller-friendliness, and how manageable the
+                        destination felt with kids.
+                      </div>
+                    </div>
+                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                  </div>
+                </li>
+                <li className="group relative">
+                  <div className="flex items-start gap-3 cursor-pointer">
+                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <span className="font-medium">
+                        Daily Routines & Essentials
+                      </span>
+                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                        How families structured meals, naps, bathroom breaks,
+                        avoided crowds, and stocked up on everyday needs while
+                        out and about.
+                      </div>
+                    </div>
+                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                  </div>
+                </li>
+                <li className="group relative">
+                  <div className="flex items-start gap-3 cursor-pointer">
+                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <span className="font-medium">
+                        Highlights & Lessons Learned
+                      </span>
+                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                        What families loved, what they&apos;d skip next time,
+                        and the details that help others plan smarter trips.
+                      </div>
+                    </div>
+                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                  </div>
+                </li>
               </ul>
             </div>
 
@@ -582,20 +656,74 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-orange-500 mb-4 heading-tertiary">
-                Creating Guides
+                Sharing Guides
               </h3>
               <h4 className="text-orange-600 mb-4 heading-quaternary">
-                Turn Experience into Something Useful - and Rewarding
+                Turn experience into shared knowledge - and earn from it
               </h4>
 
               <p className="text-darkblue leading-relaxed mb-4 font-semibold pt-serif-regular">
                 What you&apos;ll get:
               </p>
-              <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular list-disc list-inside">
-                <li>Guided, Step-by-Step</li>
-                <li>Earnings Tied to Real Usefulness</li>
-                <li>Control and Transparency</li>
-                <li>Recognition for Lived Experience</li>
+              <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular">
+                <li className="group relative">
+                  <div className="flex items-start gap-3 cursor-pointer">
+                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <span className="font-medium">Guided, Step-by-Step</span>
+                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                        Turn your trip into a WandrGuide guide with simple
+                        prompts and structure
+                      </div>
+                    </div>
+                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                  </div>
+                </li>
+                <li className="group relative">
+                  <div className="flex items-start gap-3 cursor-pointer">
+                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <span className="font-medium">
+                        Earnings Tied to Real Usefulness
+                      </span>
+                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                        When your guide helps another family plan their trip,
+                        WeWandr pays you - aligning value, trust, and effort.
+                      </div>
+                    </div>
+                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                  </div>
+                </li>
+                <li className="group relative">
+                  <div className="flex items-start gap-3 cursor-pointer">
+                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <span className="font-medium">
+                        Control and Transparency
+                      </span>
+                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                        You stay in control of your guides, with clear,
+                        straightforward payouts when families use them.
+                      </div>
+                    </div>
+                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                  </div>
+                </li>
+                <li className="group relative">
+                  <div className="flex items-start gap-3 cursor-pointer">
+                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <span className="font-medium">
+                        Recognition for Lived Experience
+                      </span>
+                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                        Become a trusted resource for family travel insights -
+                        grounded in real trips and firsthand knowledge.
+                      </div>
+                    </div>
+                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -617,10 +745,7 @@ export default function Home() {
           <div className="text-center">
             <div className="max-w-6xl mx-auto">
               <p className="text-2xl md:text-3xl tracking-wider text-darkblue leading-relaxed animate-fade-up animate-stagger-1 font-medium pt-serif-regular">
-                Making travel more{" "}
-                <em className="text-3xl md:text-4xl">authentic</em>,{" "}
-                <em className="text-3xl  md:text-4xl">community-driven</em> and{" "}
-                <em className="text-3xl  md:text-4xl">family-focused</em>.
+                One community, built on lived experience{" "}
               </p>
             </div>
           </div>
@@ -650,7 +775,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               {/* Screenshot */}
               <div className="flex justify-center relative">
-                <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-orange-300 max-w-[10rem] md:max-w-[16rem] relative">
+                <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] relative">
                   <Image
                     src="/assets/imgs/wewandr-screenshot.PNG"
                     alt="WeWandr app screenshot"
@@ -707,10 +832,10 @@ export default function Home() {
 
             {/* Video Demo with Text */}
             <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 mt-12">
-              {/* Text Description */}
-              <div className="animate-fade-up animate-stagger-5 relative z-10 md:mr-[-3rem]">
+              {/* Text Description - Desktop: Beside video */}
+              <div className="animate-fade-up animate-stagger-5 relative z-10 md:mr-[-3rem] hidden md:block">
                 <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[12rem] md:max-w-[24rem]">
-                  <p className="text-base md:text-lg text-darkblue leading-relaxed pt-serif-regular">
+                  <p className="text-sm md:text-lg text-darkblue leading-relaxed pt-serif-regular">
                     Extensive guides packed with practical tips, gear
                     recommendations, parent-friendly restaurants &
                     accommodation, and everything you need to know.
@@ -719,18 +844,29 @@ export default function Home() {
               </div>
 
               {/* Video */}
-              <div className="flex justify-center relative z-0">
-                <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-orange-300 max-w-[10rem] md:max-w-[16rem]">
+              <div className="flex justify-center relative">
+                <div className="rounded-2xl overflow-visible md:overflow-hidden shadow-xl border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] relative">
                   <video
                     src="/assets/video/wewander-recording.mp4"
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-auto"
+                    className="w-full h-auto rounded-2xl"
                   >
                     Your browser does not support the video tag.
                   </video>
+
+                  {/* Text Description - Overlayed on video (mobile only) */}
+                  <div className="animate-fade-up animate-stagger-5 absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 z-10 md:hidden">
+                    <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[12rem] shadow-lg">
+                      <p className="text-sm text-darkblue leading-relaxed pt-serif-regular">
+                        Extensive guides packed with practical tips, gear
+                        recommendations, parent-friendly restaurants &
+                        accommodation, and everything you need to know.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -753,7 +889,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left - Founder Image */}
               <div className="flex justify-center md:justify-start order-2 md:order-1 animate-fade-up animate-stagger-1">
-                <div className="w-full max-w-md h-72 md:h-80 overflow-hidden rounded-lg">
+                <div className="w-full max-w-xl h-80 md:h-[32rem] overflow-hidden rounded-lg">
                   <Image
                     src="/assets/imgs/founder-min.jpeg"
                     alt="WeWandr founder"
@@ -788,15 +924,6 @@ export default function Home() {
                 <p className="text-base md:text-lg text-darkblue leading-relaxed pt-serif-regular">
                   If this resonates, we&apos;d love to build it with you.
                 </p>
-
-                <div className="mt-4">
-                  <a
-                    href="/founders-letter"
-                    className="text-darkblue hover:text-[#8fa7eb] font-semibold pt-serif-regular underline underline-offset-4"
-                  >
-                    Read founder&apos;s letter →
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -807,7 +934,7 @@ export default function Home() {
       <div
         ref={betaRef.ref}
         id="beta"
-        className="py-20 bg-gradient-to-br from-orange-300 to-orange-500"
+        className="py-16 bg-gradient-to-br from-orange-300 to-orange-500"
       >
         <div
           className={`max-w-4xl mx-auto px-4 text-center section-animate ${
@@ -817,10 +944,11 @@ export default function Home() {
           {/* Section Header */}
           <div className="mb-12">
             <h2 className="text-white mb-6 animate-fade-up heading-primary">
-              Join the growing community
+              Join Early
             </h2>
             <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-up animate-stagger-1 pt-serif-regular">
-              Find your next family adventure and the parent who&apos;s done it
+              Be among the first to explore real family travel guides, share
+              what you&apos;ve learned, and help shape what WeWandr becomes.
             </p>
           </div>
 
@@ -845,10 +973,14 @@ export default function Home() {
                 disabled={betaSubmitting}
                 className="text-darkblue bg-cream border-2 border-darkblue hover:bg-darkblue hover:text-white focus:bg-darkblue focus:text-white focus:ring-darkblue px-8 py-3 whitespace-nowrap shadow-sm"
               >
-                {betaSubmitting ? "Joining..." : "Join Waitlist"}
+                {betaSubmitting ? "Joining..." : "Join Early Access"}
               </Button>
             </form>
           </div>
+          <p className="text-md text-white/90   animate-fade-up animate-stagger-1 pt-serif-regular mt-6 max-w-2xl mx-auto">
+            Early access will roll out in waves. You'll hear from us as we open
+            things up.
+          </p>
 
           {/* Message Display - Fixed height to prevent layout shift */}
           <div className="mt-6 h-12 max-w-lg mx-auto">
@@ -861,6 +993,26 @@ export default function Home() {
                 <Notice type={betaMessage.type}>{betaMessage.text}</Notice>
               </div>
             ) : null}
+          </div>
+        </div>
+      </div>
+
+      {/* Family Video Section */}
+      <div className="pt-24  bg-gradient-to-br bg-cream">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="mx-auto max-w-[200px] md:max-w-[300px] animate-fade-up animate-stagger-3">
+            <div className="rounded-lg overflow-hidden shadow-lg border-2 border-orange-500 flex items-stretch">
+              <video
+                src="/assets/video/planning/family.mov"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover block"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
       </div>
