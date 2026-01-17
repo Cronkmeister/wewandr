@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FaInstagram, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { useIntersectionObserver } from "@/lib/useIntersectionObserver";
 
@@ -28,9 +29,9 @@ export default function Footer() {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         {/* Top Section - Content Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
           {/* Left Column - Logo and Tagline */}
-          <div className="md:col-span-1 animate-fade-left">
+          <div className="md:col-span-2 animate-fade-left">
             <h3 className="text-3xl font-bold text-orange-500 mb-4 dm-serif-display-regular">
               WeWandr
             </h3>
@@ -47,24 +48,24 @@ export default function Footer() {
               Explore
             </h4>
             <div className="space-y-2">
-              <a
+              <Link
                 href="/#how-it-works"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 How It Works
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/faq"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 FAQs
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/founders-letter"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Founder&apos;s Letter
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -74,24 +75,24 @@ export default function Footer() {
               Company
             </h4>
             <div className="space-y-2">
-              <a
+              <Link
                 href="/investor-relations"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Investor Relations
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/join-our-team"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Join Our Team
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact"
                 className="block text-[#ffe44b] hover:text-white transition-colors"
               >
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -139,26 +140,26 @@ export default function Footer() {
             &copy; 2025 WeWandr. All rights reserved.
           </p>
           <p className="text-white/80 text-xs mt-2">
-            <a
+            <Link
               href="/privacy"
               className="hover:text-yellow-300 transition-colors"
             >
               Privacy Policy
-            </a>
+            </Link>
             {" | "}
-            <a
+            <Link
               href="/terms"
               className="hover:text-yellow-300 transition-colors"
             >
               Terms & Conditions
-            </a>
+            </Link>
             {" | "}
-            <a
+            <Link
               href="/community-guidelines"
               className="hover:text-yellow-300 transition-colors"
             >
               Community Guidelines
-            </a>
+            </Link>
           </p>
           <p className="text-white/80 text-xs mt-2">
             web design by{" "}

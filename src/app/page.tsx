@@ -53,6 +53,9 @@ export default function Home() {
     useState(false);
   const [isEarlyAccessSuccessOpen, setIsEarlyAccessSuccessOpen] =
     useState(false);
+  const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>(
+    {}
+  );
   const mountTime = useRef(Date.now());
 
   // Intersection observers for animations
@@ -173,6 +176,13 @@ export default function Home() {
 
   const onSubmitBeta = async (data: SubscribeForm) => {
     await handleSubscribe(data, setBetaSubmitting, setBetaMessage, resetBeta);
+  };
+
+  const toggleItem = (itemId: string) => {
+    setExpandedItems((prev) => ({
+      ...prev,
+      [itemId]: !prev[itemId],
+    }));
   };
 
   return (
@@ -581,64 +591,116 @@ export default function Home() {
               </p>
               <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular">
                 <li className="group relative">
-                  <div className="flex items-start gap-3 cursor-pointer">
+                  <div
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => toggleItem("gear-logistics")}
+                  >
                     <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium">Gear & Logistics</span>
-                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div
+                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                          expandedItems["gear-logistics"]
+                            ? "opacity-100 max-h-96"
+                            : "opacity-0 max-h-0"
+                        }`}
+                      >
                         How families traveled with strollers, car seats,
                         carriers, pack-and-plays, potties, and everything in
                         between - including what to bring, rent, or skip.
                       </div>
                     </div>
-                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                    <FaPlus
+                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                        expandedItems["gear-logistics"] ? "rotate-45" : ""
+                      }`}
+                    />
                   </div>
                 </li>
                 <li className="group relative">
-                  <div className="flex items-start gap-3 cursor-pointer">
+                  <div
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => toggleItem("kid-friendly")}
+                  >
                     <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium">
                         Kid-Friendly Places to Stay & Navigate
                       </span>
-                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div
+                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                          expandedItems["kid-friendly"]
+                            ? "opacity-100 max-h-96"
+                            : "opacity-0 max-h-0"
+                        }`}
+                      >
                         Honest accommodation reviews, safety notes, laundry
                         access, stroller-friendliness, and how manageable the
                         destination felt with kids.
                       </div>
                     </div>
-                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                    <FaPlus
+                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                        expandedItems["kid-friendly"] ? "rotate-45" : ""
+                      }`}
+                    />
                   </div>
                 </li>
                 <li className="group relative">
-                  <div className="flex items-start gap-3 cursor-pointer">
+                  <div
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => toggleItem("daily-routines")}
+                  >
                     <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium">
                         Daily Routines & Essentials
                       </span>
-                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div
+                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                          expandedItems["daily-routines"]
+                            ? "opacity-100 max-h-96"
+                            : "opacity-0 max-h-0"
+                        }`}
+                      >
                         How families structured meals, naps, bathroom breaks,
                         avoided crowds, and stocked up on everyday needs while
                         out and about.
                       </div>
                     </div>
-                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                    <FaPlus
+                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                        expandedItems["daily-routines"] ? "rotate-45" : ""
+                      }`}
+                    />
                   </div>
                 </li>
                 <li className="group relative">
-                  <div className="flex items-start gap-3 cursor-pointer">
+                  <div
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => toggleItem("highlights")}
+                  >
                     <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium">
                         Highlights & Lessons Learned
                       </span>
-                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div
+                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                          expandedItems["highlights"]
+                            ? "opacity-100 max-h-96"
+                            : "opacity-0 max-h-0"
+                        }`}
+                      >
                         What families loved, what they&apos;d skip next time,
                         and the details that help others plan smarter trips.
                       </div>
                     </div>
-                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                    <FaPlus
+                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                        expandedItems["highlights"] ? "rotate-45" : ""
+                      }`}
+                    />
                   </div>
                 </li>
               </ul>
@@ -667,61 +729,113 @@ export default function Home() {
               </p>
               <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular">
                 <li className="group relative">
-                  <div className="flex items-start gap-3 cursor-pointer">
+                  <div
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => toggleItem("guided-step")}
+                  >
                     <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium">Guided, Step-by-Step</span>
-                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div
+                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                          expandedItems["guided-step"]
+                            ? "opacity-100 max-h-96"
+                            : "opacity-0 max-h-0"
+                        }`}
+                      >
                         Turn your trip into a WandrGuide guide with simple
                         prompts and structure
                       </div>
                     </div>
-                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                    <FaPlus
+                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                        expandedItems["guided-step"] ? "rotate-45" : ""
+                      }`}
+                    />
                   </div>
                 </li>
                 <li className="group relative">
-                  <div className="flex items-start gap-3 cursor-pointer">
+                  <div
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => toggleItem("earnings")}
+                  >
                     <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium">
                         Earnings Tied to Real Usefulness
                       </span>
-                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div
+                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                          expandedItems["earnings"]
+                            ? "opacity-100 max-h-96"
+                            : "opacity-0 max-h-0"
+                        }`}
+                      >
                         When your guide helps another family plan their trip,
                         WeWandr pays you - aligning value, trust, and effort.
                       </div>
                     </div>
-                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                    <FaPlus
+                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                        expandedItems["earnings"] ? "rotate-45" : ""
+                      }`}
+                    />
                   </div>
                 </li>
                 <li className="group relative">
-                  <div className="flex items-start gap-3 cursor-pointer">
+                  <div
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => toggleItem("control")}
+                  >
                     <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium">
                         Control and Transparency
                       </span>
-                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div
+                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                          expandedItems["control"]
+                            ? "opacity-100 max-h-96"
+                            : "opacity-0 max-h-0"
+                        }`}
+                      >
                         You stay in control of your guides, with clear,
                         straightforward payouts when families use them.
                       </div>
                     </div>
-                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                    <FaPlus
+                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                        expandedItems["control"] ? "rotate-45" : ""
+                      }`}
+                    />
                   </div>
                 </li>
                 <li className="group relative">
-                  <div className="flex items-start gap-3 cursor-pointer">
+                  <div
+                    className="flex items-start gap-3 cursor-pointer"
+                    onClick={() => toggleItem("recognition")}
+                  >
                     <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium">
                         Recognition for Lived Experience
                       </span>
-                      <div className="mt-2 text-sm text-orange-500 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div
+                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                          expandedItems["recognition"]
+                            ? "opacity-100 max-h-96"
+                            : "opacity-0 max-h-0"
+                        }`}
+                      >
                         Become a trusted resource for family travel insights -
                         grounded in real trips and firsthand knowledge.
                       </div>
                     </div>
-                    <FaPlus className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0 group-hover:rotate-45 transition-transform duration-200" />
+                    <FaPlus
+                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                        expandedItems["recognition"] ? "rotate-45" : ""
+                      }`}
+                    />
                   </div>
                 </li>
               </ul>
@@ -978,8 +1092,8 @@ export default function Home() {
             </form>
           </div>
           <p className="text-md text-white/90   animate-fade-up animate-stagger-1 pt-serif-regular mt-6 max-w-2xl mx-auto">
-            Early access will roll out in waves. You'll hear from us as we open
-            things up.
+            Early access will roll out in waves. You&apos;ll hear from us as we
+            open things up.
           </p>
 
           {/* Message Display - Fixed height to prevent layout shift */}
