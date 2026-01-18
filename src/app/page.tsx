@@ -13,6 +13,8 @@ import {
   FaBook,
   FaPlus,
   FaCheck,
+  FaChevronRight,
+  FaChevronLeft,
 } from "react-icons/fa";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import Button from "@/components/Button";
@@ -56,6 +58,8 @@ export default function Home() {
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>(
     {}
   );
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const screenshotsScrollRef = useRef<HTMLDivElement>(null);
   const mountTime = useRef(Date.now());
 
   // Intersection observers for animations
@@ -185,6 +189,77 @@ export default function Home() {
     }));
   };
 
+  const scrollToNextImage = () => {
+    if (!screenshotsScrollRef.current) return;
+    
+    const container = screenshotsScrollRef.current;
+    const images = container.querySelectorAll('[data-screenshot]');
+    const nextIndex = (currentImageIndex + 1) % images.length;
+    
+    if (images[nextIndex]) {
+      const imageElement = images[nextIndex] as HTMLElement;
+      const scrollPosition = imageElement.offsetLeft - container.offsetLeft;
+      
+      container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth',
+      });
+      
+      setCurrentImageIndex(nextIndex);
+    }
+  };
+
+  const scrollToPreviousImage = () => {
+    if (!screenshotsScrollRef.current) return;
+    
+    const container = screenshotsScrollRef.current;
+    const images = container.querySelectorAll('[data-screenshot]');
+    const prevIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+    
+    if (images[prevIndex]) {
+      const imageElement = images[prevIndex] as HTMLElement;
+      const scrollPosition = imageElement.offsetLeft - container.offsetLeft;
+      
+      container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth',
+      });
+      
+      setCurrentImageIndex(prevIndex);
+    }
+  };
+
+  // Update current index when user manually scrolls
+  useEffect(() => {
+    const container = screenshotsScrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const images = container.querySelectorAll('[data-screenshot]');
+      const containerRect = container.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      images.forEach((img, index) => {
+        const imgRect = (img as HTMLElement).getBoundingClientRect();
+        const imgCenter = imgRect.left + imgRect.width / 2;
+        const distance = Math.abs(containerCenter - imgCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setCurrentImageIndex(closestIndex);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <main className="min-h-screen relative">
       {/* <CursorTrail /> */}
@@ -295,7 +370,7 @@ export default function Home() {
           }`}
         >
           <div className="space-y-10 md:space-y-14 text-center animate-fade-up animate-stagger-1">
-            <p className="text-orange-400 text-3xl pb-8 md:text-5xl font-bold pt-serif-bold leading-tight">
+            <p className="text-orange-400 text-3xl pb-8 md:text-5xl font-bold pt-serif-bold leading-tight md:leading-snug">
               Family travel shouldn&apos;t feel impossible, it just needs a
               community behind it
             </p>
@@ -879,73 +954,99 @@ export default function Home() {
         >
           <div className="space-y-12">
             {/* Section Header */}
-            {/* <div className="text-center">
+            <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-orange-500 pt-serif-bold animate-fade-up animate-stagger-1">
-                What you&apos;ll find on WeWandr
+                What You&apos;ll Find
               </h2>
-            </div> */}
+              <p className="text-xl text-darkblue max-w-3xl mx-auto mt-4 animate-fade-up animate-stagger-2 pt-serif-regular">
+                Trips are shared as structured, experience-based guides shaped by real family travel
+              </p>
+            </div>
 
-            {/* Content Grid - Screenshot and Text */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              {/* Screenshot */}
-              <div className="flex justify-center relative">
-                <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] relative">
+            {/* Screenshots Row */}
+            <div 
+              ref={screenshotsScrollRef}
+              className="flex flex-row gap-12 justify-start md:justify-center items-center relative overflow-x-auto pb-4 pt-2 px-6 md:px-0 scrollbar-hide"
+            >
+              <div data-screenshot className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-1">
+                <Image
+                  src="/assets/imgs/wewandr-screenshot-2.PNG"
+                  alt="WeWandr app screenshot"
+                  width={800}
+                  height={1200}
+                  className="w-full h-auto object-contain"
+                />
+                            {/* Enlarged overlay - positioned relative to parent container */}
+              <div className="hidden lg:block absolute top-8 left-[calc(16rem+1.5rem)] md:top-[110px] md:left-[110px] z-10 rounded-3xl overflow-hidden shadow-2xl max-w-[5rem] md:max-w-[14rem]">
+                <Image
+                  src="/assets/imgs/guide-screenshot-2.png"
+                  alt="WeWandr guide screenshot enlarged"
+                  width={800}
+                  height={1200}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+              </div>
+              <div data-screenshot className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-2">
+                <Image
+                  src="/assets/imgs/wewandr-SS-2.jpg"
+                  alt="WeWandr app screenshot 2"
+                  width={800}
+                  height={1200}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+              <div data-screenshot className="rounded-2xl p-[2px] bg-gradient-to-br from-orange-300 to-cream shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),-4px_0_6px_-1px_rgba(0,0,0,0.1)] max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-3">
+                <div className="rounded-2xl overflow-hidden relative">
                   <Image
-                    src="/assets/imgs/wewandr-screenshot.PNG"
-                    alt="WeWandr app screenshot"
+                    src="/assets/imgs/wewandr-SS-3.png"
+                    alt="WeWandr app screenshot 3"
                     width={800}
                     height={1200}
                     className="w-full h-auto object-contain"
                   />
-                </div>
-                {/* Enlarged overlay - positioned relative to parent */}
-                <div className="hidden lg:block absolute top-8 left-[calc(50%+3rem)] md:top-[110px] md:left-[274px] z-10 rounded-3xl overflow-hidden shadow-2xl max-w-[5rem] md:max-w-[10rem]">
-                  <Image
-                    src="/assets/imgs/guide-screenshot.jpg"
-                    alt="WeWandr guide screenshot enlarged"
-                    width={800}
-                    height={1200}
-                    className="w-full h-auto object-contain"
-                  />
+                  {/* Bottom right gradient blend */}
+                  <div className="absolute -bottom-[2px] -right-[2px] w-3/4 h-1/3 bg-gradient-to-tl from-cream via-cream/80 to-transparent pointer-events-none rounded-br-2xl" />
                 </div>
               </div>
-
-              {/* Text Description */}
-              <div className="md:space-y-12 space-y-6">
-                <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 ml-0 w-full animate-fade-up animate-stagger-2">
-                  <p className="text-base md:text-lg text-darkblue leading-relaxed pt-serif-regular">
-                    Discover guides created by parents, for parents.
-                  </p>
-                  <p className="text-sm md:text-base text-darkblue leading-relaxed pt-serif-regular">
-                    Browse travel guides shaped by real family experiences—not
-                    algorithms.
-                  </p>
-                </div>
-                <div className="space-y-6">
-                  <div className="border-2 border-orange-300 rounded-lg p-4 md:ml-6 w-full animate-fade-up animate-stagger-4">
-                    <h3 className="text-lg md:text-xl font-bold text-orange-500 mb-2 pt-serif-bold">
-                      WandrGuides
-                    </h3>
-                    <p className="text-sm md:text-base text-darkblue leading-relaxed pt-serif-regular">
-                      First-hand guides from parents sharing what actually
-                      worked on their trips.
-                    </p>
-                  </div>
-                  <div className="border-2 border-orange-300 rounded-lg p-4 md:ml-[-18px] w-full animate-fade-up animate-stagger-6">
-                    <h3 className="text-lg md:text-xl font-bold text-orange-500 mb-2 pt-serif-bold">
-                      WandrLocals
-                    </h3>
-                    <p className="text-sm md:text-base text-darkblue leading-relaxed pt-serif-regular">
-                      Local parents sharing their favourite spots, hidden gems,
-                      and everyday insights.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              
+              {/* Mobile Scroll Buttons */}
+              {/* Left Button - Shows on 2nd and 3rd images (index 1 and 2) */}
+              {(currentImageIndex === 1 || currentImageIndex === 2) && (
+                <button
+                  onClick={scrollToPreviousImage}
+                  className="md:hidden fixed left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  aria-label="Scroll to previous image"
+                >
+                  <FaChevronLeft className="w-5 h-5" />
+                </button>
+              )}
+              
+              {/* Right Button - Hides on last screenshot (index 2) */}
+              {currentImageIndex !== 2 && (
+                <button
+                  onClick={scrollToNextImage}
+                  className="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  aria-label="Scroll to next image"
+                >
+                  <FaChevronRight className="w-5 h-5" />
+                </button>
+              )}
             </div>
 
             {/* Video Demo with Text */}
             <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 mt-12">
+              {/* Text Description - Mobile: Above video */}
+              <div className="animate-fade-up animate-stagger-5 md:hidden w-full flex justify-center mb-4">
+                <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[18rem]">
+                  <p className="text-sm text-darkblue leading-relaxed pt-serif-regular">
+                    Extensive guides packed with practical tips, gear
+                    recommendations, parent-friendly restaurants &
+                    accommodation, and everything you need to know.
+                  </p>
+                </div>
+              </div>
+
               {/* Text Description - Desktop: Beside video */}
               <div className="animate-fade-up animate-stagger-5 relative z-10 md:mr-[-3rem] hidden md:block">
                 <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[12rem] md:max-w-[24rem]">
@@ -959,7 +1060,7 @@ export default function Home() {
 
               {/* Video */}
               <div className="flex justify-center relative">
-                <div className="rounded-2xl overflow-visible md:overflow-hidden shadow-xl border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] relative">
+                <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] relative">
                   <video
                     src="/assets/video/wewander-recording.mp4"
                     autoPlay
@@ -970,17 +1071,6 @@ export default function Home() {
                   >
                     Your browser does not support the video tag.
                   </video>
-
-                  {/* Text Description - Overlayed on video (mobile only) */}
-                  <div className="animate-fade-up animate-stagger-5 absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 z-10 md:hidden">
-                    <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[12rem] shadow-lg">
-                      <p className="text-sm text-darkblue leading-relaxed pt-serif-regular">
-                        Extensive guides packed with practical tips, gear
-                        recommendations, parent-friendly restaurants &
-                        accommodation, and everything you need to know.
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
