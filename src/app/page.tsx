@@ -281,7 +281,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-0 z-0"
           style={{
             background:
-              "radial-gradient(circle at 70% 80%, rgba(249, 115, 22, 0.3) 0%, rgba(249, 115, 22, 0.15) 40%, transparent 70%)",
+              "radial-gradient(circle at 70% 80%, rgba(249, 115, 22, 0.3) 0%, rgba(249, 115, 22, 0.15) 30%, rgba(251, 146, 60, 0.0) 50%, transparent 70%)",
             filter: "blur(80px)",
           }}
         ></div>
@@ -289,7 +289,7 @@ export default function Home() {
           className="pointer-events-none absolute right-0 top-3/4 -translate-y-1/2 z-0 w-[400px] h-[400px] hidden lg:block"
           style={{
             background:
-              "radial-gradient(circle at 60% center, rgba(249, 115, 22, 0.35) 0%, rgba(249, 115, 22, 0.2) 40%, transparent 70%)",
+              "radial-gradient(circle at 60% center, rgba(249, 115, 22, 0.35) 0%, rgba(249, 115, 22, 0.2) 30%, rgba(251, 146, 60, 0.6) 50%, transparent 70%)",
             filter: "blur(100px)",
           }}
         ></div>
@@ -686,8 +686,8 @@ export default function Home() {
             <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 mt-12">
               {/* Text Description - Mobile: Above video */}
               <div className="animate-fade-up animate-stagger-5 md:hidden w-full flex justify-center mb-4">
-                <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[18rem]">
-                  <p className="text-sm text-darkblue leading-relaxed pt-serif-regular">
+                <div className="rounded-lg p-4 space-y-3 bg-cream/0 max-w-[32rem] text-center">
+                  <p className="text-lg md:text-lg font-bold text-darkblue leading-relaxed pt-serif-regular">
                     Extensive guides packed with practical tips, gear
                     recommendations, parent-friendly restaurants &
                     accommodation, and everything you need to know.
@@ -696,9 +696,9 @@ export default function Home() {
               </div>
 
               {/* Text Description - Desktop: Beside video */}
-              <div className="animate-fade-up animate-stagger-5 relative z-10 md:mr-[-3rem] hidden md:block">
-                <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[12rem] md:max-w-[24rem]">
-                  <p className="text-sm md:text-lg text-darkblue leading-relaxed pt-serif-regular">
+              <div className="animate-fade-up animate-stagger-5 relative z-10 hidden md:block">
+                <div className="rounded-lg p-4 space-y-3 bg-cream/0 max-w-[28rem] md:max-w-[28rem]">
+                  <p className="text-lg md:text-xl font-bold text-darkblue leading-relaxed pt-serif-regular">
                     Extensive guides packed with practical tips, gear
                     recommendations, parent-friendly restaurants &
                     accommodation, and everything you need to know.
