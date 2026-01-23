@@ -56,7 +56,7 @@ export default function Home() {
   const [isEarlyAccessSuccessOpen, setIsEarlyAccessSuccessOpen] =
     useState(false);
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>(
-    {}
+    {},
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const screenshotsScrollRef = useRef<HTMLDivElement>(null);
@@ -71,9 +71,6 @@ export default function Home() {
     threshold: 0.2,
   });
   const betaRef = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2 });
-  const weWandrWayRef = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.2,
-  });
   const communityMessageRef = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.2,
   });
@@ -131,9 +128,9 @@ export default function Home() {
       value: {
         type: "success" | "duplicate" | "error";
         text: string;
-      } | null
+      } | null,
     ) => void,
-    reset: () => void
+    reset: () => void,
   ) => {
     setSubmitting(true);
     setMessage(null);
@@ -191,40 +188,41 @@ export default function Home() {
 
   const scrollToNextImage = () => {
     if (!screenshotsScrollRef.current) return;
-    
+
     const container = screenshotsScrollRef.current;
-    const images = container.querySelectorAll('[data-screenshot]');
+    const images = container.querySelectorAll("[data-screenshot]");
     const nextIndex = (currentImageIndex + 1) % images.length;
-    
+
     if (images[nextIndex]) {
       const imageElement = images[nextIndex] as HTMLElement;
       const scrollPosition = imageElement.offsetLeft - container.offsetLeft;
-      
+
       container.scrollTo({
         left: scrollPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
-      
+
       setCurrentImageIndex(nextIndex);
     }
   };
 
   const scrollToPreviousImage = () => {
     if (!screenshotsScrollRef.current) return;
-    
+
     const container = screenshotsScrollRef.current;
-    const images = container.querySelectorAll('[data-screenshot]');
-    const prevIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
-    
+    const images = container.querySelectorAll("[data-screenshot]");
+    const prevIndex =
+      currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+
     if (images[prevIndex]) {
       const imageElement = images[prevIndex] as HTMLElement;
       const scrollPosition = imageElement.offsetLeft - container.offsetLeft;
-      
+
       container.scrollTo({
         left: scrollPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
-      
+
       setCurrentImageIndex(prevIndex);
     }
   };
@@ -235,7 +233,7 @@ export default function Home() {
     if (!container) return;
 
     const handleScroll = () => {
-      const images = container.querySelectorAll('[data-screenshot]');
+      const images = container.querySelectorAll("[data-screenshot]");
       const containerRect = container.getBoundingClientRect();
       const containerCenter = containerRect.left + containerRect.width / 2;
 
@@ -256,105 +254,91 @@ export default function Home() {
       setCurrentImageIndex(closestIndex);
     };
 
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToBeta = () => {
+    const betaSection = document.getElementById("beta");
+    if (betaSection) {
+      betaSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <main className="min-h-screen relative">
-      {/* <CursorTrail /> */}
       <Navigation />
-      {/* <ScrollProgress /> */}
 
       {/* Hero Section */}
       <div
         ref={heroRef.ref}
-        className={`relative min-h-[90vh] md:min-h-[115vh] flex items-start justify-center pt-28 md:pt-36 overflow-hidden bg-gradient-to-b from-cream via-[#FFFBF8] to-[#FFFBF8] ${
+        className={`relative h-screen flex items-center overflow-hidden bg-gradient-to-b from-cream via-[#FFFBF8] to-[#FFFBF8] border-b-4 border-orange-500 ${
           heroRef.isIntersecting ? "animate-in" : ""
         }`}
       >
-        {/* Bottom Background Illustration */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0">
-          <Image
-            src="/assets/imgs/family-camping.png"
-            alt="Family camping illustration"
-            width={1536}
-            height={743}
-            className="w-full h-auto object-cover object-bottom"
-            priority
-          />
-        </div>
+        {/* Radial Orange Blur Background */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(circle at 70% 80%, rgba(249, 115, 22, 0.3) 0%, rgba(249, 115, 22, 0.15) 40%, transparent 70%)",
+            filter: "blur(80px)",
+          }}
+        ></div>
+        <div
+          className="pointer-events-none absolute right-0 top-3/4 -translate-y-1/2 z-0 w-[400px] h-[400px] hidden lg:block"
+          style={{
+            background:
+              "radial-gradient(circle at 60% center, rgba(249, 115, 22, 0.35) 0%, rgba(249, 115, 22, 0.2) 40%, transparent 70%)",
+            filter: "blur(100px)",
+          }}
+        ></div>
 
-        {/* Bottom Blend into Next Section */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[70px] md:h-32 bg-gradient-to-b from-transparent to-[#3240A1]" />
+        {/* Bottom Blend into Next Section
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[70px] md:h-32 bg-gradient-to-b from-cream to-[#3240A1]" /> */}
 
-        {/* Content */}
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          {/* Logo */}
-          <h1 className="dm-serif-display-regular text-4xl md:text-8xl text-orange-500 mb-6 animate-fade-scale">
-            WeWandr
-          </h1>
+        {/* Content Container */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Side - Text Content */}
+            <div className="text-center lg:text-left pt-6 lg:pt-0">
+              {/* Main Heading */}
+              <h1 className="dm-serif-display-regular text-4xl md:text-8xl text-orange-500 mb-6 animate-fade-scale">
+                <span className="whitespace-nowrap">Family Travel,</span>
+                <br />
+                <span className="whitespace-nowrap">Just Got Real</span>
+              </h1>
 
-          <p className="text-xl md:text-xl text-darkblue mb-6 tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
-            Real family trips. Trusted travel guides. Income for parents.
-          </p>
+              {/* Subheading */}
+              <p className="text-xl md:text-xl text-darkblue tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular mb-6">
+                Real family trips, shared as travel guides. Every download
+                supports the parent behind it.
+              </p>
 
-          {/* Email Form */}
-          <div className="max-w-lg mx-auto animate-fade-up animate-stagger-3">
-            <form
-              onSubmit={handleSubmitHero(onSubmitHero)}
-              className="flex flex-col sm:flex-row gap-3"
-            >
-              <div className="flex-1 h-12">
-                <Input
-                  {...registerHero("email")}
-                  placeholder="Enter your email"
-                  error={heroErrors.email?.message}
-                  className="w-full bg-cream border-2 border-orange-500 shadow-md pt-serif-regular"
+              {/* CTA Button */}
+              <div className="animate-fade-up animate-stagger-3">
+                <Button
+                  onClick={scrollToBeta}
+                  className="bg-cream border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-3  transition-colors"
+                >
+                  Join Early Access
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Side - Phone Mockup */}
+            <div className="flex justify-center lg:justify-center items-center animate-fade-up animate-stagger-4">
+              <div className="w-full max-w-[16rem] md:max-w-[18rem] lg:max-w-xs xl:max-w-sm">
+                <Image
+                  src="/assets/imgs/wewandr-phone-mockup.png"
+                  alt="WeWandr app mockup"
+                  width={800}
+                  height={1200}
+                  className="w-full h-auto object-contain"
+                  priority
                 />
               </div>
-
-              {/* Honeypot field - hidden from users */}
-              <input
-                type="text"
-                name="company"
-                tabIndex={-1}
-                autoComplete="off"
-                style={{
-                  position: "absolute",
-                  left: "-9999px",
-                  width: "1px",
-                  height: "1px",
-                }}
-              />
-
-              <Button
-                type="submit"
-                loading={heroSubmitting}
-                disabled={heroSubmitting}
-                className="bg-cream border-2 border-darkblue text-darkblue hover:bg-darkblue hover:text-white px-8 py-3 whitespace-nowrap shadow-md transition-colors"
-              >
-                {heroSubmitting ? "Joining..." : "Join Early Access"}
-              </Button>
-            </form>
-          </div>
-
-          {/* Call to Action */}
-          <p className="text-md md:text-base text-darkblue mt-6 tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular">
-            Become part of the community shaping family travel.
-          </p>
-
-          {/* Message Display - Fixed height to prevent layout shift */}
-          <div className="mt-6 h-12 max-w-lg mx-auto">
-            {heroSubmitting ? (
-              <div className="flex items-center justify-center">
-                <LoadingSkeleton lines={1} className="w-64" />
-              </div>
-            ) : heroMessage ? (
-              <div className="message-fade-in">
-                <Notice type={heroMessage.type}>{heroMessage.text}</Notice>
-              </div>
-            ) : null}
+            </div>
           </div>
         </div>
       </div>
@@ -377,7 +361,7 @@ export default function Home() {
 
             {/* Video Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-12 ">
-              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-orange-400 flex items-stretch">
+              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-white/20 hover:border-orange-400/80 transition-all duration-300 flex items-stretch">
                 <video
                   src="/assets/video/planning/young-mum-1.mov"
                   autoPlay
@@ -389,7 +373,7 @@ export default function Home() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-orange-400 flex items-stretch">
+              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-white/20 hover:border-orange-400/80 transition-all duration-300 flex items-stretch">
                 <video
                   src="/assets/video/planning/young-mum-2.mov"
                   autoPlay
@@ -401,7 +385,7 @@ export default function Home() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-orange-400 flex items-stretch">
+              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-white/20 hover:border-orange-400/80 transition-all duration-300 flex items-stretch">
                 <video
                   src="/assets/video/planning/young-mum-3.mov"
                   autoPlay
@@ -422,7 +406,11 @@ export default function Home() {
       {/* <ThoughtCloud /> */}
 
       {/* What Makes WeWandr Special Section */}
-      <div ref={featuresRef.ref} id="features" className="py-20 bg-[#3240A1]">
+      <div
+        ref={featuresRef.ref}
+        id="features"
+        className="py-20 bg-[#3240A1] border-b-4 border-orange-500"
+      >
         <div
           className={`max-w-6xl mx-auto px-4 section-animate ${
             featuresRef.isIntersecting ? "animate-in" : ""
@@ -502,34 +490,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Strip Section with Background */}
-      <div className="relative py-28 overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover"
-          style={{
-            backgroundImage: "url('/assets/imgs/kids-on-beach-2-crop.png')",
-            backgroundPosition: "center 40%",
-          }}
-        />
-
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/20" />
-
-        {/* Top Gradient Blend - from dark blue section above */}
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#3240A1] to-transparent pointer-events-none z-10" />
-
-        {/* Bottom Gradient Blend - to cream section below */}
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-cream to-transparent pointer-events-none z-10" />
-
-        {/* Content */}
-        <div className="relative z-20 text-center px-4">
-          <h3 className="text-white/0 animate-fade-up animate-stagger-6 heading-secondary drop-shadow-lg">
-            Because travel is better, when planned together.
-          </h3>
         </div>
       </div>
 
@@ -619,6 +579,153 @@ export default function Home() {
         </div>
       </div>
 
+      {/* What You'll Find on WeWandr Section */}
+      <div
+        ref={whatYoullFindRef.ref}
+        id="what-youll-find"
+        className="py-20 bg-cream"
+      >
+        <div
+          className={`max-w-6xl mx-auto px-4 section-animate ${
+            whatYoullFindRef.isIntersecting ? "animate-in" : ""
+          }`}
+        >
+          <div className="space-y-12">
+            {/* Section Header */}
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-orange-500 pt-serif-bold animate-fade-up animate-stagger-1">
+                What You&apos;ll Find
+              </h2>
+              <p className="text-xl text-darkblue max-w-3xl mx-auto mt-4 animate-fade-up animate-stagger-2 pt-serif-regular">
+                Trips are shared as structured, experience-based guides shaped
+                by real family travel
+              </p>
+            </div>
+
+            {/* Screenshots Row */}
+            <div
+              ref={screenshotsScrollRef}
+              className="flex flex-row gap-12 justify-start md:justify-center items-center relative overflow-x-auto pb-4 pt-2 px-6 md:px-0 scrollbar-hide"
+            >
+              <div
+                data-screenshot
+                className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-1"
+              >
+                <Image
+                  src="/assets/imgs/wewandr-screenshot-2.png"
+                  alt="WeWandr app screenshot"
+                  width={800}
+                  height={1200}
+                  className="w-full h-auto object-contain"
+                />
+                {/* Enlarged overlay - positioned relative to parent container */}
+                <div className="hidden lg:block absolute top-8 left-[calc(16rem+1.5rem)] md:top-[110px] md:left-[110px] z-10 rounded-3xl overflow-hidden shadow-2xl max-w-[5rem] md:max-w-[14rem]">
+                  <Image
+                    src="/assets/imgs/guide-screenshot-3.png"
+                    alt="WeWandr guide screenshot enlarged"
+                    width={800}
+                    height={1200}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div
+                data-screenshot
+                className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-2"
+              >
+                <Image
+                  src="/assets/imgs/wewandr-SS-2.jpg"
+                  alt="WeWandr app screenshot 2"
+                  width={800}
+                  height={1200}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+              <div
+                data-screenshot
+                className="rounded-2xl p-[2px] bg-gradient-to-br from-orange-300 to-cream shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),-4px_0_6px_-1px_rgba(0,0,0,0.1)] max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-3"
+              >
+                <div className="rounded-2xl overflow-hidden relative">
+                  <Image
+                    src="/assets/imgs/wewandr-SS-3.png"
+                    alt="WeWandr app screenshot 3"
+                    width={800}
+                    height={1200}
+                    className="w-full h-auto object-contain"
+                  />
+                  {/* Bottom right gradient blend */}
+                  <div className="absolute -bottom-[2px] -right-[2px] w-3/4 h-1/3 bg-gradient-to-tl from-cream via-cream/80 to-transparent pointer-events-none rounded-br-2xl" />
+                </div>
+              </div>
+
+              {/* Mobile Scroll Buttons */}
+              {/* Left Button - Shows on 2nd and 3rd images (index 1 and 2) */}
+              {(currentImageIndex === 1 || currentImageIndex === 2) && (
+                <button
+                  onClick={scrollToPreviousImage}
+                  className="md:hidden fixed left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  aria-label="Scroll to previous image"
+                >
+                  <FaChevronLeft className="w-5 h-5" />
+                </button>
+              )}
+
+              {/* Right Button - Hides on last screenshot (index 2) */}
+              {currentImageIndex !== 2 && (
+                <button
+                  onClick={scrollToNextImage}
+                  className="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  aria-label="Scroll to next image"
+                >
+                  <FaChevronRight className="w-5 h-5" />
+                </button>
+              )}
+            </div>
+
+            {/* Video Demo with Text */}
+            <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 mt-12">
+              {/* Text Description - Mobile: Above video */}
+              <div className="animate-fade-up animate-stagger-5 md:hidden w-full flex justify-center mb-4">
+                <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[18rem]">
+                  <p className="text-sm text-darkblue leading-relaxed pt-serif-regular">
+                    Extensive guides packed with practical tips, gear
+                    recommendations, parent-friendly restaurants &
+                    accommodation, and everything you need to know.
+                  </p>
+                </div>
+              </div>
+
+              {/* Text Description - Desktop: Beside video */}
+              <div className="animate-fade-up animate-stagger-5 relative z-10 md:mr-[-3rem] hidden md:block">
+                <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[12rem] md:max-w-[24rem]">
+                  <p className="text-sm md:text-lg text-darkblue leading-relaxed pt-serif-regular">
+                    Extensive guides packed with practical tips, gear
+                    recommendations, parent-friendly restaurants &
+                    accommodation, and everything you need to know.
+                  </p>
+                </div>
+              </div>
+
+              {/* Video */}
+              <div className="flex justify-center relative">
+                <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] relative">
+                  <video
+                    src="/assets/video/wewander-recording.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto rounded-2xl"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Value Split Section */}
       <div
         ref={valueSplitRef.ref}
@@ -630,17 +737,6 @@ export default function Home() {
             valueSplitRef.isIntersecting ? "animate-in" : ""
           }`}
         >
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-orange-500 mb-4 animate-fade-up heading-primary">
-              For Planning and Sharing
-            </h2>
-            <p className="text-xl text-darkblue max-w-3xl mx-auto animate-fade-up animate-stagger-1 pt-serif-regular">
-              Whether you&apos;re planning your next trip or sharing what
-              you&apos;ve already learned, WeWandr works for you.
-            </p>
-          </div>
-
           {/* Two-Column Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left Column: For Families Planning Trips */}
@@ -919,165 +1015,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* The WeWandr Way Section */}
-      <div
-        ref={weWandrWayRef.ref}
-        id="wewandr-way"
-        className="py-12 md:py-16 relative overflow-hidden bg-cream"
-      >
-        {/* Content */}
-        <div
-          className={`relative z-10 max-w-8xl mx-auto px-4 section-animate ${
-            weWandrWayRef.isIntersecting ? "animate-in" : ""
-          }`}
-        >
-          <div className="text-center">
-            <div className="max-w-6xl mx-auto">
-              <p className="text-2xl md:text-3xl tracking-wider text-darkblue leading-relaxed animate-fade-up animate-stagger-1 font-medium pt-serif-regular">
-                One community, built on lived experience{" "}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* What You'll Find on WeWandr Section */}
-      <div
-        ref={whatYoullFindRef.ref}
-        id="what-youll-find"
-        className="py-20 bg-cream"
-      >
-        <div
-          className={`max-w-6xl mx-auto px-4 section-animate ${
-            whatYoullFindRef.isIntersecting ? "animate-in" : ""
-          }`}
-        >
-          <div className="space-y-12">
-            {/* Section Header */}
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-orange-500 pt-serif-bold animate-fade-up animate-stagger-1">
-                What You&apos;ll Find
-              </h2>
-              <p className="text-xl text-darkblue max-w-3xl mx-auto mt-4 animate-fade-up animate-stagger-2 pt-serif-regular">
-                Trips are shared as structured, experience-based guides shaped by real family travel
-              </p>
-            </div>
-
-            {/* Screenshots Row */}
-            <div 
-              ref={screenshotsScrollRef}
-              className="flex flex-row gap-12 justify-start md:justify-center items-center relative overflow-x-auto pb-4 pt-2 px-6 md:px-0 scrollbar-hide"
-            >
-              <div data-screenshot className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-1">
-                <Image
-                  src="/assets/imgs/wewandr-screenshot-2.PNG"
-                  alt="WeWandr app screenshot"
-                  width={800}
-                  height={1200}
-                  className="w-full h-auto object-contain"
-                />
-                            {/* Enlarged overlay - positioned relative to parent container */}
-              <div className="hidden lg:block absolute top-8 left-[calc(16rem+1.5rem)] md:top-[110px] md:left-[110px] z-10 rounded-3xl overflow-hidden shadow-2xl max-w-[5rem] md:max-w-[14rem]">
-                <Image
-                  src="/assets/imgs/guide-screenshot-2.png"
-                  alt="WeWandr guide screenshot enlarged"
-                  width={800}
-                  height={1200}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              </div>
-              <div data-screenshot className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-2">
-                <Image
-                  src="/assets/imgs/wewandr-SS-2.jpg"
-                  alt="WeWandr app screenshot 2"
-                  width={800}
-                  height={1200}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              <div data-screenshot className="rounded-2xl p-[2px] bg-gradient-to-br from-orange-300 to-cream shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),-4px_0_6px_-1px_rgba(0,0,0,0.1)] max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-3">
-                <div className="rounded-2xl overflow-hidden relative">
-                  <Image
-                    src="/assets/imgs/wewandr-SS-3.png"
-                    alt="WeWandr app screenshot 3"
-                    width={800}
-                    height={1200}
-                    className="w-full h-auto object-contain"
-                  />
-                  {/* Bottom right gradient blend */}
-                  <div className="absolute -bottom-[2px] -right-[2px] w-3/4 h-1/3 bg-gradient-to-tl from-cream via-cream/80 to-transparent pointer-events-none rounded-br-2xl" />
-                </div>
-              </div>
-              
-              {/* Mobile Scroll Buttons */}
-              {/* Left Button - Shows on 2nd and 3rd images (index 1 and 2) */}
-              {(currentImageIndex === 1 || currentImageIndex === 2) && (
-                <button
-                  onClick={scrollToPreviousImage}
-                  className="md:hidden fixed left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Scroll to previous image"
-                >
-                  <FaChevronLeft className="w-5 h-5" />
-                </button>
-              )}
-              
-              {/* Right Button - Hides on last screenshot (index 2) */}
-              {currentImageIndex !== 2 && (
-                <button
-                  onClick={scrollToNextImage}
-                  className="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Scroll to next image"
-                >
-                  <FaChevronRight className="w-5 h-5" />
-                </button>
-              )}
-            </div>
-
-            {/* Video Demo with Text */}
-            <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 mt-12">
-              {/* Text Description - Mobile: Above video */}
-              <div className="animate-fade-up animate-stagger-5 md:hidden w-full flex justify-center mb-4">
-                <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[18rem]">
-                  <p className="text-sm text-darkblue leading-relaxed pt-serif-regular">
-                    Extensive guides packed with practical tips, gear
-                    recommendations, parent-friendly restaurants &
-                    accommodation, and everything you need to know.
-                  </p>
-                </div>
-              </div>
-
-              {/* Text Description - Desktop: Beside video */}
-              <div className="animate-fade-up animate-stagger-5 relative z-10 md:mr-[-3rem] hidden md:block">
-                <div className="border-2 border-orange-300 rounded-lg p-4 space-y-3 bg-cream max-w-[12rem] md:max-w-[24rem]">
-                  <p className="text-sm md:text-lg text-darkblue leading-relaxed pt-serif-regular">
-                    Extensive guides packed with practical tips, gear
-                    recommendations, parent-friendly restaurants &
-                    accommodation, and everything you need to know.
-                  </p>
-                </div>
-              </div>
-
-              {/* Video */}
-              <div className="flex justify-center relative">
-                <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] relative">
-                  <video
-                    src="/assets/video/wewander-recording.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto rounded-2xl"
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Our Story Section (Shortened) */}
       <div ref={ourStoryRef.ref} id="our-story" className="py-20 bg-cream">
         <div
@@ -1197,26 +1134,6 @@ export default function Home() {
                 <Notice type={betaMessage.type}>{betaMessage.text}</Notice>
               </div>
             ) : null}
-          </div>
-        </div>
-      </div>
-
-      {/* Family Video Section */}
-      <div className="pt-24  bg-gradient-to-br bg-cream">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="mx-auto max-w-[200px] md:max-w-[300px] animate-fade-up animate-stagger-3">
-            <div className="rounded-lg overflow-hidden shadow-lg border-2 border-orange-500 flex items-stretch">
-              <video
-                src="/assets/video/planning/family.mov"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover block"
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
           </div>
         </div>
       </div>

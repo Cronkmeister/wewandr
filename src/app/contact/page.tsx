@@ -76,11 +76,6 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-
-          {/* Location Information */}
-          <p className="text-center text-lg md:text-lg text-[#060453] pt-6 pt-serif-regular mt-6">
-            Based in Victoria, BC
-          </p>
         </div>
       </Section>
 

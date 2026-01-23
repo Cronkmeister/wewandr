@@ -2,6 +2,15 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
+import {
+  FaLock,
+  FaEye,
+  FaUsers,
+  FaEnvelope,
+  FaShieldAlt,
+  FaGlobe,
+  FaChevronRight,
+} from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — WeWandr",
@@ -14,7 +23,7 @@ export default function PrivacyPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 bg-gradient-to-br from-orange-400 to-orange-600">
+      <div className="relative pt-32 pb-16 bg-gradient-to-br from-orange-200 to-orange-300">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Privacy Policy
@@ -60,7 +69,9 @@ export default function PrivacyPage() {
                 {/* Your Info, Your Choice */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">🔐</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaLock />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         Your Info, Your Choice
@@ -77,7 +88,9 @@ export default function PrivacyPage() {
                 {/* What Others See */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">👀</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaEye />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         What Others See
@@ -93,7 +106,9 @@ export default function PrivacyPage() {
                 {/* Kids' Privacy */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">🧒</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaUsers />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         Kids&apos; Privacy
@@ -110,7 +125,9 @@ export default function PrivacyPage() {
                 {/* How We Use Data */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">💌</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaEnvelope />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         How We Use Data
@@ -133,7 +150,9 @@ export default function PrivacyPage() {
                 {/* Security */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">🛡️</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaShieldAlt />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         Security
@@ -149,7 +168,9 @@ export default function PrivacyPage() {
                 {/* Where Data Lives */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">🌍</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaGlobe />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         Where Data Lives
@@ -167,7 +188,9 @@ export default function PrivacyPage() {
               <div className="mt-8 text-center space-y-4">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                   <div className="flex items-center justify-center space-x-3 mb-3">
-                    <div className="text-2xl">📧</div>
+                    <div className="text-blue-600 text-2xl">
+                      <FaEnvelope />
+                    </div>
                     <h3 className="text-gray-900 heading-small">Questions?</h3>
                   </div>
                   <p className="text-gray-700 text-sm">
@@ -186,7 +209,8 @@ export default function PrivacyPage() {
                     href="#full-privacy-policy"
                     className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold transition-colors"
                   >
-                    👉 Read the Full Privacy Policy Below ↓
+                    <FaChevronRight className="mr-2" />
+                    Read the Full Privacy Policy Below ↓
                   </a>
                 </div>
               </div>

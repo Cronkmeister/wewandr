@@ -2,6 +2,16 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
+import {
+  FaUsers,
+  FaFileAlt,
+  FaDollarSign,
+  FaRobot,
+  FaBalanceScale,
+  FaEnvelope,
+  FaChevronRight,
+} from "react-icons/fa";
+import { FaHandshakeSimple } from "react-icons/fa6";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions — WeWandr",
@@ -14,7 +24,7 @@ export default function TermsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 bg-gradient-to-br from-orange-400 to-orange-600">
+      <div className="relative pt-32 pb-16 bg-gradient-to-br from-orange-200 to-orange-300">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Terms & Conditions
@@ -59,7 +69,9 @@ export default function TermsPage() {
                 {/* Who Can Join */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">👨‍👩‍👧</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaUsers />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         Who Can Join
@@ -75,7 +87,9 @@ export default function TermsPage() {
                 {/* Your Content */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">📝</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaFileAlt />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         Your Content
@@ -92,7 +106,9 @@ export default function TermsPage() {
                 {/* Getting Paid */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">💵</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaDollarSign />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         Getting Paid
@@ -109,7 +125,9 @@ export default function TermsPage() {
                 {/* Community Rules */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">🤝</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaHandshakeSimple />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         Community Rules
@@ -125,7 +143,9 @@ export default function TermsPage() {
                 {/* About AI */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">🤖</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaRobot />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         About AI
@@ -142,7 +162,9 @@ export default function TermsPage() {
                 {/* The Serious Stuff */}
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="text-2xl">⚖️</div>
+                    <div className="text-orange-600 text-2xl">
+                      <FaBalanceScale />
+                    </div>
                     <div>
                       <h3 className="text-gray-900 mb-2 heading-small">
                         The Serious Stuff
@@ -161,7 +183,9 @@ export default function TermsPage() {
               <div className="mt-8 text-center space-y-4">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                   <div className="flex items-center justify-center space-x-3 mb-3">
-                    <div className="text-2xl">📧</div>
+                    <div className="text-blue-600 text-2xl">
+                      <FaEnvelope />
+                    </div>
                     <h3 className="text-gray-900 heading-small">Questions?</h3>
                   </div>
                   <p className="text-gray-700 text-sm">
@@ -180,7 +204,8 @@ export default function TermsPage() {
                     href="#full-legal-terms"
                     className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold transition-colors"
                   >
-                    👉 Read the Full Legal Terms Below ↓
+                    <FaChevronRight className="mr-2" />
+                    Read the Full Legal Terms Below ↓
                   </a>
                 </div>
               </div>
@@ -457,7 +482,7 @@ export default function TermsPage() {
                   })}
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Hi parents 👋 Welcome to WeWandr! We&apos;re so glad
+                  Hi parents! Welcome to WeWandr! We&apos;re so glad
                   you&apos;re here. To keep this space safe, supportive, and
                   fair, here&apos;s what you agree to when using our website or
                   app:

@@ -36,17 +36,18 @@ const faqData: FAQSection[] = [
       {
         question: "Who is WeWandr for?",
         answer:
-          "WeWandr is for anyone who values learning from real experience rather than one-size-fits-all advice. Today, our focus is families traveling with kids — but over time, WeWandr is growing into a broader trust layer for travel planning, where people can find guidance from others who travel in similar ways.",
+          "WeWandr is for anyone who values learning from real experience rather than one-size-fits-all advice. Today, our focus is families traveling with kids, but over time WeWandr is growing into a broader trust layer for travel planning. Where people can find guidance from others who travel in similar ways.",
       },
       {
         question: "Do I need to be a parent to use WeWandr?",
         answer:
-          "No. While WeWandr is built with families in mind, you don't need to be a parent to explore guides or participate. As the platform evolves, it will support all types of travelers — helping people find their own travel community.",
+          "No. While WeWandr is built with families in mind, you don't need to be a parent to explore guides or participate. As the platform evolves, it will support all types of travelers. Helping people find their own travel community.",
       },
       {
-        question: "What makes WeWandr different from blogs, forums, or social platforms?",
+        question:
+          "What makes WeWandr different from blogs, forums, or social platforms?",
         answer:
-          "WeWandr is built to organize real travel experience into something structured, practical, and trust-led. Instead of digging through posts or threads, trips are shaped into clear, reusable guides — making it easier to learn from people who travel in ways that feel familiar.",
+          "WeWandr is built to organize real travel experience into something structured, practical, and trust-led. Instead of digging through posts or threads, trips are shaped into clear, reusable guides, making it easier to learn from people who travel in ways that feel familiar.",
       },
       {
         question: "Where is WeWandr based?",
@@ -66,7 +67,7 @@ const faqData: FAQSection[] = [
       {
         question: "What is a WandrGuide?",
         answer:
-          "A WandrGuide is a travel guide created from a real trip, written by someone who's already been there. Each guide captures the details people actually care about — from logistics and daily rhythms to lessons learned — and is designed to be easy to explore and apply.",
+          "A WandrGuide is a travel guide created from a real trip, written by someone who's already been there. Each guide captures the details people actually care about,from logistics and daily rhythms to lessons learned, and is designed to be easy to explore and apply.",
       },
       {
         question: "What kind of information is included in a WandrGuide?",
@@ -81,7 +82,7 @@ const faqData: FAQSection[] = [
       {
         question: "How do I find the right WandrGuides for my family?",
         answer:
-          "Guides can be discovered using filters like destination, children's ages, trip type, and travel style — making it easier to find trips that match your needs.",
+          "Guides can be discovered using filters like destination, children's ages, trip type, and travel style. Making it easier to find trips that match your needs.",
       },
       {
         question: "Can I trust the information in WandrGuides?",
@@ -101,7 +102,7 @@ const faqData: FAQSection[] = [
       {
         question: "Who can create a WandrGuide?",
         answer:
-          "Anyone with relevant travel experience can create a WandrGuide. You don't need to be a professional writer or an expert — just someone willing to share what you learned so others can plan with more clarity and confidence.",
+          "Anyone with relevant travel experience can create a WandrGuide. You don't need to be a professional writer or an expert. Just someone willing to share what you learned so others can plan with more clarity and confidence.",
       },
       {
         question: "How do I create a WandrGuide?",
@@ -116,7 +117,7 @@ const faqData: FAQSection[] = [
       {
         question: "How does payment work?",
         answer:
-          "Payment details will be shared clearly as features roll out. Our goal is to make payouts straightforward, transparent, and aligned with real use — without placing the cost on people accessing the guides.",
+          "Payment details will be shared clearly as features roll out. Our goal is to make payouts straightforward, transparent, and aligned with real use, without placing the cost on people accessing the guides.",
       },
     ],
   },
@@ -126,7 +127,7 @@ const faqData: FAQSection[] = [
       {
         question: "How does WeWandr help ensure quality and trust?",
         answer:
-          "Guides go through review layers and are supported by thoughtful systems designed to surface the most helpful insights- while keeping guidance grounded in real experience.",
+          "Guides go through review layers and are supported by thoughtful systems designed to surface the most helpful insights while keeping guidance grounded in real experience.",
       },
       {
         question: "What does early access mean?",
@@ -143,15 +144,14 @@ export default function FAQPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 bg-gradient-to-br from-orange-400 to-orange-600">
+      <div className="relative pt-32 pb-16 bg-gradient-to-br from-orange-200 to-orange-300">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 heading-primary">
             Frequently Asked Questions
           </h1>
           <p className="text-lg text-white/90 pt-serif-regular">
-            You&apos;re not the only one wondering how it all works — and
-            that&apos;s exactly why we built this space. Here&apos;s everything
-            you need to know.
+            You&apos;re not the only one wondering how it all works. Here&apos;s
+            everything you need to know.
           </p>
         </div>
       </div>

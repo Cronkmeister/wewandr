@@ -4,18 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -55,11 +44,7 @@ export default function Navigation() {
             <div className="flex items-center">
               <Link
                 href="/"
-                className={`text-2xl font-bold text-orange-500 dm-serif-display-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer ${
-                  isScrolled
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 -translate-y-4 pointer-events-none"
-                }`}
+                className="text-2xl font-bold text-orange-500 dm-serif-display-regular transition-all duration-300 hover:scale-110 hover:text-orange-400 cursor-pointer"
               >
                 WeWandr
               </Link>
@@ -67,25 +52,25 @@ export default function Navigation() {
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
-              <a
-                href="#features"
+              <Link
+                href="/#features"
                 className="transition-all duration-300 font-medium link-hover pt-serif-regular text-orange-400 hover:text-orange-600"
               >
                 About
-              </a>
-              <a
-                href="#how-it-works"
+              </Link>
+              <Link
+                href="/#how-it-works"
                 className="transition-all duration-300 font-medium link-hover pt-serif-regular text-orange-400 hover:text-orange-600"
               >
                 How It Works
-              </a>
+              </Link>
 
-              <a
-                href="#beta"
+              <Link
+                href="/#beta"
                 className="transition-all duration-300 font-medium link-hover pt-serif-regular text-orange-400 hover:text-orange-600"
               >
-                Join Waitlist
-              </a>
+                Join Early Access
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -166,27 +151,27 @@ export default function Navigation() {
           <div className="flex flex-col h-full pt-20 px-6">
             {/* Mobile Navigation Links */}
             <nav className="flex flex-col space-y-6">
-              <a
-                href="#features"
+              <Link
+                href="/#features"
                 onClick={handleLinkClick}
                 className="text-xl font-medium pt-serif-regular text-orange-500 hover:text-orange-600 transition-all duration-300 py-2 border-b border-gray-200 hover:border-orange-400"
               >
                 About
-              </a>
-              <a
-                href="#how-it-works"
+              </Link>
+              <Link
+                href="/#how-it-works"
                 onClick={handleLinkClick}
                 className="text-xl font-medium pt-serif-regular text-orange-500 hover:text-orange-600 transition-all duration-300 py-2 border-b border-gray-200 hover:border-orange-400"
               >
                 How It Works
-              </a>
-              <a
-                href="#beta"
+              </Link>
+              <Link
+                href="/#beta"
                 onClick={handleLinkClick}
                 className="text-xl font-medium pt-serif-regular text-orange-500 hover:text-orange-600 transition-all duration-300 py-2 border-b border-gray-200 hover:border-orange-400"
               >
                 Join Waitlist
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
