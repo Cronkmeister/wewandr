@@ -24,6 +24,7 @@ import Navigation from "@/components/Navigation";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
+import BackgroundBlur from "@/components/BackgroundBlur";
 // import ThoughtCloud from "@/components/ThoughtCloud";
 import PlanLearnModal from "@/components/modals/PlanLearnModal";
 import ShareEarnModal from "@/components/modals/ShareEarnModal";
@@ -39,7 +40,6 @@ const subscribeSchema = z.object({
 type SubscribeForm = z.infer<typeof subscribeSchema>;
 
 export default function Home() {
-  const [heroSubmitting, setHeroSubmitting] = useState(false);
   const [betaSubmitting, setBetaSubmitting] = useState(false);
   const [heroMessage, setHeroMessage] = useState<{
     type: "success" | "duplicate" | "error";
@@ -104,15 +104,6 @@ export default function Home() {
   }, [betaMessage]);
 
   const {
-    register: registerHero,
-    handleSubmit: handleSubmitHero,
-    reset: resetHero,
-    formState: { errors: heroErrors },
-  } = useForm<SubscribeForm>({
-    resolver: zodResolver(subscribeSchema),
-  });
-
-  const {
     register: registerBeta,
     handleSubmit: handleSubmitBeta,
     reset: resetBeta,
@@ -169,10 +160,6 @@ export default function Home() {
     } finally {
       setSubmitting(false);
     }
-  };
-
-  const onSubmitHero = async (data: SubscribeForm) => {
-    await handleSubscribe(data, setHeroSubmitting, setHeroMessage, resetHero);
   };
 
   const onSubmitBeta = async (data: SubscribeForm) => {
@@ -258,245 +245,235 @@ export default function Home() {
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToBeta = () => {
-    const betaSection = document.getElementById("beta");
-    if (betaSection) {
-      betaSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
     <main className="min-h-screen relative">
       <Navigation />
 
-      {/* Hero Section */}
-      <div
-        ref={heroRef.ref}
-        className={`relative h-screen flex items-center overflow-hidden bg-gradient-to-b from-cream via-[#FFFBF8] to-[#FFFBF8] border-b-4 border-orange-500 ${
-          heroRef.isIntersecting ? "animate-in" : ""
-        }`}
-      >
-        {/* Radial Orange Blur Background */}
+      {/* Unified hero + sections: one background so blur bleeds through */}
+      <div className="relative">
+        {/* Base cream gradient — spans hero + community + features */}
         <div
           className="pointer-events-none absolute inset-0 z-0"
           style={{
             background:
-              "radial-gradient(circle at 70% 80%, rgba(249, 115, 22, 0.3) 0%, rgba(249, 115, 22, 0.15) 30%, rgba(251, 146, 60, 0.0) 50%, transparent 70%)",
-            filter: "blur(80px)",
+              "linear-gradient(to bottom, #fbf9ef 0%, #FFFBF8 25%, #FFFBF8 75%, #fbf9ef 100%)",
           }}
-        ></div>
+        />
+        {/* Radial orange blurs — span full wrapper, bleed into sections below */}
+        <BackgroundBlur />
+        <BackgroundBlur
+          variant="orb"
+          className="right-0 top-[30%] -translate-y-1/2 w-[90vw] h-[70vh] max-w-[700px] max-h-[700px] hidden lg:block"
+        />
+        <BackgroundBlur
+          variant="orb-soft"
+          className="left-0 top-[75%] -translate-y-1/2 w-[80vw] h-[50vh] max-w-[600px] max-h-[500px] hidden lg:block"
+        />
+
+        {/* Hero Section — no own background */}
         <div
-          className="pointer-events-none absolute right-0 top-3/4 -translate-y-1/2 z-0 w-[400px] h-[400px] hidden lg:block"
-          style={{
-            background:
-              "radial-gradient(circle at 60% center, rgba(249, 115, 22, 0.35) 0%, rgba(249, 115, 22, 0.2) 30%, rgba(251, 146, 60, 0.6) 50%, transparent 70%)",
-            filter: "blur(100px)",
-          }}
-        ></div>
+          ref={heroRef.ref}
+          className={`relative z-10 min-h-screen flex items-center ${
+            heroRef.isIntersecting ? "animate-in" : ""
+          }`}
+        >
+          {/* Content Container — same width as Navigation (max-w-6xl) */}
+          <div className="relative z-10 w-full max-w-6xl mx-auto px-4 pt-24 md:pt-28">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Left Side - Text Content */}
+              <div className="text-center lg:text-left pt-6 lg:pt-0">
+                {/* Main Heading */}
+                <h1 className="dm-serif-display-regular text-6xl md:text-8xl text-orange-500 mb-6 animate-fade-scale">
+                  <span className="whitespace-nowrap">Family Travel,</span>
+                  <br />
+                  <span className="whitespace-nowrap">Just Got Real</span>
+                </h1>
 
-        {/* Bottom Blend into Next Section
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[70px] md:h-32 bg-gradient-to-b from-cream to-[#3240A1]" /> */}
+                {/* Subheading */}
+                <p className="text-xl md:text-xl text-darkblue tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular mb-6">
+                  Real family trips, shared as travel guides. Every download
+                  supports the parent behind it.
+                </p>
 
-        {/* Content Container */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left Side - Text Content */}
-            <div className="text-center lg:text-left pt-6 lg:pt-0">
-              {/* Main Heading */}
-              <h1 className="dm-serif-display-regular text-4xl md:text-8xl text-orange-500 mb-6 animate-fade-scale">
-                <span className="whitespace-nowrap">Family Travel,</span>
-                <br />
-                <span className="whitespace-nowrap">Just Got Real</span>
-              </h1>
-
-              {/* Subheading */}
-              <p className="text-xl md:text-xl text-darkblue tracking-wide animate-fade-up animate-stagger-2 pt-serif-regular mb-6">
-                Real family trips, shared as travel guides. Every download
-                supports the parent behind it.
-              </p>
-
-              {/* CTA Button */}
-              <div className="animate-fade-up animate-stagger-3">
+                {/* CTA Button */}
+                {/* <div className="animate-fade-up animate-stagger-3">
                 <Button
                   onClick={scrollToBeta}
                   className="bg-cream border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-3  transition-colors"
                 >
                   Join Early Access
                 </Button>
+              </div> */}
               </div>
-            </div>
 
-            {/* Right Side - Phone Mockup */}
-            <div className="flex justify-center lg:justify-center items-center animate-fade-up animate-stagger-4">
-              <div className="w-full max-w-[16rem] md:max-w-[18rem] lg:max-w-xs xl:max-w-sm">
-                <Image
-                  src="/assets/imgs/wewandr-phone-mockup.png"
-                  alt="WeWandr app mockup"
-                  width={800}
-                  height={1200}
-                  className="w-full h-auto object-contain"
-                  priority
-                />
+              {/* Right Side - Phone Mockup */}
+              <div className="flex justify-center lg:justify-center items-center animate-fade-up animate-stagger-4">
+                <div className="w-full max-w-[16rem] md:max-w-[18rem] lg:max-w-xs xl:max-w-sm">
+                  <Image
+                    src="/assets/imgs/Simulator-Screenshot.png"
+                    alt="WeWandr app mockup"
+                    width={800}
+                    height={1200}
+                    className="w-full h-auto object-contain"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* New Section - Community Message */}
-      <div
-        ref={communityMessageRef.ref}
-        className="pt-16 md:pt-24 pb-8 md:pb-16 bg-[#3240A1]"
-      >
+        {/* Community Message — same background layer */}
         <div
-          className={`max-w-5xl mx-auto px-4 section-animate ${
-            communityMessageRef.isIntersecting ? "animate-in" : ""
-          }`}
+          ref={communityMessageRef.ref}
+          className="relative z-10 pt-16 md:pt-24 pb-8 md:pb-16"
         >
-          <div className="space-y-10 md:space-y-14 text-center animate-fade-up animate-stagger-1">
-            <p className="text-orange-400 text-3xl pb-8 md:text-5xl font-bold pt-serif-bold leading-tight md:leading-snug">
-              Family travel shouldn&apos;t feel impossible, it just needs a
-              community behind it
-            </p>
-
-            {/* Video Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-12 ">
-              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-white/20 hover:border-orange-400/80 transition-all duration-300 flex items-stretch">
-                <video
-                  src="/assets/video/planning/young-mum-1.mov"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover block"
-                >
-                  Your browser does not support the video tag.
-                </video>
+          <div
+            className={`max-w-6xl mx-auto px-4 section-animate ${
+              communityMessageRef.isIntersecting ? "animate-in" : ""
+            }`}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center animate-fade-up animate-stagger-1">
+              {/* Phone with scrolling video — left on md+, below text on mobile */}
+              <div className="order-2 md:order-1 flex justify-center md:justify-end">
+                <div className="relative w-[min(18rem,85vw)] max-w-[18rem] md:max-w-[16rem]">
+                  <div className="absolute top-[0.6%] left-[2.4%] right-[0.2%] bottom-[1.2%] z-0 rounded-[2.9rem] overflow-hidden bg-black">
+                    <video
+                      src="/assets/video/wewander-recording.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover origin-top-left"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <Image
+                    src="/assets/imgs/apple-iphone-17-pro-max-2025-medium.png"
+                    alt="iPhone showing WeWandr app"
+                    width={390}
+                    height={844}
+                    className="relative z-10 w-full h-auto block pointer-events-none"
+                  />
+                </div>
               </div>
-              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-white/20 hover:border-orange-400/80 transition-all duration-300 flex items-stretch">
-                <video
-                  src="/assets/video/planning/young-mum-2.mov"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover block"
-                >
-                  Your browser does not support the video tag.
-                </video>
+              {/* Text — right on md+, above phone on mobile */}
+              <div className="order-1 md:order-2 text-center md:text-left space-y-6">
+                <p className="text-orange-400 text-3xl md:text-5xl font-bold pt-serif-bold leading-tight md:leading-snug">
+                  Your next trip starts with a parent who&apos;s already done it
+                  and wrote it down for you
+                </p>
+                <p className="hidden md:block text-orange-700 text-lg md:text-xl font-bold pt-serif-bold leading-tight md:leading-snug">
+                  When your experience helps another family, WeWandr pays you.
+                  Together, we&apos;re building the world&apos;s family travel
+                  network
+                </p>
               </div>
-              <div className="mx-auto max-w-[260px] md:max-w-none md:mx-0 w-full rounded-lg overflow-hidden shadow-lg border-2 border-white/20 hover:border-orange-400/80 transition-all duration-300 flex items-stretch">
-                <video
-                  src="/assets/video/planning/young-mum-3.mov"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover block"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+              {/* Same paragraph below phone on mobile only */}
+              <p className="order-3 block md:hidden text-orange-700 text-lg md:text-xl font-bold pt-serif-bold leading-tight md:leading-snug text-center px-4">
+                When your experience helps another family, WeWandr pays you.
+                Together, we&apos;re building the world&apos;s family travel
+                network
+              </p>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Booking Section */}
-      {/* <ThoughtCloud /> */}
-
-      {/* What Makes WeWandr Special Section */}
-      <div
-        ref={featuresRef.ref}
-        id="features"
-        className="py-20 bg-[#3240A1] border-b-4 border-orange-500"
-      >
+        {/* What Makes WeWandr Special Section — same background layer */}
         <div
-          className={`max-w-6xl mx-auto px-4 section-animate ${
-            featuresRef.isIntersecting ? "animate-in" : ""
-          }`}
+          ref={featuresRef.ref}
+          id="features"
+          className="relative z-10 py-20"
         >
-          {/* Section Header */}
-          {/* <div className="text-center mb-16">
-            <h2 className="mb-4 animate-fade-up heading-primary text-darkblue">
-              Welcome to WeWandr
-            </h2>
-          </div> */}
-
-          {/* Welcome Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
-            {/* Card 1: Parent-Powered Platform */}
-            <div className="backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-orange-400 hover:bg-white/10 transition-all duration-300 card-hover group animate-fade-up animate-stagger-1">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center icon-animate group-hover:bg-orange-400/30 transition-colors duration-300 flex-shrink-0">
-                  <FaUsers className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+          <div
+            className={`max-w-6xl mx-auto px-4 section-animate ${
+              featuresRef.isIntersecting ? "animate-in" : ""
+            }`}
+          >
+            {/* Welcome Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+              {/* Card 1: Organized for Real Life */}
+              <div className="bg-cream border-2 border-orange-300 rounded-xl p-6 transition-all duration-300 card-hover group animate-fade-up animate-stagger-1 hover:border-orange-400">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-darkblue rounded-full flex items-center justify-center group-hover:bg-[#8fa7eb] transition-all duration-300 flex-shrink-0 group-hover:scale-110">
+                    <FaMapMarkedAlt className="w-6 h-6 text-white transition-transform duration-300" />
+                  </div>
+                  <h3 className="group-hover:text-orange-600 transition-colors duration-300 heading-tertiary text-orange-500">
+                    Organized for Real Life
+                  </h3>
                 </div>
-                <h3 className="group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
-                  Built on Family Experience
-                </h3>
+                <p className="leading-relaxed transition-colors duration-300 pt-serif-regular text-orange-700 group-hover:text-orange-800">
+                  Real family trips are turned into clear, downloadable guides -
+                  helping families plan with ease and confidence.
+                </p>
               </div>
-              <p className="leading-relaxed group-hover:opacity-90 transition-colors duration-300 pt-serif-regular text-cream">
-                Every guide on WeWandr is created by families who&apos;ve taken
-                the trip - sharing what actually mattered once they were there.
-              </p>
-            </div>
 
-            {/* Card 2: Real Family Experiences */}
-            <div className="backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-orange-400 hover:bg-white/10 transition-all duration-300 card-hover group animate-fade-up animate-stagger-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center icon-animate group-hover:bg-orange-400/30 transition-colors duration-300 flex-shrink-0">
-                  <FaMapMarkedAlt className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+              {/* Card 2: Built on Family Experience */}
+              <div className="bg-cream border-2 border-orange-300 rounded-xl p-6 transition-all duration-300 card-hover group animate-fade-up animate-stagger-2 hover:border-orange-400">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-darkblue rounded-full flex items-center justify-center group-hover:bg-[#8fa7eb] transition-all duration-300 flex-shrink-0 group-hover:scale-110">
+                    <FaUsers className="w-6 h-6 text-white transition-transform duration-300" />
+                  </div>
+                  <h3 className="group-hover:text-orange-600 transition-colors duration-300 heading-tertiary text-orange-500">
+                    Built on Family Experience
+                  </h3>
                 </div>
-                <h3 className="group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
-                  Organized for Real Life
-                </h3>
+                <p className="leading-relaxed transition-colors duration-300 pt-serif-regular text-orange-700 group-hover:text-orange-800">
+                  Every guide on WeWandr is created by the family who took the
+                  trip - sharing what actually mattered once they were there.
+                </p>
               </div>
-              <p className="leading-relaxed group-hover:opacity-90 transition-colors duration-300 pt-serif-regular text-cream">
-                Real family trips are turned into clear, downloadable guides -
-                helping families plan with ease and confidence.
-              </p>
-            </div>
 
-            {/* Card 3: How-To Guides */}
-            <div className="backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-orange-400 hover:bg-white/10 transition-all duration-300 card-hover group animate-fade-up animate-stagger-3">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center icon-animate group-hover:bg-orange-400/30 transition-colors duration-300 flex-shrink-0">
-                  <FaStar className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+              {/* Card 3: How-To Guides */}
+              <div className="bg-cream border-2 border-orange-300 rounded-xl p-6 transition-all duration-300 card-hover group animate-fade-up animate-stagger-3 hover:border-orange-400">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-darkblue rounded-full flex items-center justify-center group-hover:bg-[#8fa7eb] transition-all duration-300 flex-shrink-0 group-hover:scale-110">
+                    <FaStar className="w-6 h-6 text-white transition-transform duration-300" />
+                  </div>
+                  <h3 className="group-hover:text-orange-600 transition-colors duration-300 heading-tertiary text-orange-500">
+                    Supported by Thoughtful Systems
+                  </h3>
                 </div>
-                <h3 className="group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
-                  Supported by Thoughtful Systems
-                </h3>
+                <p className="leading-relaxed transition-colors duration-300 pt-serif-regular text-orange-700 group-hover:text-orange-800">
+                  Intelligent tools are used to help refine guides and surface
+                  the most helpful insights, while keeping real family
+                  experience at the center.
+                </p>
               </div>
-              <p className="leading-relaxed group-hover:opacity-90 transition-colors duration-300 pt-serif-regular text-cream">
-                We use intelligent tools to help refine guides and surface the
-                most helpful insights, while keeping real family experience at
-                the center.
-              </p>
-            </div>
 
-            {/* Card 4: Earn from Your Knowledge */}
-            <div className="backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-orange-400 hover:bg-white/10 transition-all duration-300 card-hover group animate-fade-up animate-stagger-4">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center icon-animate group-hover:bg-orange-400/30 transition-colors duration-300 flex-shrink-0">
-                  <FaDollarSign className="w-6 h-6 text-orange-300 group-hover:scale-110 transition-transform duration-300" />
+              {/* Card 4: Earn from Your Knowledge */}
+              <div className="bg-cream border-2 border-orange-300 rounded-xl p-6 transition-all duration-300 card-hover group animate-fade-up animate-stagger-4 hover:border-orange-400">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-darkblue rounded-full flex items-center justify-center group-hover:bg-[#8fa7eb] transition-all duration-300 flex-shrink-0 group-hover:scale-110">
+                    <FaDollarSign className="w-6 h-6 text-white transition-transform duration-300" />
+                  </div>
+                  <h3 className="group-hover:text-orange-600 transition-colors duration-300 heading-tertiary text-orange-500">
+                    Designed for Mutual Benefit
+                  </h3>
                 </div>
-                <h3 className="group-hover:text-orange-300 transition-colors duration-300 heading-tertiary text-orange-300">
-                  Designed for Mutual Benefit
-                </h3>
+                <p className="leading-relaxed transition-colors duration-300 pt-serif-regular text-orange-700 group-hover:text-orange-800">
+                  When a guide helps another family, the creator earns -
+                  aligning usefulness, trust, and generosity from day one.
+                </p>
               </div>
-              <p className="leading-relaxed group-hover:opacity-90 transition-colors duration-300 pt-serif-regular text-cream">
-                When a guide helps another family, the creator earns - aligning
-                usefulness, trust, and generosity from day one.
-              </p>
             </div>
           </div>
         </div>
       </div>
 
       {/* How WeWandr Works Section */}
-      <div ref={howItWorksRef.ref} id="how-it-works" className="py-28 bg-cream">
+      <div
+        ref={howItWorksRef.ref}
+        id="how-it-works"
+        className="relative py-28 bg-cream"
+      >
+        <BackgroundBlur
+          variant="orb-soft"
+          className="right-0 top-1/2 -translate-y-1/2 w-[55vw] h-[45vh] max-w-[500px] max-h-[450px]"
+        />
         <div
-          className={`max-w-6xl mx-auto px-4 section-animate ${
+          className={`relative z-10 max-w-6xl mx-auto px-4 section-animate ${
             howItWorksRef.isIntersecting ? "animate-in" : ""
           }`}
         >
@@ -506,8 +483,8 @@ export default function Home() {
               How It Works
             </h2>
             <p className="text-xl text-orange-700 max-w-3xl mx-auto animate-fade-up animate-stagger-1 pt-serif-regular">
-              Whether you&apos;re planning your next trip or looking to sharing
-              what you&apos;ve learned, WeWandr makes it simple.
+              Whether you&apos;re planning your next trip or sharing what
+              you&apos;ve learned, WeWandr makes it simple.
             </p>
           </div>
 
@@ -544,8 +521,8 @@ export default function Home() {
                 Share & Earn
               </h3>
               <p className="text-orange-700 leading-relaxed group-hover:text-orange-800 transition-colors duration-300 pt-serif-regular">
-                Create and your own guide, using our built-in framework, paid by
-                WeWandr each time your guide is downloaded.
+                Create and share your own guide, using our built-in framework,
+                paid by WeWandr each time your guide is downloaded.
               </p>
               {/* <button
                 onClick={() => setIsShareEarnModalOpen(true)}
@@ -579,437 +556,403 @@ export default function Home() {
         </div>
       </div>
 
-      {/* What You'll Find on WeWandr Section */}
-      <div
-        ref={whatYoullFindRef.ref}
-        id="what-youll-find"
-        className="py-20 bg-cream"
-      >
-        <div
-          className={`max-w-6xl mx-auto px-4 section-animate ${
-            whatYoullFindRef.isIntersecting ? "animate-in" : ""
-          }`}
-        >
-          <div className="space-y-12">
-            {/* Section Header */}
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-orange-500 pt-serif-bold animate-fade-up animate-stagger-1">
-                What You&apos;ll Find
-              </h2>
-              <p className="text-xl text-darkblue max-w-3xl mx-auto mt-4 animate-fade-up animate-stagger-2 pt-serif-regular">
-                Trips are shared as structured, experience-based guides shaped
-                by real family travel
-              </p>
-            </div>
+      {/* What You'll Find + Value Split — one connected cream background */}
+      <div className="bg-cream">
+        {/* What You'll Find on WeWandr Section */}
+        <div ref={whatYoullFindRef.ref} id="what-youll-find" className="py-20">
+          <div
+            className={`max-w-6xl mx-auto px-4 section-animate ${
+              whatYoullFindRef.isIntersecting ? "animate-in" : ""
+            }`}
+          >
+            <div className="space-y-12">
+              {/* Section Header */}
+              <div className="text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-orange-500 pt-serif-bold animate-fade-up animate-stagger-1">
+                  What You&apos;ll Find
+                </h2>
+                <p className="text-xl text-darkblue max-w-3xl mx-auto mt-4 animate-fade-up animate-stagger-2 pt-serif-regular">
+                  Trips that are structured, experience-backed guides shaped by
+                  real family travel
+                </p>
+              </div>
 
-            {/* Screenshots Row */}
-            <div
-              ref={screenshotsScrollRef}
-              className="flex flex-row gap-12 justify-start md:justify-center items-center relative overflow-x-auto pb-4 pt-2 px-6 md:px-0 scrollbar-hide"
-            >
+              {/* Screenshots Row */}
               <div
-                data-screenshot
-                className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-1"
+                ref={screenshotsScrollRef}
+                className="flex flex-row gap-12 justify-start md:justify-center items-center relative overflow-x-auto pb-4 pt-2 px-6 md:px-0 scrollbar-hide"
               >
-                <Image
-                  src="/assets/imgs/wewandr-screenshot-2.png"
-                  alt="WeWandr app screenshot"
-                  width={800}
-                  height={1200}
-                  className="w-full h-auto object-contain"
-                />
-                {/* Enlarged overlay - positioned relative to parent container */}
-                <div className="hidden lg:block absolute top-8 left-[calc(16rem+1.5rem)] md:top-[110px] md:left-[110px] z-10 rounded-3xl overflow-hidden shadow-2xl max-w-[5rem] md:max-w-[14rem]">
+                <div
+                  data-screenshot
+                  className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-1"
+                >
                   <Image
-                    src="/assets/imgs/guide-screenshot-3.png"
-                    alt="WeWandr guide screenshot enlarged"
+                    src="/assets/imgs/wewandr-SS-4.png"
+                    alt="WeWandr app screenshot"
+                    width={800}
+                    height={1200}
+                    className="w-full h-auto object-contain"
+                  />
+                  {/* Enlarged overlay - positioned relative to parent container */}
+                  <div className="hidden lg:block absolute top-8 left-[calc(16rem+1.5rem)] md:top-[110px] md:left-[110px] z-10 rounded-3xl overflow-hidden shadow-2xl max-w-[5rem] md:max-w-[14rem]">
+                    <Image
+                      src="/assets/imgs/guide-screenshot-3.png"
+                      alt="WeWandr guide screenshot enlarged"
+                      width={800}
+                      height={1200}
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+                </div>
+                <div
+                  data-screenshot
+                  className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-2"
+                >
+                  <Image
+                    src="/assets/imgs/wewandr-SS-2.jpg"
+                    alt="WeWandr app screenshot 2"
                     width={800}
                     height={1200}
                     className="w-full h-auto object-contain"
                   />
                 </div>
-              </div>
-              <div
-                data-screenshot
-                className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-2"
-              >
-                <Image
-                  src="/assets/imgs/wewandr-SS-2.jpg"
-                  alt="WeWandr app screenshot 2"
-                  width={800}
-                  height={1200}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              <div
-                data-screenshot
-                className="rounded-2xl p-[2px] bg-gradient-to-br from-orange-300 to-cream shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),-4px_0_6px_-1px_rgba(0,0,0,0.1)] max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-3"
-              >
-                <div className="rounded-2xl overflow-hidden relative">
-                  <Image
-                    src="/assets/imgs/wewandr-SS-3.png"
-                    alt="WeWandr app screenshot 3"
-                    width={800}
-                    height={1200}
-                    className="w-full h-auto object-contain"
-                  />
-                  {/* Bottom right gradient blend */}
-                  <div className="absolute -bottom-[2px] -right-[2px] w-3/4 h-1/3 bg-gradient-to-tl from-cream via-cream/80 to-transparent pointer-events-none rounded-br-2xl" />
-                </div>
-              </div>
-
-              {/* Mobile Scroll Buttons */}
-              {/* Left Button - Shows on 2nd and 3rd images (index 1 and 2) */}
-              {(currentImageIndex === 1 || currentImageIndex === 2) && (
-                <button
-                  onClick={scrollToPreviousImage}
-                  className="md:hidden fixed left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Scroll to previous image"
+                <div
+                  data-screenshot
+                  className="rounded-2xl p-[2px] bg-gradient-to-br from-orange-300 to-cream shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),-4px_0_6px_-1px_rgba(0,0,0,0.1)] max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-3"
                 >
-                  <FaChevronLeft className="w-5 h-5" />
-                </button>
-              )}
-
-              {/* Right Button - Hides on last screenshot (index 2) */}
-              {currentImageIndex !== 2 && (
-                <button
-                  onClick={scrollToNextImage}
-                  className="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Scroll to next image"
-                >
-                  <FaChevronRight className="w-5 h-5" />
-                </button>
-              )}
-            </div>
-
-            {/* Video Demo with Text */}
-            <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 mt-12">
-              {/* Text Description - Mobile: Above video */}
-              <div className="animate-fade-up animate-stagger-5 md:hidden w-full flex justify-center mb-4">
-                <div className="rounded-lg p-4 space-y-3 bg-cream/0 max-w-[32rem] text-center">
-                  <p className="text-lg md:text-lg font-bold text-darkblue leading-relaxed pt-serif-regular">
-                    Extensive guides packed with practical tips, gear
-                    recommendations, parent-friendly restaurants &
-                    accommodation, and everything you need to know.
-                  </p>
+                  <div className="rounded-2xl overflow-hidden relative">
+                    <Image
+                      src="/assets/imgs/wewandr-SS-3.png"
+                      alt="WeWandr app screenshot 3"
+                      width={800}
+                      height={1200}
+                      className="w-full h-auto object-contain"
+                    />
+                    {/* Bottom right gradient blend */}
+                    <div className="absolute -bottom-[2px] -right-[2px] w-3/4 h-1/3 bg-cream pointer-events-none rounded-br-2xl" />
+                  </div>
                 </div>
-              </div>
 
-              {/* Text Description - Desktop: Beside video */}
-              <div className="animate-fade-up animate-stagger-5 relative z-10 hidden md:block">
-                <div className="rounded-lg p-4 space-y-3 bg-cream/0 max-w-[28rem] md:max-w-[28rem]">
-                  <p className="text-lg md:text-xl font-bold text-darkblue leading-relaxed pt-serif-regular">
-                    Extensive guides packed with practical tips, gear
-                    recommendations, parent-friendly restaurants &
-                    accommodation, and everything you need to know.
-                  </p>
-                </div>
-              </div>
-
-              {/* Video */}
-              <div className="flex justify-center relative">
-                <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] relative">
-                  <video
-                    src="/assets/video/wewander-recording.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto rounded-2xl"
+                {/* Mobile Scroll Buttons */}
+                {/* Left Button - Shows on 2nd and 3rd images (index 1 and 2) */}
+                {(currentImageIndex === 1 || currentImageIndex === 2) && (
+                  <button
+                    onClick={scrollToPreviousImage}
+                    className="md:hidden fixed left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                    aria-label="Scroll to previous image"
                   >
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
+                    <FaChevronLeft className="w-5 h-5" />
+                  </button>
+                )}
+
+                {/* Right Button - Hides on last screenshot (index 2) */}
+                {currentImageIndex !== 2 && (
+                  <button
+                    onClick={scrollToNextImage}
+                    className="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-orange-500/80 hover:bg-orange-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                    aria-label="Scroll to next image"
+                  >
+                    <FaChevronRight className="w-5 h-5" />
+                  </button>
+                )}
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Value Split Section */}
-      <div
-        ref={valueSplitRef.ref}
-        id="value-split"
-        className="pt-28 pb-18 bg-cream"
-      >
-        <div
-          className={`max-w-6xl mx-auto px-4 section-animate ${
-            valueSplitRef.isIntersecting ? "animate-in" : ""
-          }`}
-        >
-          {/* Two-Column Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Left Column: For Families Planning Trips */}
-            <div className="animate-fade-up animate-stagger-1 border-2 border-orange-300 rounded-xl p-6 relative">
-              <div className="absolute top-6 right-6">
-                <Image
-                  src="/assets/icons/sign-post.png"
-                  alt="Sign post icon"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12"
-                />
+          {/* Value Split Section */}
+          <div
+            ref={valueSplitRef.ref}
+            id="value-split"
+            className="relative pt-28 pb-18"
+          >
+            <BackgroundBlur
+              variant="orb-soft"
+              className="left-0 bottom-1/3 w-[50vw] h-[50vh] max-w-[480px] max-h-[480px]"
+            />
+            <div
+              className={`relative z-10 max-w-6xl mx-auto px-4 section-animate ${
+                valueSplitRef.isIntersecting ? "animate-in" : ""
+              }`}
+            >
+              {/* Two-Column Grid Layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {/* Left Column: For Families Planning Trips */}
+                <div className="animate-fade-up animate-stagger-1 bg-cream border-2 border-orange-300 rounded-xl p-6 relative">
+                  <div className="absolute top-6 right-6">
+                    <Image
+                      src="/assets/icons/sign-post.png"
+                      alt="Sign post icon"
+                      width={48}
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <h3 className="text-orange-500 mb-4 heading-tertiary">
+                    Planning Trips
+                  </h3>
+                  <h4 className="text-orange-600 mb-4 heading-quaternary">
+                    Plan with Confidence, Not Guesswork
+                  </h4>
+
+                  <p className="text-darkblue leading-relaxed mb-4 font-semibold pt-serif-regular">
+                    Each guide includes:
+                  </p>
+                  <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular">
+                    <li className="group relative">
+                      <div
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => toggleItem("gear-logistics")}
+                      >
+                        <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="font-medium">Gear & Logistics</span>
+                          <div
+                            className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                              expandedItems["gear-logistics"]
+                                ? "opacity-100 max-h-96"
+                                : "opacity-0 max-h-0"
+                            }`}
+                          >
+                            How families traveled with strollers, car seats,
+                            carriers, pack-and-plays, potties, and everything in
+                            between - including what to bring, rent, or skip.
+                          </div>
+                        </div>
+                        <FaPlus
+                          className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                            expandedItems["gear-logistics"] ? "rotate-45" : ""
+                          }`}
+                        />
+                      </div>
+                    </li>
+                    <li className="group relative">
+                      <div
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => toggleItem("kid-friendly")}
+                      >
+                        <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="font-medium">
+                            Kid-Friendly Places to Stay & Navigate
+                          </span>
+                          <div
+                            className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                              expandedItems["kid-friendly"]
+                                ? "opacity-100 max-h-96"
+                                : "opacity-0 max-h-0"
+                            }`}
+                          >
+                            Honest accommodation reviews, safety notes, laundry
+                            access, stroller-friendliness, and how manageable
+                            the destination felt with kids.
+                          </div>
+                        </div>
+                        <FaPlus
+                          className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                            expandedItems["kid-friendly"] ? "rotate-45" : ""
+                          }`}
+                        />
+                      </div>
+                    </li>
+                    <li className="group relative">
+                      <div
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => toggleItem("daily-routines")}
+                      >
+                        <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="font-medium">
+                            Daily Routines & Essentials
+                          </span>
+                          <div
+                            className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                              expandedItems["daily-routines"]
+                                ? "opacity-100 max-h-96"
+                                : "opacity-0 max-h-0"
+                            }`}
+                          >
+                            How families structured meals, naps, bathroom
+                            breaks, avoided crowds, and stocked up on everyday
+                            needs while out and about.
+                          </div>
+                        </div>
+                        <FaPlus
+                          className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                            expandedItems["daily-routines"] ? "rotate-45" : ""
+                          }`}
+                        />
+                      </div>
+                    </li>
+                    <li className="group relative">
+                      <div
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => toggleItem("highlights")}
+                      >
+                        <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="font-medium">
+                            Highlights & Lessons Learned
+                          </span>
+                          <div
+                            className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                              expandedItems["highlights"]
+                                ? "opacity-100 max-h-96"
+                                : "opacity-0 max-h-0"
+                            }`}
+                          >
+                            What families loved, what they&apos;d skip next
+                            time, and the details that help others plan smarter
+                            trips.
+                          </div>
+                        </div>
+                        <FaPlus
+                          className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                            expandedItems["highlights"] ? "rotate-45" : ""
+                          }`}
+                        />
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Right Column: For Families Sharing Trips */}
+                <div className="animate-fade-up animate-stagger-2 bg-cream border-2 border-orange-300 rounded-xl p-6 relative">
+                  <div className="absolute top-6 right-6">
+                    <Image
+                      src="/assets/icons/journal.png"
+                      alt="Journal icon"
+                      width={48}
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                  </div>
+                  <h3 className="text-orange-500 mb-4 heading-tertiary">
+                    Sharing Guides
+                  </h3>
+                  <h4 className="text-orange-600 mb-4 heading-quaternary">
+                    Turn Experience into Shared Knowledge & Earn From It
+                  </h4>
+
+                  <p className="text-darkblue leading-relaxed mb-4 font-semibold pt-serif-regular">
+                    What you&apos;ll get:
+                  </p>
+                  <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular">
+                    <li className="group relative">
+                      <div
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => toggleItem("guided-step")}
+                      >
+                        <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="font-medium">
+                            Guided, Step-by-Step
+                          </span>
+                          <div
+                            className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                              expandedItems["guided-step"]
+                                ? "opacity-100 max-h-96"
+                                : "opacity-0 max-h-0"
+                            }`}
+                          >
+                            Turn your trip into a WandrGuide guide with simple
+                            prompts and structure
+                          </div>
+                        </div>
+                        <FaPlus
+                          className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                            expandedItems["guided-step"] ? "rotate-45" : ""
+                          }`}
+                        />
+                      </div>
+                    </li>
+                    <li className="group relative">
+                      <div
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => toggleItem("earnings")}
+                      >
+                        <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="font-medium">
+                            Earnings Tied to Real Usefulness
+                          </span>
+                          <div
+                            className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                              expandedItems["earnings"]
+                                ? "opacity-100 max-h-96"
+                                : "opacity-0 max-h-0"
+                            }`}
+                          >
+                            When your guide helps another family plan their
+                            trip, WeWandr pays you - aligning value, trust, and
+                            effort.
+                          </div>
+                        </div>
+                        <FaPlus
+                          className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                            expandedItems["earnings"] ? "rotate-45" : ""
+                          }`}
+                        />
+                      </div>
+                    </li>
+                    <li className="group relative">
+                      <div
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => toggleItem("control")}
+                      >
+                        <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="font-medium">
+                            Control and Transparency
+                          </span>
+                          <div
+                            className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                              expandedItems["control"]
+                                ? "opacity-100 max-h-96"
+                                : "opacity-0 max-h-0"
+                            }`}
+                          >
+                            You stay in control of your guides, with clear,
+                            straightforward payouts when families use them.
+                          </div>
+                        </div>
+                        <FaPlus
+                          className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                            expandedItems["control"] ? "rotate-45" : ""
+                          }`}
+                        />
+                      </div>
+                    </li>
+                    <li className="group relative">
+                      <div
+                        className="flex items-start gap-3 cursor-pointer"
+                        onClick={() => toggleItem("recognition")}
+                      >
+                        <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="font-medium">
+                            Recognition for Lived Experience
+                          </span>
+                          <div
+                            className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
+                              expandedItems["recognition"]
+                                ? "opacity-100 max-h-96"
+                                : "opacity-0 max-h-0"
+                            }`}
+                          >
+                            Become a trusted resource for family travel insights
+                            - grounded in real trips and firsthand knowledge.
+                          </div>
+                        </div>
+                        <FaPlus
+                          className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
+                            expandedItems["recognition"] ? "rotate-45" : ""
+                          }`}
+                        />
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <h3 className="text-orange-500 mb-4 heading-tertiary">
-                Planning Trips
-              </h3>
-              <h4 className="text-orange-600 mb-4 heading-quaternary">
-                Plan with Confidence, Not Guesswork
-              </h4>
-
-              <p className="text-darkblue leading-relaxed mb-4 font-semibold pt-serif-regular">
-                Each guide includes:
-              </p>
-              <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular">
-                <li className="group relative">
-                  <div
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => toggleItem("gear-logistics")}
-                  >
-                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
-                      <span className="font-medium">Gear & Logistics</span>
-                      <div
-                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
-                          expandedItems["gear-logistics"]
-                            ? "opacity-100 max-h-96"
-                            : "opacity-0 max-h-0"
-                        }`}
-                      >
-                        How families traveled with strollers, car seats,
-                        carriers, pack-and-plays, potties, and everything in
-                        between - including what to bring, rent, or skip.
-                      </div>
-                    </div>
-                    <FaPlus
-                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
-                        expandedItems["gear-logistics"] ? "rotate-45" : ""
-                      }`}
-                    />
-                  </div>
-                </li>
-                <li className="group relative">
-                  <div
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => toggleItem("kid-friendly")}
-                  >
-                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
-                      <span className="font-medium">
-                        Kid-Friendly Places to Stay & Navigate
-                      </span>
-                      <div
-                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
-                          expandedItems["kid-friendly"]
-                            ? "opacity-100 max-h-96"
-                            : "opacity-0 max-h-0"
-                        }`}
-                      >
-                        Honest accommodation reviews, safety notes, laundry
-                        access, stroller-friendliness, and how manageable the
-                        destination felt with kids.
-                      </div>
-                    </div>
-                    <FaPlus
-                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
-                        expandedItems["kid-friendly"] ? "rotate-45" : ""
-                      }`}
-                    />
-                  </div>
-                </li>
-                <li className="group relative">
-                  <div
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => toggleItem("daily-routines")}
-                  >
-                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
-                      <span className="font-medium">
-                        Daily Routines & Essentials
-                      </span>
-                      <div
-                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
-                          expandedItems["daily-routines"]
-                            ? "opacity-100 max-h-96"
-                            : "opacity-0 max-h-0"
-                        }`}
-                      >
-                        How families structured meals, naps, bathroom breaks,
-                        avoided crowds, and stocked up on everyday needs while
-                        out and about.
-                      </div>
-                    </div>
-                    <FaPlus
-                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
-                        expandedItems["daily-routines"] ? "rotate-45" : ""
-                      }`}
-                    />
-                  </div>
-                </li>
-                <li className="group relative">
-                  <div
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => toggleItem("highlights")}
-                  >
-                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
-                      <span className="font-medium">
-                        Highlights & Lessons Learned
-                      </span>
-                      <div
-                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
-                          expandedItems["highlights"]
-                            ? "opacity-100 max-h-96"
-                            : "opacity-0 max-h-0"
-                        }`}
-                      >
-                        What families loved, what they&apos;d skip next time,
-                        and the details that help others plan smarter trips.
-                      </div>
-                    </div>
-                    <FaPlus
-                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
-                        expandedItems["highlights"] ? "rotate-45" : ""
-                      }`}
-                    />
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            {/* Right Column: For Families Sharing Trips */}
-            <div className="animate-fade-up animate-stagger-2 border-2 border-orange-300 rounded-xl p-6 relative">
-              <div className="absolute top-6 right-6">
-                <Image
-                  src="/assets/icons/journal.png"
-                  alt="Journal icon"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12"
-                />
-              </div>
-              <h3 className="text-orange-500 mb-4 heading-tertiary">
-                Sharing Guides
-              </h3>
-              <h4 className="text-orange-600 mb-4 heading-quaternary">
-                Turn experience into shared knowledge - and earn from it
-              </h4>
-
-              <p className="text-darkblue leading-relaxed mb-4 font-semibold pt-serif-regular">
-                What you&apos;ll get:
-              </p>
-              <ul className="text-darkblue leading-relaxed space-y-3 pt-serif-regular">
-                <li className="group relative">
-                  <div
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => toggleItem("guided-step")}
-                  >
-                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
-                      <span className="font-medium">Guided, Step-by-Step</span>
-                      <div
-                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
-                          expandedItems["guided-step"]
-                            ? "opacity-100 max-h-96"
-                            : "opacity-0 max-h-0"
-                        }`}
-                      >
-                        Turn your trip into a WandrGuide guide with simple
-                        prompts and structure
-                      </div>
-                    </div>
-                    <FaPlus
-                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
-                        expandedItems["guided-step"] ? "rotate-45" : ""
-                      }`}
-                    />
-                  </div>
-                </li>
-                <li className="group relative">
-                  <div
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => toggleItem("earnings")}
-                  >
-                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
-                      <span className="font-medium">
-                        Earnings Tied to Real Usefulness
-                      </span>
-                      <div
-                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
-                          expandedItems["earnings"]
-                            ? "opacity-100 max-h-96"
-                            : "opacity-0 max-h-0"
-                        }`}
-                      >
-                        When your guide helps another family plan their trip,
-                        WeWandr pays you - aligning value, trust, and effort.
-                      </div>
-                    </div>
-                    <FaPlus
-                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
-                        expandedItems["earnings"] ? "rotate-45" : ""
-                      }`}
-                    />
-                  </div>
-                </li>
-                <li className="group relative">
-                  <div
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => toggleItem("control")}
-                  >
-                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
-                      <span className="font-medium">
-                        Control and Transparency
-                      </span>
-                      <div
-                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
-                          expandedItems["control"]
-                            ? "opacity-100 max-h-96"
-                            : "opacity-0 max-h-0"
-                        }`}
-                      >
-                        You stay in control of your guides, with clear,
-                        straightforward payouts when families use them.
-                      </div>
-                    </div>
-                    <FaPlus
-                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
-                        expandedItems["control"] ? "rotate-45" : ""
-                      }`}
-                    />
-                  </div>
-                </li>
-                <li className="group relative">
-                  <div
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => toggleItem("recognition")}
-                  >
-                    <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
-                      <span className="font-medium">
-                        Recognition for Lived Experience
-                      </span>
-                      <div
-                        className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${
-                          expandedItems["recognition"]
-                            ? "opacity-100 max-h-96"
-                            : "opacity-0 max-h-0"
-                        }`}
-                      >
-                        Become a trusted resource for family travel insights -
-                        grounded in real trips and firsthand knowledge.
-                      </div>
-                    </div>
-                    <FaPlus
-                      className={`w-4 h-4 text-orange-500 mt-1 flex-shrink-0 transition-transform duration-200 ${
-                        expandedItems["recognition"] ? "rotate-45" : ""
-                      }`}
-                    />
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -1075,7 +1018,7 @@ export default function Home() {
       <div
         ref={betaRef.ref}
         id="beta"
-        className="py-16 bg-gradient-to-br from-orange-300 to-orange-500"
+        className="py-16 bg-gradient-to-br from-orange-300/90 to-orange-200/90"
       >
         <div
           className={`max-w-4xl mx-auto px-4 text-center section-animate ${
@@ -1084,17 +1027,17 @@ export default function Home() {
         >
           {/* Section Header */}
           <div className="mb-12">
-            <h2 className="text-white mb-6 animate-fade-up heading-primary">
+            <h2 className="text-orange-400 mb-6 animate-fade-up heading-primary">
               Join Early
             </h2>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto animate-fade-up animate-stagger-1 pt-serif-regular">
+            <p className="text-xl text-orange-700 max-w-2xl mx-auto animate-fade-up animate-stagger-1 pt-serif-regular">
               Be among the first to explore real family travel guides, share
               what you&apos;ve learned, and help shape what WeWandr becomes.
             </p>
           </div>
 
           {/* Email Signup Form */}
-          <div className="max-w-lg mx-auto animate-fade-up animate-stagger-2">
+          <div className="max-w-lg mx-auto animate-fade-up animate-stagger-2 ">
             <form
               onSubmit={handleSubmitBeta(onSubmitBeta)}
               className="flex flex-col sm:flex-row gap-3"
@@ -1118,7 +1061,7 @@ export default function Home() {
               </Button>
             </form>
           </div>
-          <p className="text-md text-white/90   animate-fade-up animate-stagger-1 pt-serif-regular mt-6 max-w-2xl mx-auto">
+          <p className="text-md text-orange-700   animate-fade-up animate-stagger-1 pt-serif-regular mt-6 max-w-2xl mx-auto">
             Early access will roll out in waves. You&apos;ll hear from us as we
             open things up.
           </p>

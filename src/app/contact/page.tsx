@@ -18,7 +18,7 @@ export default function ContactPage() {
       <Section className="pt-28 pb-24">
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-darkblue mb-4 heading-primary">
-            We&apos;d love to hear from you.
+            We&apos;d Love to Hear From You.
           </h1>
           <p className="text-lg md:text-lg text-[#060453] py-6 pt-serif-regular max-w-2xl mx-auto">
             Whether you have a question, feedback, or just want to connect,
@@ -39,7 +39,7 @@ export default function ContactPage() {
               {/* General Inquiries */}
               <div className="flex justify-between items-center">
                 <p className="text-lg md:text-xl text-orange-500 font-semibold pt-serif-regular">
-                  General Inquiries
+                  General
                 </p>
                 <a
                   href="mailto:hello@wewandr.co"

@@ -20,14 +20,14 @@ export default function InvestorRelationsPage() {
       >
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1 className="dm-serif-display-regular text-4xl md:text-6xl text-orange-500 mb-12 animate-fade-scale heading-primary">
-            Investor Opportunities
+            Investor Relations
           </h1>
 
           <div className="space-y-8 text-left animate-fade-up animate-stagger-1">
             <p className="text-lg md:text-xl text-darkblue leading-relaxed pt-serif-regular">
               WeWandr is an early-stage, trust-led platform rethinking how
-              people plan travel — starting with families and expanding into a
-              broader layer for experience-backed guidance.
+              people plan travel, starting with families and expanding into a
+              broader layer for experience-backed travelguidance.
             </p>
 
             <p className="text-lg md:text-xl text-darkblue leading-relaxed pt-serif-regular">

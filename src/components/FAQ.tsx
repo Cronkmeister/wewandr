@@ -18,7 +18,7 @@ const faqData: FAQItem[] = [
   {
     question: "What is a WandrGuide?",
     answer:
-      "A WandrGuide is a travel guide created from a real trip, written by someone who's already been there. Each guide captures the details people actually care about - from logistics and daily rhythms to lessons learned - and is designed to be easy to explore and apply.",
+      "A WandrGuide is a travel guide created from a real trip, written by someone who’s already been there. It focuses on the details that matter most, from logistics and daily rhythms to lessons learned, and is designed to be easy to explore and apply.",
   },
   {
     question: "Is WeWandr free to join?",
@@ -33,7 +33,7 @@ const faqData: FAQItem[] = [
   {
     question: "What does early access mean?",
     answer:
-      "Early access means you're joining WeWandr while it's still taking shape. You'll be among the first to explore guides, contribute your own, share feedback, and help shape a platform designed around learning from people who feel familiar — people like you.",
+      "Early access means you're joining WeWandr while it's still taking shape. You'll be among the first to explore guides, contribute your own, share feedback, and help shape a platform designed around learning from people who feel familiar. People like you.",
   },
 ];
 

@@ -37,7 +37,7 @@ export default function Footer() {
             </h3>
             <div className="space-y-1 text-orange-200">
               <p className="text-sm font-medium tagline-primary">
-                Where parents travel better, and earn together
+                Where Parents Travel Better, and Earn Together
               </p>
             </div>
           </div>

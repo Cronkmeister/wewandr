@@ -26,7 +26,7 @@ export default function TermsPage() {
       {/* Hero Section */}
       <div className="relative pt-32 pb-16 bg-gradient-to-br from-orange-200 to-orange-300">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mb-4">
             Terms & Conditions
           </h1>
           <p className="text-lg text-white/90">
@@ -62,7 +62,7 @@ export default function TermsPage() {
 
             {/* Quick & Friendly Summary */}
             <section className="mb-16">
-              <h2 className="text-gray-900 mb-8 text-center heading-secondary">
+              <h2 className="text-orange-500 mb-8 text-center heading-secondary">
                 Quick & Friendly Summary
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -73,7 +73,7 @@ export default function TermsPage() {
                       <FaUsers />
                     </div>
                     <div>
-                      <h3 className="text-gray-900 mb-2 heading-small">
+                      <h3 className="text-orange-500 mb-2 heading-small">
                         Who Can Join
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
@@ -91,7 +91,7 @@ export default function TermsPage() {
                       <FaFileAlt />
                     </div>
                     <div>
-                      <h3 className="text-gray-900 mb-2 heading-small">
+                      <h3 className="text-orange-500 mb-2 heading-small">
                         Your Content
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
@@ -110,13 +110,13 @@ export default function TermsPage() {
                       <FaDollarSign />
                     </div>
                     <div>
-                      <h3 className="text-gray-900 mb-2 heading-small">
+                      <h3 className="text-orange-500 mb-2 heading-small">
                         Getting Paid
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
                         Creators get paid when others download their guides.
-                        Payments are handled through Stripe/PayPal. You&apos;re
-                        responsible for your own taxes.
+                        Payments are handled by trusted third-party providers.
+                        You&apos;re responsible for your own taxes.
                       </p>
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export default function TermsPage() {
                       <FaHandshakeSimple />
                     </div>
                     <div>
-                      <h3 className="text-gray-900 mb-2 heading-small">
+                      <h3 className="text-orange-500 mb-2 heading-small">
                         Community Rules
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
@@ -147,11 +147,11 @@ export default function TermsPage() {
                       <FaRobot />
                     </div>
                     <div>
-                      <h3 className="text-gray-900 mb-2 heading-small">
+                      <h3 className="text-orange-500 mb-2 heading-small">
                         About AI
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
-                        We use AI to help with trip suggestions and content
+                        We may use AI to help with trip suggestions and content
                         checks, but you&apos;re always in charge of your
                         choices.
                       </p>
@@ -166,7 +166,7 @@ export default function TermsPage() {
                       <FaBalanceScale />
                     </div>
                     <div>
-                      <h3 className="text-gray-900 mb-2 heading-small">
+                      <h3 className="text-orange-500 mb-2 heading-small">
                         The Serious Stuff
                       </h3>
                       <p className="text-gray-700 text-sm leading-relaxed">
@@ -186,15 +186,17 @@ export default function TermsPage() {
                     <div className="text-blue-600 text-2xl">
                       <FaEnvelope />
                     </div>
-                    <h3 className="text-gray-900 heading-small">Questions?</h3>
+                    <h3 className="text-orange-500 heading-small">
+                      Questions?
+                    </h3>
                   </div>
                   <p className="text-gray-700 text-sm">
                     Email us at{" "}
                     <a
-                      href="mailto:support@wewandr.com"
+                      href="mailto:hello@wewandr.com"
                       className="text-orange-600 hover:text-orange-700 font-semibold"
                     >
-                      support@wewandr.com
+                      hello@wewandr.com
                     </a>
                   </p>
                 </div>
@@ -213,13 +215,13 @@ export default function TermsPage() {
 
             {/* Full Legal Terms Section */}
             <section id="full-legal-terms" className="mb-12">
-              <h2 className="text-gray-900 mb-8 text-center heading-secondary">
+              <h2 className="text-orange-500 mb-8 text-center heading-secondary">
                 Full Legal Terms
               </h2>
 
               {/* Terms Header */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
-                <h3 className="text-gray-900 mb-2 heading-quaternary">
+                <h3 className="text-orange-500 mb-2 heading-quaternary">
                   WeWandr Terms & Conditions
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -243,7 +245,7 @@ export default function TermsPage() {
 
               {/* Section 1: Eligibility */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   1. Eligibility
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -257,7 +259,7 @@ export default function TermsPage() {
 
               {/* Section 2: User Accounts */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   2. User Accounts
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -270,12 +272,12 @@ export default function TermsPage() {
 
               {/* Section 3: Content Ownership and License */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   3. Content Ownership and License
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-orange-500 mb-2">
                       Your Content:
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -284,7 +286,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-orange-500 mb-2">
                       License to WeWandr:
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -295,7 +297,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-orange-500 mb-2">
                       Prohibited Content:
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -308,12 +310,12 @@ export default function TermsPage() {
 
               {/* Section 4: Payments and Revenue */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   4. Payments and Revenue
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-orange-500 mb-2">
                       Creators:
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -322,7 +324,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-orange-500 mb-2">
                       Payouts:
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -332,7 +334,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">
+                    <h4 className="font-semibold text-orange-500 mb-2">
                       Responsibility:
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -345,7 +347,7 @@ export default function TermsPage() {
 
               {/* Section 5: Acceptable Use */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   5. Acceptable Use
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
@@ -365,7 +367,7 @@ export default function TermsPage() {
 
               {/* Section 6: AI and Recommendations */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   6. AI and Recommendations
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -377,7 +379,7 @@ export default function TermsPage() {
 
               {/* Section 7: Termination */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   7. Termination
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -390,7 +392,7 @@ export default function TermsPage() {
 
               {/* Section 8: Disclaimers */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   8. Disclaimers
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -404,7 +406,7 @@ export default function TermsPage() {
 
               {/* Section 9: Limitation of Liability */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   9. Limitation of Liability
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -416,18 +418,24 @@ export default function TermsPage() {
 
               {/* Section 10: Privacy */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   10. Privacy
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Your use of the Platform is also governed by our Privacy
-                  Policy, available [here/link].
+                  Your use of the Platform is also governed by our{" "}
+                  <Link
+                    href="/privacy"
+                    className="text-orange-600 hover:text-orange-700 font-semibold underline"
+                  >
+                    Privacy Policy
+                  </Link>
+                  .
                 </p>
               </section>
 
               {/* Section 11: Changes to Terms */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   11. Changes to Terms
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -439,7 +447,7 @@ export default function TermsPage() {
 
               {/* Section 12: Governing Law */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   12. Governing Law
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -451,7 +459,7 @@ export default function TermsPage() {
 
               {/* Section 13: Contact */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   13. Contact
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -470,7 +478,7 @@ export default function TermsPage() {
             <section className="mb-12">
               {/* Community Rules Header */}
               <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-8">
-                <h3 className="text-gray-900 mb-2 heading-quaternary">
+                <h3 className="text-orange-500 mb-2 heading-quaternary">
                   WeWandr Community Rules & Agreements
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -482,16 +490,15 @@ export default function TermsPage() {
                   })}
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Hi parents! Welcome to WeWandr! We&apos;re so glad
-                  you&apos;re here. To keep this space safe, supportive, and
-                  fair, here&apos;s what you agree to when using our website or
-                  app:
+                  Hi parents! Welcome to WeWandr! We&apos;re so glad you&apos;re
+                  here. To keep this space safe, supportive, and fair,
+                  here&apos;s what you agree to when using our website or app:
                 </p>
               </div>
 
               {/* Section 1: Who Can Join */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   1. Who Can Join
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -503,7 +510,7 @@ export default function TermsPage() {
 
               {/* Section 2: Your Account */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   2. Your Account
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -515,7 +522,7 @@ export default function TermsPage() {
 
               {/* Section 3: Your Content */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   3. Your Content
                 </h3>
                 <div className="space-y-4">
@@ -536,7 +543,7 @@ export default function TermsPage() {
 
               {/* Section 4: Getting Paid */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   4. Getting Paid
                 </h3>
                 <div className="space-y-4">
@@ -555,7 +562,7 @@ export default function TermsPage() {
 
               {/* Section 5: How to Use WeWandr */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   5. How to Use WeWandr
                 </h3>
                 <div className="space-y-4">
@@ -570,7 +577,7 @@ export default function TermsPage() {
 
               {/* Section 6: About AI */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   6. About AI
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -582,7 +589,7 @@ export default function TermsPage() {
 
               {/* Section 7: If Things Go Wrong */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   7. If Things Go Wrong
                 </h3>
                 <div className="space-y-4">
@@ -598,7 +605,7 @@ export default function TermsPage() {
 
               {/* Section 8: Privacy */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   8. Privacy
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -609,7 +616,7 @@ export default function TermsPage() {
 
               {/* Section 9: Updates */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   9. Updates
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -621,7 +628,7 @@ export default function TermsPage() {
 
               {/* Section 10: Questions */}
               <section className="mb-8">
-                <h3 className="text-gray-900 mb-4 heading-tertiary">
+                <h3 className="text-orange-700 mb-4 heading-tertiary">
                   10. Questions?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">

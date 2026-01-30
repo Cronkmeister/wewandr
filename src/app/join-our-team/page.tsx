@@ -20,19 +20,19 @@ export default function JoinOurTeamPage() {
       >
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1 className="dm-serif-display-regular text-4xl md:text-6xl text-orange-500 mb-12 animate-fade-scale heading-primary">
-            Join our Team
+            Join Our Team
           </h1>
 
           <div className="space-y-8 text-left animate-fade-up animate-stagger-1">
             <p className="text-lg md:text-xl text-darkblue leading-relaxed pt-serif-regular">
-              WeWandr is being built thoughtfully and deliberately — by a small
+              WeWandr is being built thoughtfully and deliberately, by a small
               team that cares deeply about lived experience, integrity, and
               creating things people can truly rely on.
             </p>
 
             <p className="text-lg md:text-xl text-darkblue leading-relaxed pt-serif-regular">
               While we&apos;re early, we&apos;re always interested in connecting
-              with people who feel aligned with what we&apos;re building —
+              with people who feel aligned with what we&apos;re building,
               especially those drawn to community-powered platforms, intentional
               product design, and building for the long term.
             </p>

@@ -36,12 +36,12 @@ const faqData: FAQSection[] = [
       {
         question: "Who is WeWandr for?",
         answer:
-          "WeWandr is for anyone who values learning from real experience rather than one-size-fits-all advice. Today, our focus is families traveling with kids, but over time WeWandr is growing into a broader trust layer for travel planning. Where people can find guidance from others who travel in similar ways.",
+          "WeWandr is for anyone who values learning from real experience rather than one-size-fits-all advice. Today, our focus is families traveling with kids, but over time WeWandr is growing into a broader trust layer for travel planning, where people can find guidance from others who travel in similar ways.",
       },
       {
         question: "Do I need to be a parent to use WeWandr?",
         answer:
-          "No. While WeWandr is built with families in mind, you don't need to be a parent to explore guides or participate. As the platform evolves, it will support all types of travelers. Helping people find their own travel community.",
+          "Not at all. While WeWandr is built with families in mind, you don't need to be a parent to explore guides or participate. As the platform evolves, it will support all types of travelers, helping people find their own travel community.",
       },
       {
         question:
@@ -67,7 +67,7 @@ const faqData: FAQSection[] = [
       {
         question: "What is a WandrGuide?",
         answer:
-          "A WandrGuide is a travel guide created from a real trip, written by someone who's already been there. Each guide captures the details people actually care about,from logistics and daily rhythms to lessons learned, and is designed to be easy to explore and apply.",
+          "A WandrGuide is a travel guide created from a real trip, written by someone who's already been there. Each guide captures the details people actually care about, from logistics and daily rhythms to lessons learned, and is designed to be easy to explore and apply.",
       },
       {
         question: "What kind of information is included in a WandrGuide?",
@@ -77,12 +77,12 @@ const faqData: FAQSection[] = [
       {
         question: "Are WandrGuides free to access?",
         answer:
-          "Yes. WandrGuides are free to explore and use. We believe access to helpful, experience-based guidance should be open and easy.",
+          "Yes. WandrGuides are free to explore and use. We believe access to helpful, experience-backed guidance should be open and easy.",
       },
       {
         question: "How do I find the right WandrGuides for my family?",
         answer:
-          "Guides can be discovered using filters like destination, children's ages, trip type, and travel style. Making it easier to find trips that match your needs.",
+          "Guides can be discovered using filters like destination, children's ages, trip type, and travel style, making it easier to find trips that match your needs.",
       },
       {
         question: "Can I trust the information in WandrGuides?",
@@ -102,7 +102,7 @@ const faqData: FAQSection[] = [
       {
         question: "Who can create a WandrGuide?",
         answer:
-          "Anyone with relevant travel experience can create a WandrGuide. You don't need to be a professional writer or an expert. Just someone willing to share what you learned so others can plan with more clarity and confidence.",
+          "Anyone with relevant travel experience can create a WandrGuide. If you’ve taken the trip and learned along the way, you can share what you discovered so others can plan with more clarity and confidence.",
       },
       {
         question: "How do I create a WandrGuide?",
@@ -112,7 +112,7 @@ const faqData: FAQSection[] = [
       {
         question: "Do creators get paid for their guides?",
         answer:
-          "Yes. WeWandr pays creators for the guides they contribute, recognizing the value of lived experience and the time it takes to share it thoughtfully.",
+          "Yes. Creators are paid by WeWandr when another family downloads their guide, recognizing the value of lived experience and the time it takes to share it thoughtfully.",
       },
       {
         question: "How does payment work?",
@@ -144,12 +144,12 @@ export default function FAQPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 bg-gradient-to-br from-orange-200 to-orange-300">
+      <div className="relative pt-32 pb-16 bg-cream">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 heading-primary">
+          <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mb-4 heading-primary">
             Frequently Asked Questions
           </h1>
-          <p className="text-lg text-white/90 pt-serif-regular">
+          <p className="text-lg text-orange-700 pt-serif-regular">
             You&apos;re not the only one wondering how it all works. Here&apos;s
             everything you need to know.
           </p>
