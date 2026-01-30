@@ -577,60 +577,76 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Screenshots Row */}
+              {/* Screenshots Row — each screenshot inside iPhone mockup */}
               <div
                 ref={screenshotsScrollRef}
                 className="flex flex-row gap-12 justify-start md:justify-center items-center relative overflow-x-auto pb-4 pt-2 px-6 md:px-0 scrollbar-hide"
               >
                 <div
                   data-screenshot
-                  className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-1"
+                  className="max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-1"
                 >
-                  <Image
-                    src="/assets/imgs/wewandr-SS-4.png"
-                    alt="WeWandr app screenshot"
-                    width={800}
-                    height={1200}
-                    className="w-full h-auto object-contain"
-                  />
-                  {/* Enlarged overlay - positioned relative to parent container */}
-                  <div className="hidden lg:block absolute top-8 left-[calc(16rem+1.5rem)] md:top-[110px] md:left-[110px] z-10 rounded-3xl overflow-hidden shadow-2xl max-w-[5rem] md:max-w-[14rem]">
+                  <div className="absolute left-[5.5%] right-[5.5%] top-[5%] bottom-[5%] rounded-[2.25rem] overflow-hidden z-0">
                     <Image
-                      src="/assets/imgs/guide-screenshot-3.png"
-                      alt="WeWandr guide screenshot enlarged"
+                      src="/assets/imgs/screenshots/screenshot-home.png"
+                      alt="WeWandr home screen"
                       width={800}
                       height={1200}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
-                </div>
-                <div
-                  data-screenshot
-                  className="rounded-2xl overflow-hidden shadow-lg border-2 border-orange-300 max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-2"
-                >
                   <Image
-                    src="/assets/imgs/wewandr-SS-2.jpg"
-                    alt="WeWandr app screenshot 2"
-                    width={800}
-                    height={1200}
-                    className="w-full h-auto object-contain"
+                    src="/assets/imgs/apple-iphone-17-pro-max-2025-medium.png"
+                    alt=""
+                    width={390}
+                    height={800}
+                    className="relative z-10 w-full h-auto pointer-events-none"
+                    aria-hidden
                   />
                 </div>
                 <div
                   data-screenshot
-                  className="rounded-2xl p-[2px] bg-gradient-to-br from-orange-300 to-cream shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),-4px_0_6px_-1px_rgba(0,0,0,0.1)] max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-3"
+                  className="max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-2"
                 >
-                  <div className="rounded-2xl overflow-hidden relative">
+                  <div className="absolute left-[5.5%] right-[5.5%] top-[5%] bottom-[5%] rounded-[2.25rem] overflow-hidden z-0">
                     <Image
-                      src="/assets/imgs/wewandr-SS-3.png"
-                      alt="WeWandr app screenshot 3"
+                      src="/assets/imgs/screenshots/screenshot-myguides.png"
+                      alt="WeWandr My Guides screen"
                       width={800}
                       height={1200}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-full object-cover object-top"
                     />
-                    {/* Bottom right gradient blend */}
-                    <div className="absolute -bottom-[2px] -right-[2px] w-3/4 h-1/3 bg-cream pointer-events-none rounded-br-2xl" />
                   </div>
+                  <Image
+                    src="/assets/imgs/apple-iphone-17-pro-max-2025-medium.png"
+                    alt=""
+                    width={390}
+                    height={800}
+                    className="relative z-10 w-full h-auto pointer-events-none"
+                    aria-hidden
+                  />
+                </div>
+                <div
+                  data-screenshot
+                  className="max-w-[18rem] md:max-w-[16rem] w-[18rem] md:w-full flex-shrink-0 relative animate-fade-up animate-stagger-3"
+                >
+                  <div className="absolute left-[5.5%] right-[5.5%] top-[5%] bottom-[5%] rounded-[2.25rem] overflow-hidden z-0">
+                    <Image
+                      src="/assets/imgs/screenshots/screenshot-create.png"
+                      alt="WeWandr create guide screen"
+                      width={800}
+                      height={1200}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <Image
+                    src="/assets/imgs/apple-iphone-17-pro-max-2025-medium.png"
+                    alt=""
+                    width={390}
+                    height={800}
+                    className="relative z-10 w-full h-auto pointer-events-none"
+                    aria-hidden
+                  />
                 </div>
 
                 {/* Mobile Scroll Buttons */}
