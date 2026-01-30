@@ -15,20 +15,20 @@ export default function CommunityGuidelinesPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 bg-cream">
+      <div className="relative pt-32 pb-4 bg-cream">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mb-4">
-            WeWandr Community Guidelines
+            Community Guidelines
           </h1>
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="max-w-4xl mx-auto px-4 py-16">
+      <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="prose prose-lg max-w-none p-8 md:p-12">
           {/* Intro Text */}
           <section className="mb-12">
-            <p className="text-lg text-darkblue leading-relaxed">
+            <p className="text-lg text-orange-700 leading-relaxed">
               We&apos;re building a safe, supportive space where parents share
               real travel experiences with other families. These guidelines help
               ensure WeWandr remains a respectful, trusted place where everyone
@@ -50,8 +50,8 @@ export default function CommunityGuidelinesPage() {
               medical or professional travel advice.
             </li>
             <li>
-              Never share private information about children (such as full names,
-              addresses, or school details).
+              Never share private information about children (such as full
+              names, addresses, or school details).
             </li>
           </ul>
 
@@ -65,8 +65,8 @@ export default function CommunityGuidelinesPage() {
                 Don&apos;t attempt to bypass payments, hack, or misuse the app.
               </li>
               <li>
-                Report issues if you see them, we&apos;re building this community
-                together.
+                Report issues if you see them, we&apos;re building this
+                community together.
               </li>
             </ul>
           </section>
