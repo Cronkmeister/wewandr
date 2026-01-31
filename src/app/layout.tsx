@@ -42,24 +42,24 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "WeWandr — beta waitlist",
+  title: "WeWandr",
   description:
-    "Discover amazing places and experiences around the world. Join our beta waitlist to be among the first to explore.",
+    "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
   keywords: ["travel", "experiences", "waitlist", "beta", "WeWandr"],
   authors: [{ name: "WeWandr" }],
   openGraph: {
-    title: "WeWandr — beta waitlist",
+    title: "WeWandr",
     description:
-      "Discover amazing places and experiences around the world. Join our beta waitlist to be among the first to explore.",
+      "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
     type: "website",
     locale: "en_US",
     siteName: "WeWandr",
   },
   twitter: {
     card: "summary_large_image",
-    title: "WeWandr — beta waitlist",
+    title: "WeWandr",
     description:
-      "Discover amazing places and experiences around the world. Join our beta waitlist to be among the first to explore.",
+      "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
   },
   robots: {
     index: true,
