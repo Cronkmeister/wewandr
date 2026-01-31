@@ -252,13 +252,7 @@ export default function Home() {
       {/* Unified hero + sections: one background so blur bleeds through */}
       <div className="relative">
         {/* Base cream gradient — spans hero + community + features */}
-        <div
-          className="pointer-events-none absolute inset-0 z-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, #fbf9ef 0%, #FFFBF8 25%, #FFFBF8 75%, #fbf9ef 100%)",
-          }}
-        />
+        <div className="pointer-events-none absolute inset-0 z-0 bg-cream" />
         {/* Radial orange blurs — span full wrapper, bleed into sections below */}
         <BackgroundBlur />
         <BackgroundBlur
@@ -376,7 +370,7 @@ export default function Home() {
               <p className="order-3 block md:hidden text-orange-700 text-lg md:text-xl font-bold pt-serif-bold leading-tight md:leading-snug text-center px-4">
                 When your experience helps another family, WeWandr pays you.
                 Together, we&apos;re building the world&apos;s family travel
-                network
+                network.
               </p>
             </div>
           </div>

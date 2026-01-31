@@ -165,11 +165,11 @@ export default function Footer() {
             web design by{" "}
             <a
               className="hover:text-yellow-300 transition-colors"
-              href="https://www.jonnycronk.com"
+              href="https://www.cronkcreative.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Jonny Cronk
+              Cronk Creative
             </a>
           </p>
         </div>
