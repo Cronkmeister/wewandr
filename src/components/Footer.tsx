@@ -137,7 +137,7 @@ export default function Footer() {
         {/* Bottom Section - Copyright */}
         <div className="text-center animate-fade-up">
           <p className="text-white mt-2">
-            &copy; 2025 WeWandr. All rights reserved.
+            &copy; 2026 WeWandr. All rights reserved.
           </p>
           <p className="text-white/80 text-xs mt-2">
             <Link

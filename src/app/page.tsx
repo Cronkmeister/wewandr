@@ -568,8 +568,8 @@ export default function Home() {
                   What You&apos;ll Find
                 </h2>
                 <p className="text-xl text-darkblue max-w-3xl mx-auto mt-4 animate-fade-up animate-stagger-2 pt-serif-regular">
-                  Trips that are structured, experience-backed guides shaped by
-                  real family travel
+                  Structured, experience-backed travel guides created from real
+                  family trips.
                 </p>
               </div>
 

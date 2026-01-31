@@ -16,12 +16,12 @@ export default function FoundersLetterPage() {
       {/* Hero Section */}
       <div
         ref={heroRef.ref}
-        className={`relative min-h-[115vh] flex items-start justify-center pt-20 md:pt-36 pb-24 md:pb-36 overflow-hidden bg-gradient-to-b from-cream via-[#FFFBF8] to-[#FFFBF8] ${
+        className={`relative min-h-[115vh] flex items-start justify-center pt-20 md:pt-36 pb-16 md:pb-36 overflow-hidden bg-cream ${
           heroRef.isIntersecting ? "animate-in" : ""
         }`}
       >
         <div className="relative z-10 px-4 max-w-6xl mx-auto w-full">
-          <h1 className="dm-serif-display-regular text-4xl md:text-6xl text-orange-500 mb-16 md:mb-24 text-center animate-fade-scale heading-primary">
+          <h1 className="dm-serif-display-regular text-4xl md:text-6xl text-orange-500 mb-8 md:mb-16 text-center animate-fade-scale heading-primary">
             A Letter from Our Founder
           </h1>
 

@@ -15,7 +15,7 @@ export default function CommunityGuidelinesPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-4 bg-cream">
+      <div className="relative pt-32 pb-4  bg-cream">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mb-4">
             Community Guidelines
@@ -24,7 +24,7 @@ export default function CommunityGuidelinesPage() {
       </div>
 
       {/* Content Section */}
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-4">
         <div className="prose prose-lg max-w-none p-8 md:p-12">
           {/* Intro Text */}
           <section className="mb-12">

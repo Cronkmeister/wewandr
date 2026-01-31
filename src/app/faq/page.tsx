@@ -144,7 +144,7 @@ export default function FAQPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 bg-cream">
+      <div className="relative pt-32 pb-2 bg-cream">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mb-4 heading-primary">
             Frequently Asked Questions
