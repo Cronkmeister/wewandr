@@ -158,7 +158,7 @@ export default function FAQPage() {
 
       {/* Content Section */}
       <div className="max-w-4xl mx-auto px-4 py-16">
-        <div className="bg-cream rounded-lg shadow-sm p-8 md:p-12">
+        <div className="bg-cream rounded-lg shadow-sm p-8 md:px-12 py-4">
           <div className="prose prose-lg max-w-none">
             {faqData.map((section, sectionIndex) => (
               <section key={sectionIndex} className="mb-12">

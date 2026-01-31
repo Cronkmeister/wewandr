@@ -194,10 +194,10 @@ export default function PrivacyPage() {
                 <p className="text-darkblue text-sm">
                   Email us at{" "}
                   <a
-                    href="mailto:support@wewandr.com"
+                    href="mailto:hello@wewandr.co"
                     className="text-orange-600 hover:text-orange-700 font-semibold"
                   >
-                    hello@wewandr.com
+                    hello@wewandr.co
                   </a>
                 </p>
               </div>
@@ -221,7 +221,7 @@ export default function PrivacyPage() {
             </h2>
 
             {/* Privacy Policy Header */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-8">
               <h3 className="text-orange-500 mb-2 heading-quaternary">
                 WeWandr Privacy Policy
               </h3>
@@ -367,7 +367,7 @@ export default function PrivacyPage() {
                 WeWandr is designed for parents. Accounts may only be created by
                 individuals 18 or older. Children may access the Platform only
                 under the supervision of a parent or guardian. We do not
-                knowingly collect personal data directly from children under 13.
+                knowingly collect personal data directly from children under 18.
               </p>
             </section>
 
@@ -400,10 +400,10 @@ export default function PrivacyPage() {
               <p className="text-darkblue leading-relaxed">
                 Requests can be made by contacting us at{" "}
                 <a
-                  href="mailto:hello@wewandr.com"
+                  href="mailto:hello@wewandr.co"
                   className="text-orange-600 hover:text-orange-700 font-semibold"
                 >
-                  hello@wewandr.com
+                  hello@wewandr.co
                 </a>
                 .
               </p>

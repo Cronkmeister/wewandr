@@ -21,7 +21,7 @@ export default function FoundersLetterPage() {
         }`}
       >
         <div className="relative z-10 px-4 max-w-6xl mx-auto w-full">
-          <h1 className="dm-serif-display-regular text-4xl md:text-6xl text-orange-500 mb-16 md:mb-[120px] text-center animate-fade-scale heading-primary">
+          <h1 className="dm-serif-display-regular text-4xl md:text-6xl text-orange-500 mb-16 md:mb-24 text-center animate-fade-scale heading-primary">
             A Letter from Our Founder
           </h1>
 
@@ -69,7 +69,7 @@ export default function FoundersLetterPage() {
                 It reminded me that parents don&apos;t need perfect advice - we
                 need each other. We need the kind of insight that only comes
                 from lived experience, shared honestly, without judgment.
-                Parents helping parents travel better together.
+                Parents helping parents travel better, together.
               </p>
 
               <p className="text-base md:text-lg text-darkblue leading-relaxed pt-serif-regular">
@@ -77,13 +77,14 @@ export default function FoundersLetterPage() {
               </p>
 
               <p className="text-base md:text-lg text-darkblue leading-relaxed pt-serif-regular">
-                We started with family travel because it&apos;s a context where
-                details and trust matter deeply. Where one-size-fits-all advice
-                falls short, and where learning from someone who&apos;s already
-                been there can make all the difference. But the vision is bigger
-                than any one type of traveler. WeWandr is being built as a place
-                where people can learn from others who travel like they do and
-                where lived experience is recognized and valued.
+                We started with family travel because it&apos;s a category where
+                small details truly matter - and trust is essential. Where
+                one-size-fits-all advice falls short, and where learning from
+                someone who&apos;s already been there can make all the
+                difference. But the vision is bigger than any one type of
+                traveler. WeWandr is being built as a place where people can
+                learn from others who travel like they do and where lived
+                experience is recognized and valued.
               </p>
 
               <p className="text-base md:text-lg text-darkblue leading-relaxed pt-serif-regular">
@@ -139,7 +140,7 @@ export default function FoundersLetterPage() {
               <div className="pt-12 text-center">
                 <Link
                   href="/"
-                  className="text-orange-500 hover:text-orange-600 transition-colors underline"
+                  className="text-orange-500 hover:text-orange-600 transition-colors font-semibold"
                 >
                   ← Back to Home
                 </Link>

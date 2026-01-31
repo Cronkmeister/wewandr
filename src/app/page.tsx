@@ -144,7 +144,7 @@ export default function Home() {
       } else if (result.status === "duplicate") {
         setMessage({
           type: "duplicate",
-          text: "You're already on the list!",
+          text: "You're on the early access list, we’ll be in touch soon.",
         });
       } else {
         setMessage({
@@ -337,18 +337,20 @@ export default function Home() {
               {/* Phone with scrolling video — left on md+, below text on mobile */}
               <div className="order-2 md:order-1 flex justify-center md:justify-end">
                 <div className="relative w-[min(18rem,85vw)] max-w-[18rem] md:max-w-[16rem]">
-                  <div className="absolute top-[0.6%] left-[2.4%] right-[0.2%] bottom-[1.2%] z-0 rounded-[2.9rem] overflow-hidden bg-black">
+                  <div className="absolute top-[0] left-[0] right-[0] bottom-[0] z-0 rounded-[2.9rem] overflow-hidden bg-black">
                     <video
-                      src="/assets/video/wewander-recording.mp4"
+                      src="/assets/video/ScreenRecording-guide-2.mp4"
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-cover origin-top-left"
+                      className="w-full h-full object-contain origin-top"
                     >
                       Your browser does not support the video tag.
                     </video>
                   </div>
+                  {/* Cream bar to hide recording indicator */}
+                  <div className="absolute top-[1%] left-[25%] right-[25%] h-[4.8%] z-[5] bg-cream rounded-full" />
                   <Image
                     src="/assets/imgs/apple-iphone-17-pro-max-2025-medium.png"
                     alt="iPhone showing WeWandr app"
@@ -361,13 +363,13 @@ export default function Home() {
               {/* Text — right on md+, above phone on mobile */}
               <div className="order-1 md:order-2 text-center md:text-left space-y-6">
                 <p className="text-orange-400 text-3xl md:text-5xl font-bold pt-serif-bold leading-tight md:leading-snug">
-                  Your next trip starts with a parent who&apos;s already done it
-                  and wrote it down for you
+                  Your next trip starts with a parent who&apos;s already done
+                  it, and wrote it down for you.
                 </p>
                 <p className="hidden md:block text-orange-700 text-lg md:text-xl font-bold pt-serif-bold leading-tight md:leading-snug">
                   When your experience helps another family, WeWandr pays you.
                   Together, we&apos;re building the world&apos;s family travel
-                  network
+                  network.
                 </p>
               </div>
               {/* Same paragraph below phone on mobile only */}
@@ -870,8 +872,8 @@ export default function Home() {
                                 : "opacity-0 max-h-0"
                             }`}
                           >
-                            Turn your trip into a WandrGuide guide with simple
-                            prompts and structure
+                            Turn your trip into a WandrGuide with simple prompts
+                            and structure.
                           </div>
                         </div>
                         <FaPlus
@@ -918,7 +920,7 @@ export default function Home() {
                         <FaCheck className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                         <div className="flex-1">
                           <span className="font-medium">
-                            Control and Transparency
+                            Control & Transparency
                           </span>
                           <div
                             className={`mt-2 text-sm text-orange-500 overflow-hidden transition-all duration-300 ease-in-out ${

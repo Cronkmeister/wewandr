@@ -27,7 +27,7 @@ export default function InvestorRelationsPage() {
             <p className="text-lg md:text-xl text-darkblue leading-relaxed pt-serif-regular">
               WeWandr is an early-stage, trust-led platform rethinking how
               people plan travel, starting with families and expanding into a
-              broader layer for experience-backed travelguidance.
+              broader layer for experience-backed travel guidance.
             </p>
 
             <p className="text-lg md:text-xl text-darkblue leading-relaxed pt-serif-regular">
