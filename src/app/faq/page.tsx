@@ -6,7 +6,11 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions — WeWandr",
-  description: "Everything you need to know about WeWandr",
+  description:
+    "Find answers to common questions about WeWandr, WandrGuides, creating travel guides, earning as a creator, and joining the family travel community.",
+  alternates: {
+    canonical: "https://wewandr.co/faq",
+  },
 };
 
 interface FAQItem {
@@ -138,9 +142,29 @@ const faqData: FAQSection[] = [
   },
 ];
 
+// Generate FAQ structured data for SEO
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqData.flatMap((section) =>
+    section.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: typeof item.answer === "string" ? item.answer : "",
+      },
+    }))
+  ),
+};
+
 export default function FAQPage() {
   return (
     <main className="min-h-screen bg-cream">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Navigation />
 
       {/* Hero Section */}

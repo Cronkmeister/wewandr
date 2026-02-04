@@ -14,7 +14,11 @@ import {
 
 export const metadata: Metadata = {
   title: "Privacy Policy — WeWandr",
-  description: "Privacy Policy for WeWandr",
+  description:
+    "Learn how WeWandr protects your data and privacy. Our commitment to keeping your family travel information safe and secure.",
+  alternates: {
+    canonical: "https://wewandr.co/privacy",
+  },
 };
 
 export default function PrivacyPage() {

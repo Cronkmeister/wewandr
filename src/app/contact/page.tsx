@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contact — WeWandr",
   description:
     "Get in touch with the WeWandr team for questions, feedback, partnerships, or media and investor inquiries.",
+  alternates: {
+    canonical: "https://wewandr.co/contact",
+  },
 };
 
 export default function ContactPage() {

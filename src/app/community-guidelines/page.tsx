@@ -6,7 +6,11 @@ import { FaEnvelope } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Community Guidelines — WeWandr",
-  description: "Community Guidelines for WeWandr",
+  description:
+    "WeWandr community guidelines for creating and sharing family-friendly travel guides. Learn how to be part of our trusted parent community.",
+  alternates: {
+    canonical: "https://wewandr.co/community-guidelines",
+  },
 };
 
 export default function CommunityGuidelinesPage() {

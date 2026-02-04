@@ -42,29 +42,62 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wewandr.co"),
   title: "WeWandr",
   description:
     "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
-  keywords: ["travel", "experiences", "waitlist", "beta", "WeWandr"],
+  keywords: ["travel", "experiences", "waitlist", "beta", "WeWandr", "family travel", "travel guides"],
   authors: [{ name: "WeWandr" }],
   openGraph: {
     title: "WeWandr",
     description:
       "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
-    type: "website",
-    locale: "en_US",
+    url: "https://wewandr.co",
     siteName: "WeWandr",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "WeWandr - Family Travel, Just Got Real",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "WeWandr",
     description:
       "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
+    images: ["/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://wewandr.co",
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "WeWandr",
+      url: "https://wewandr.co",
+      logo: "https://wewandr.co/icon.png",
+      description:
+        "Discover amazing places and experiences around the world. Family travel guides created by real families.",
+    },
+    {
+      "@type": "WebSite",
+      name: "WeWandr",
+      url: "https://wewandr.co",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -77,6 +110,12 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${instrumentSans.variable} ${dmSerifDisplay.variable} ${ptSerif.variable} ${roboto.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${ptSerif.className} antialiased`}>{children}</body>
     </html>
   );

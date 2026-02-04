@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://wewandr.co/sitemap.xml

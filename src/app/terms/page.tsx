@@ -15,7 +15,11 @@ import { FaHandshakeSimple } from "react-icons/fa6";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions — WeWandr",
-  description: "Terms and Conditions for WeWandr",
+  description:
+    "Read WeWandr's terms of service for using our family travel platform, creating WandrGuides, and earning as a creator.",
+  alternates: {
+    canonical: "https://wewandr.co/terms",
+  },
 };
 
 export default function TermsPage() {
