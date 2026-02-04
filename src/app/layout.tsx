@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import {
   Inter,
   Instrument_Sans,
@@ -111,6 +112,18 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSans.variable} ${dmSerifDisplay.variable} ${ptSerif.variable} ${roboto.variable}`}
     >
       <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BPYF1ENS49"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BPYF1ENS49');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
