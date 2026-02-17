@@ -44,15 +44,15 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wewandr.co"),
-  title: "WeWandr",
+  title: "WeWandr | Family Travel Guides by Parents",
   description:
-    "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
-  keywords: ["travel", "experiences", "waitlist", "beta", "WeWandr", "family travel", "travel guides"],
+    "WeWandr is a community-powered platform where parents turn real family trips into downloadable travel guides. Discover kid-friendly tips and earn when families use your guide.",
+  keywords: ["travel", "experiences", "waitlist", "beta", "WeWandr", "family travel", "travel guides", "kid-friendly", "parents", "family trips"],
   authors: [{ name: "WeWandr" }],
   openGraph: {
-    title: "WeWandr",
+    title: "WeWandr | Family Travel Guides by Parents",
     description:
-      "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
+      "WeWandr is a community-powered platform where parents turn real family trips into downloadable travel guides. Discover kid-friendly tips and earn when families use your guide.",
     url: "https://wewandr.co",
     siteName: "WeWandr",
     images: [
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "WeWandr - Family Travel, Just Got Real",
+        alt: "WeWandr - Family Travel Guides by Parents",
       },
     ],
     locale: "en_US",
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "WeWandr",
+    title: "WeWandr | Family Travel Guides by Parents",
     description:
-      "Discover amazing places and experiences around the world. Join our Early Access to be among the first to explore.",
+      "WeWandr is a community-powered platform where parents turn real family trips into downloadable travel guides. Discover kid-friendly tips and earn when families use your guide.",
     images: ["/og-image.png"],
   },
   alternates: {
@@ -91,7 +91,7 @@ const jsonLd = {
       url: "https://wewandr.co",
       logo: "https://wewandr.co/icon.png",
       description:
-        "Discover amazing places and experiences around the world. Family travel guides created by real families.",
+        "A community-powered platform where parents turn real family trips into downloadable travel guides.",
     },
     {
       "@type": "WebSite",
